@@ -9,8 +9,17 @@ class VehicleModelVehicles extends JModelList {
 	protected function getListQuery() {
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
-		$query->select('id,name');
-		$query->from('#__vehicle');
+		$query->select(
+			$this->getState(
+				'list.select',
+				'a.id, a.name'
+			)
+		);
+		$query->from('#__vehicle AS a');
+		
+		// add the list ordering clause.
+		$query->order($db->getEscaped($this->getState('list.ordering', 'a.name')).' '.$db->getEscaped($this->getState('list.direction', 'ASC')));
+		
 		return $query;
 	}
 }
