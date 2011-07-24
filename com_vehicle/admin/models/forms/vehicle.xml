@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset>
+		<field
+			name="id"
+			type="hidden"
+		/>
+		<field
+			name="name"
+			type="text"
+			label="COM_VEHICLE_VEHICLE_NAME_LABEL"
+			description="COM_VEHICLE_VEHICLE_NAME_DESC"
+			size="50"
+			class="inputbox"
+			default=""
+		/>
+	</fieldset>
+</form>

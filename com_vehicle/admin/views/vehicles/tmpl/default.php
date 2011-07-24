@@ -5,6 +5,7 @@ defined('_JEXEC') or die('Restricted Access');
 
 // load tooltip behavior
 JHtml::_('behavior.tooltip');
+JHtml::_('behavior.multiselect');
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
 ?>
@@ -22,7 +23,12 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<?php echo JHtml::_('grid.sort', 'COM_VEHICLE_VEHICLE_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
 				</th>	
 			</tr>
-		</thead>
+		</thead>		
+		<tfoot>
+			<tr>
+				<td colspan="3"><?php echo $this->pagination->getListFooter(); ?>
+			</tr>
+		</tfoot>
 		<tbody>
 			<?php foreach ($this->items as $i => $item): ?>
 			<tr class="row<?php echo $i % 2; ?>">
@@ -38,11 +44,6 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			</tr>
 			<?php endforeach; ?>
 		</tbody>
-		<tfoot>
-			<tr>
-				<td colspan="3"><?php echo $this->pagination->getListFooter(); ?>
-			</tr>
-		</tfoot>
 	</table>
 	<div>
 		<input type="hidden" name="task" value=""/>

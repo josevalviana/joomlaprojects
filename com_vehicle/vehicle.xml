@@ -24,7 +24,8 @@
 		<files folder="admin">
 			<filename>vehicle.php</filename>
 			<filename>controller.php</filename>
-			<filename>index.html</filename>			
+			<filename>index.html</filename>
+			<folder>controllers</folder>			
 			<folder>models</folder>
 			<folder>sql</folder>
 			<folder>tables</folder>
