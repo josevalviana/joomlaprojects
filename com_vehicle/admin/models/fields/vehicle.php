@@ -38,14 +38,15 @@ class JFormFieldVehicle extends JFormFieldList {
 		
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
-		$query->select('id,name');
-		$query->from('#__vehicle');
+		$query->select('a.id, a.name, b.title as category, a.catid');
+		$query->from('#__vehicle AS a');
+		$query->leftJoin('#__categories as b ON a.catid = b.id');
 		
 		$vehicles = $db->loadObjectList();
 		
 		if ($vehicles) {
 			foreach($vehicles as $vehicle) {
-				$options[] = JHtml::_('select.option', $vehicle->id, $vehicle->name);
+				$options[] = JHtml::_('select.option', $vehicle->id, $vehicle->name . ($vehicle->catid ? ' (' . $vehicle->category . ')': ''));
 			}
 		}
 		$options = array_merge(parent::getOptions(), $options);

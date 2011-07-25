@@ -39,10 +39,12 @@ class VehicleViewVehicles extends JView {
 		
 		$this->addToolbar();
 		parent::display($tpl);
+		
+		$this->setDocument();
 	}
 	
 	protected function addToolbar() {
-		JToolBarHelper::title(JText::_('COM_VEHICLE_MANAGER_VEHICLES'));
+		JToolBarHelper::title(JText::_('COM_VEHICLE_MANAGER_VEHICLES'), 'vehicle');
 		JToolBarHelper::addNew('vehicle.add');
 		JToolBarHelper::editList('vehicle.edit');
 		JToolBarHelper::deleteList('', 'vehicle.delete', 'JTOOLBAR_EMPTY_TRASH');
@@ -50,5 +52,10 @@ class VehicleViewVehicles extends JView {
 		JToolBarHelper::trash('vehicle.trash');
 		JToolBarHelper::divider();
 		JToolBarHelper::preferences('com_vehicle');
+	}
+	
+	protected function setDocument() {
+		$document = JFactory::getDocument();
+		$document->setTitle(JText::_('COM_VEHICLE_ADMINISTRATION'));
 	}
 }

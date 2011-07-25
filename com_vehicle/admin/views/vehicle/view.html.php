@@ -35,6 +35,8 @@ class VehicleViewVehicle extends JView
 		
 		$this->addToolbar();
 		parent::display($tpl);
+		
+		$this->setDocument();
 	}
 	
 	protected function addToolbar() {
@@ -42,8 +44,14 @@ class VehicleViewVehicle extends JView
 		
 		$isNew = ($this->item->id == 0);
 		
-		JToolBarHelper::title(JText::_('COM_VEHICLE_MANAGER_VEHICLE'));
+		JToolBarHelper::title(JText::_('COM_VEHICLE_MANAGER_VEHICLE'), 'vehicle');
 		JToolBarHelper::save('vehicle.save');
 		JToolBarHelper::cancel('vehicle.cancel');
+	}
+	
+	protected function setDocument() {
+		$isNew = ($this->item->id < 1);
+		$document = JFactory::getDocument();
+		$document->setTitle($isNew ? JText::_('COM_VEHICLE_VEHICLE_CREATING') : JText::_('COM_VEHICLE_VEHICLE_EDITING'));
 	}
 }

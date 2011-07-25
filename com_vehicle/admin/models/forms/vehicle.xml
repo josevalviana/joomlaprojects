@@ -13,6 +13,19 @@
 			size="50"
 			class="inputbox"
 			default=""
+			required="true"
 		/>
+		<field
+			name="catid"
+			type="category"
+			extension="com_vehicle"
+			class="inputbox"
+			default=""
+			label="COM_VEHICLE_VEHICLE_FIELD_CATID_LABEL"
+			description="COM_VEHICLE_VEHICLE_FIELD_CATID_DESC"
+			required="true"
+		>
+			<option value="0">JOPTION_SELECT_CATEGORY</option>
+		</field>
 	</fieldset>
 </form>

@@ -24,7 +24,8 @@ class VehicleModelVehicles extends JModelList {
 		if (empty($config['filter_fields'])) {
 			$config['filter_fields'] = array (
 				'id', 'a.id',
-				'name', 'a.name'
+				'name', 'a.name',
+				'catid', 'a.catid', 'category_title'
 			);
 		}
 		
@@ -59,10 +60,14 @@ class VehicleModelVehicles extends JModelList {
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.name'
+				'a.id, a.name, a.catid'
 			)
 		);
 		$query->from('#__vehicle AS a');
+		
+		// Join over the categories.
+		$query->select('b.title AS category_title');
+		$query->leftJoin('#__categories as b ON b.id = a.catid');
 		
 		// add the list ordering clause.
 		$query->order($db->getEscaped($this->getState('list.ordering', 'a.name')).' '.$db->getEscaped($this->getState('list.direction', 'ASC')));

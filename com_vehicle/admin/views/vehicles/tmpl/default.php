@@ -16,8 +16,11 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<th width="1%">
 					<input type="checkbox" name="checkall-toggle" value="" title="<?php echo JText::_('JGLOBAL_CHECK_ALL'); ?>" onclick="Joomla.checkAll(this)" />
 				</th>
-				<th width="30%">
+				<th width="20%">
 					<?php echo JHtml::_('grid.sort', 'COM_VEHICLE_VEHICLE_HEADING_NAME', 'a.name', $listDirn, $listOrder); ?>
+				</th>
+				<th width="10%">
+					<?php echo JHtml::_('grid.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
 				</th>
 				<th width="1%">
 					<?php echo JHtml::_('grid.sort', 'COM_VEHICLE_VEHICLE_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
@@ -26,7 +29,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</thead>		
 		<tfoot>
 			<tr>
-				<td colspan="3"><?php echo $this->pagination->getListFooter(); ?>
+				<td colspan="4"><?php echo $this->pagination->getListFooter(); ?>
 			</tr>
 		</tfoot>
 		<tbody>
@@ -37,6 +40,9 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				</td>
 				<td>
 					<?php echo $this->escape($item->name); ?>
+				</td>
+				<td align="center">
+					<?php echo $this->escape($item->category_title); ?>
 				</td>
 				<td class="center">
 					<?php echo (int) $item->id; ?>

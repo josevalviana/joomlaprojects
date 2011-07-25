@@ -20,12 +20,18 @@
 			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
 		</sql>
 	</uninstall>
+	<media destination="com_vehicle" folder="media">
+		<filename>index.html</filename>
+		<folder>images</folder>
+	</media>
 	<administration>
+		<menu img="../media/com_vehicle/images/ambulance-16x16.png">COM_VEHICLE_MENU</menu>
 		<files folder="admin">
 			<filename>vehicle.php</filename>
 			<filename>controller.php</filename>
 			<filename>index.html</filename>
-			<folder>controllers</folder>			
+			<folder>controllers</folder>
+			<folder>helpers</folder>			
 			<folder>models</folder>
 			<folder>sql</folder>
 			<folder>tables</folder>

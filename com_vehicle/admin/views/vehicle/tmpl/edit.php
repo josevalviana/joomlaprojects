@@ -11,6 +11,12 @@ JHtml::_('behavior.tooltip');
 		<ul class="adminformlist">
 			<li><?php echo $this->form->getLabel('name'); ?>
 			<?php echo $this->form->getInput('name'); ?></li>
+			
+			<li><?php echo $this->form->getLabel('catid'); ?>
+			<?php echo $this->form->getInput('catid'); ?></li>
+			
+			<li><?php echo $this->form->getLabel('id'); ?>
+			<?php echo $this->form->getInput('id'); ?></li>
 		</ul>
 	</fieldset>
 	<div>

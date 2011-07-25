@@ -11,5 +11,7 @@ class VehicleController extends JController {
 		JRequest::setVar('view', JRequest::getCmd('view', 'Vehicles'));
 		
 		parent::display($cachable);
+		
+		VehicleHelper::addSubmenu('vehicles');
 	}
 }
