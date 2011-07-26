@@ -42,11 +42,38 @@ class VehicleViewVehicle extends JView
 	protected function addToolbar() {
 		JRequest::setVar('hidemainmenu', true);
 		
+		$categoryId = $this->state->get('filter.category_id');
+		
+		$user = JFactory::getUser();
 		$isNew = ($this->item->id == 0);
+		$canDo = VehicleHelper::getActions($categoryId);
 		
 		JToolBarHelper::title(JText::_('COM_VEHICLE_MANAGER_VEHICLE'), 'vehicle');
-		JToolBarHelper::save('vehicle.save');
-		JToolBarHelper::cancel('vehicle.cancel');
+		
+		if ($isNew) {
+			if ($isNew && (count($user->getAuthorisedCategories('com_vehicle', 'core.create')) >0)) {
+				JToolBarHelper::apply('vehicle.apply');
+				JToolBarHelper::save('vehicle.save');
+				JToolBarHelper::save2new('vehicle.save2new');
+			}
+			
+			JToolBarHelper::cancel('vehicle.cancel');
+		} else {
+			if ($canDo->get('core.edit') || ($canDo->get('core.edit.own'))) {
+				JToolBarHelper::apply('vehicle.apply');
+				JToolBarHelper::save('vehicle.save');
+				
+				if ($canDo->get('core.create')) {
+					JToolBarHelper::save2new('vehicle.save2new');
+					JToolBarHelper::save2copy('vehicle.save2copy');
+				}								
+			}
+			
+			JToolBarHelper::cancel('vehicle.cancel', 'JTOOLBAR_CLOSE');
+		}
+		
+		JToolBarHelper::divider();
+		JToolBarHelper::help('JHELP_COMPONENTS_VEHICLES_VEHICLES_EDIT');
 	}
 	
 	protected function setDocument() {
