@@ -25,4 +25,27 @@ class VehicleHelper {
 				'vehicle-categories');
 		}
 	}
+	
+	public static function getActions($categoryId = 0, $vehicleId = 0) {
+		$user = JFactory::getUser();
+		$result = new JObject();
+		
+		if (empty($vehicleId) && empty($categoryId)) {
+			$assetName = 'com_vehicle';
+		} else if (empty($vehicleId)) {
+			$assetName = 'com_vehicle.category.'.(int) $categoryId;
+		} else {
+			$assetName = 'com_vehicle.vehicle.'.(int) $vehicleId;
+		}
+		
+		$actions = array(
+			'core.admin', 'core.manage', 'core.create', 'core.edit', 'core.edit.own', 'core.edit.state', 'core.delete'
+		);
+		
+		foreach ($actions as $action) {
+			$result->set($action, $user->authorise($action, $assetName));
+		}
+		
+		return $result;
+	}
 }

@@ -44,14 +44,33 @@ class VehicleViewVehicles extends JView {
 	}
 	
 	protected function addToolbar() {
+		$categoryId = $this->state->get('filter.category_id');
+		$canDo = VehicleHelper::getActions($categoryId);
+		$user = JFactory::getUser();
 		JToolBarHelper::title(JText::_('COM_VEHICLE_MANAGER_VEHICLES'), 'vehicle');
-		JToolBarHelper::addNew('vehicle.add');
-		JToolBarHelper::editList('vehicle.edit');
-		JToolBarHelper::deleteList('', 'vehicle.delete', 'JTOOLBAR_EMPTY_TRASH');
-		JToolBarHelper::divider();
-		JToolBarHelper::trash('vehicle.trash');
-		JToolBarHelper::divider();
-		JToolBarHelper::preferences('com_vehicle');
+		
+		if ($canDo->get('core.create') || (count($user->getAuthorisedCategories('com_vehicle', 'core.create'))) >0) {
+			JToolBarHelper::addNew('vehicle.add');
+		}
+		
+		if ($canDo->get('core.edit') || ($canDo->get('core.edit.own'))) {
+			JToolBarHelper::editList('vehicle.edit');
+		}
+		
+		if ($canDo->get('core.delete')) {
+			JToolBarHelper::deleteList('', 'vehicles.delete', 'JTOOLBAR_EMPTY_TRASH');
+			JToolBarHelper::divider();
+		} else if ($canDo->get('core.edit.state')) {
+			JToolBarHelper::trash('vehicles.trash');
+			JToolBarHelper::divider();
+		}
+
+		if ($canDo->get('core.admin')) {
+			JToolBarHelper::preferences('com_vehicle');
+			JToolBarHelper::divider();
+		}
+		
+		JToolBarHelper::help('JHELP_COMPONENTS_VEHICLES_VEHICLES');
 	}
 	
 	protected function setDocument() {
