@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" version="1.7" method="upgrade">
+	<name>com_hospitals</name>
+	<author>Joseval Viana</author>
+	<creationDate>July 2011</creationDate>
+	<copyright>(C) 2011 Joseval Viana. All rights reserved.</copyright>
+	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+	<authorEmail>josevalviana@gmail.com</authorEmail>
+	<authorUrl>www.medinfecto.med.br</authorUrl>
+	<version>0.0.1</version>
+	<description>COM_HOSPITALS_XML_DESCRIPTION</description>
+	
+	<media destination="com_hospitals" folder="media">
+		<filename>index.html</filename>
+		<folder>images</folder>
+	</media>
+	
+	<administration>
+		<menu img="../media/com_hospitals/images/icon-16-hospitals.png">com_hospitals</menu>
+		<files folder="admin">
+			<filename>controller.php</filename>
+			<filename>hospitals.php</filename>
+			<filename>index.html</filename>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB/en-GB.com_hospitals.ini</language>
+			<language tag="en-GB">language/en-GB/en-GB.com_hospitals.sys.ini</language>
+		</languages>
+	</administration>
+</extension>
