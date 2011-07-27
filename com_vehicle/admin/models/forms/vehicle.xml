@@ -3,7 +3,13 @@
 	<fieldset>
 		<field
 			name="id"
-			type="hidden"
+			type="text"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description="JGLOBAL_FIELD_ID_DESC"
+			size="10"
+			default="0"
+			readonly="true"
+			class="readonly"
 		/>
 		<field
 			name="name"
@@ -12,7 +18,6 @@
 			description="COM_VEHICLE_VEHICLE_NAME_DESC"
 			size="50"
 			class="inputbox"
-			default=""
 			required="true"
 		/>
 		<field
@@ -20,12 +25,32 @@
 			type="category"
 			extension="com_vehicle"
 			class="inputbox"
-			default=""
-			label="COM_VEHICLE_VEHICLE_FIELD_CATID_LABEL"
-			description="COM_VEHICLE_VEHICLE_FIELD_CATID_DESC"
+			label="JCATEGORY"
+			description="JFIELD_CATEGORY_DESC"
 			required="true"
 		>
 			<option value="0">JOPTION_SELECT_CATEGORY</option>
 		</field>
+		
+		<field name="created_by" type="user"
+			label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="COM_VEHICLE_FIELD_CREATED_BY_DESC" />
+		
+		<field name="created_by_alias" type="text"
+			label="COM_VEHICLE_FIELD_CREATED_BY_ALIAS_LABEL" description="COM_VEHICLE_FIELD_CREATED_BY_ALIAS_DESC"
+			class="inputbox" size="20" />
+			
+		<field name="created" type="calendar" label="COM_VEHICLE_FIELD_CREATED_LABEL"
+			description="COM_VEHICLE_FIELD_CREATED_DESC" class="inputbox" size="22"
+			format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+			
+		<field name="modified" type="calendar" class="readonly"
+			label="JGLOBAL_FIELD_MODIFIED_LABEL" description="COM_VEHICLE_FIELD_MODIFIED_DESC"
+			size="22" readonly="true" format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+		
+		<field name="modified_by" type="user"
+			label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+			class="readonly"
+			readonly="true"
+			filter="unset" />	
 	</fieldset>
 </form>

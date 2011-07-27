@@ -29,6 +29,9 @@ class VehicleModelVehicle extends JModelAdmin {
 	}
 	
 	public function getForm($data = array(), $loadData = true) {
+		jimport('joomla.form.form');
+		JForm::addFieldPath('JPATH_ADMINISTRATOR/components/com_users/models/fields');
+		
 		$form = $this->loadForm('com_vehicle.vehicle', 'vehicle', array('control' => 'jform', 'load_data' => $loadData));
 		if (empty($form)) {
 			return false;

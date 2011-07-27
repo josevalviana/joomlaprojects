@@ -25,7 +25,9 @@ class VehicleModelVehicles extends JModelList {
 			$config['filter_fields'] = array (
 				'id', 'a.id',
 				'name', 'a.name',
-				'catid', 'a.catid', 'category_title'
+				'catid', 'a.catid', 'category_title',
+				'created', 'a.created',
+				'created_by', 'a.created_by',
 			);
 		}
 		
@@ -63,10 +65,13 @@ class VehicleModelVehicles extends JModelList {
 	protected function getListQuery() {
 		$db = JFactory::getDBO();
 		$query = $db->getQuery(true);
+		$user = JFactory::getUser();
+		
+		// select the required fields from the table.
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.name, a.catid'
+				'a.id, a.name, a.catid, a.created, a.created_by'
 			)
 		);
 		$query->from('#__vehicle AS a');

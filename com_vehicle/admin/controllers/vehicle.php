@@ -38,6 +38,24 @@ class VehicleControllerVehicle extends JControllerForm
 			return true;
 		}
 		
+		if ($user->authorise('core.edit.own', $this->option.'.category.'.$categoryId)) {
+			$ownerId = (int) isset($data['created_by']) ? $data['created_by'] : 0;
+			if (empty($ownerId) && $recordId) {
+				// need to do a lookup from the model
+				$record = $this->getModel()->getItem($recordId);
+				if (empty($record)) {
+					return false;
+				}
+					
+				$ownerId = $record->created_by;
+			}			
+			
+			// it the owner mathes 'me' then do the test.
+			if ($ownerId == $userId) {
+				return true;
+			}
+		}
+		
 		// Since there is no asset tracking, revert to the component permissions.
 		return parent::allowEdit($data, $key);
 	}

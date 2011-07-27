@@ -6,6 +6,9 @@ defined('_JEXEC') or die('Restricted Access');
 // load tooltip behavior
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.multiselect');
+
+$user = JFactory::getUser();
+$userId = $user->get('id');
 $listOrder	= $this->escape($this->state->get('list.ordering'));
 $listDirn	= $this->escape($this->state->get('list.direction'));
 ?>
@@ -49,13 +52,26 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			</tr>
 		</tfoot>
 		<tbody>
-			<?php foreach ($this->items as $i => $item): ?>
+			<?php
+			$n = count($this->items); 
+			foreach ($this->items as $i => $item):
+				$canCreate = $user->authorise('core.create', 'com_vehicle.category.'.$item->catid);
+				$canEdit = $user->authorise('core.edit', 'com_vehicle.category.'.$item->catid);
+				$canEditOwn = $user->authorise('core.edit.own', 'com_vehicle.category.'.$item->catid) && $item->created_by == $userId;
+				
+				$item->cat_link = JRoute::_('index.php?option=com_categories&extension=com_vehicle&task=edit&type=other&id='.$item->catid);
+			 ?>
 			<tr class="row<?php echo $i % 2; ?>">
 				<td class="center">
 					<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 				</td>
 				<td>
-					<?php echo $this->escape($item->name); ?>
+					<?php if ($canEdit || $canEditOwn) : ?>
+						<a href="<?php echo JRoute::_('index.php?option=com_vehicle&task=vehicle.edit&id='.(int) $item->id); ?>">
+						<?php echo $this->escape($item->name); ?></a>
+					<?php else : ?>
+						<?php echo $this->escape($item->name); ?>
+					<?php endif; ?>
 				</td>
 				<td align="center">
 					<?php echo $this->escape($item->category_title); ?>
