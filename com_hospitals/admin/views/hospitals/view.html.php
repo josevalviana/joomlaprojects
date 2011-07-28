@@ -28,20 +28,30 @@ class HospitalsViewHospitals extends JView {
 	}
 	
 	protected function addToolbar() {
+		
+		$canDo	= HospitalHelper::getActions();
+		$user	= JFactory::getUser();
+		
 		JToolBarHelper::title(JText::_('COM_HOSPITALS_MANAGER_HOSPITALS'), 'hospitals');
 		
-		JToolBarHelper::addNew('hospital.add');
-		JToolBarHelper::editList('hospital.edit');
+		if ($canDo->get('core.create')) {
+			JToolBarHelper::addNew('hospital.add');
+		}
 		
-		JToolBarHelper::deleteList('', 'hospitals.delete', 'JTOOLBAR_EMPTY_TRASH');
-		JToolBarHelper::divider();
-		
-		JToolBarHelper::trash('hospitals.trash');
-		JToolBarHelper::divider();
-		
-		JToolBarHelper::preferences('com_hospitals');
-		JToolBarHelper::divider();
-		
+		if (($canDo->get('core.edit')) || ($canDo->get('core.edit.own'))) {
+			JToolBarHelper::editList('hospital.edit');
+		}
+
+		if ($canDo->get('core.delete')) {
+			JToolBarHelper::deleteList('', 'hospitals.delete', 'JTOOLBAR_DELETE');
+			JToolBarHelper::divider();
+		}
+
+		if ($canDo->get('core.admin')) {
+			JToolBarHelper::preferences('com_hospitals');
+			JToolBarHelper::divider();
+		}
+				
 		JToolBarHelper::help('JHELP_COMPONENTS_HOSPITALS_HOSPITALS');
 	}
 }
