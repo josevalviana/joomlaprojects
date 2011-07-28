@@ -2,11 +2,24 @@
 defined('_JEXEC') or die;
 
 JHtml::_('behavior.tooltip');
+JHtml::_('behavior.multiselect');
 
-$listOrder = $this->escape($this->state->get('list.ordering'));
-$listDirn = $this->escape($this->state->get('list.direction'));
+$user		= JFactory::getUser();
+$userId		= $user->get('id');
+$listOrder	= $this->escape($this->state->get('list.ordering'));
+$listDirn	= $this->escape($this->state->get('list.direction'));
 ?>
 <form action="<?php echo JRoute::_('index.php?option=com_hospitals'); ?>" method="post" name="adminForm" id="adminForm">
+	<fieldset id="filter-bar">
+		<div class="filter-search fltlft">
+			<label class="filter-search-lbl" for="filter_search"><?php echo JText::_('JSEARCH_FILTER_LABEL'); ?></label>
+			<input type="text" name="filter_search" id="filter_search" value="<?php echo $this->escape($this->state->get('filter.search')); ?>" title="<?php echo JText::_('COM_HOSPITALS_SEARCH_IN_NAME'); ?>" />
+			<button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
+			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+		</div>
+	</fieldset>
+	<div class="clr"> </div>
+	
 	<table class="adminlist">
 		<thead>
 			<tr>
@@ -32,13 +45,20 @@ $listDirn = $this->escape($this->state->get('list.direction'));
 			<?php
 				$n = count($this->items);
 				foreach ($this->items as $i => $item) : 
+					$canEdit 	= $user->authorise('core.edit',		'com_hospitals.hospital'.$item->id);
+					$canEditOwn	= $user->authorise('core.edit.own', 'com_hospitals.hospital'.$item->id) && $item->created_by == $userId;
 			?>
 			<tr class="row<?php echo $i % 2; ?>">
 				<td class="center">
 					<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 				</td>
 				<td>
-					<?php echo $this->escape($item->name); ?>
+					<?php if ($canEdit || $canEditOwn) : ?>
+						<a href="<?php echo JRoute::_('index.php?option=com_hospitals&task=hospital.edit&id='.(int) $item->id); ?>">
+						<?php echo $this->escape($item->name); ?></a>
+					<?php else : ?>
+						<?php echo $this->escape($item->name); ?>
+					<?php endif; ?>
 				</td>
 				<td align="center">
 					<?php echo $item->id; ?>

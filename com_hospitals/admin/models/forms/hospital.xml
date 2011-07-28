@@ -20,6 +20,80 @@
 			required="true"
 		/>
 		
+		<field name="email_to" type="email"
+			label="JGLOBAL_EMAIL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_EMAIL_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="address" type="textarea"
+			label="COM_HOSPITALS_FIELD_INFORMATION_ADDRESS_LABEL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_ADDRESS_DESC"
+			class="inputbox"
+			rows="3"
+			cols="30"
+		/>
+		
+		<field name="suburb" type="text"
+			label="COM_HOSPITALS_FIELD_INFORMATION_SUBURB_LABEL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_SUBURB_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="state" type="text"
+			label="COM_HOSPITALS_FIELD_INFORMATION_STATE_LABEL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_STATE_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="postcode" type="text"
+			label="COM_HOSPITALS_FIELD_INFORMATION_POSTCODE_LABEL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_POSTCODE_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="country" type="text"
+			label="COM_HOSPITALS_FIELD_INFORMATION_COUNTRY_LABEL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_COUNTRY_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="telephone" type="text"
+			label="COM_HOSPITALS_FIELD_INFORMATION_TELEPHONE_LABEL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_TELEPHONE_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="fax" type="text"
+			label="COM_HOSPITALS_FIELD_INFORMATION_FAX_LABEL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_FAX_DESC"
+			class="inputbox"
+			size="30"
+		/>
+
+		<field name="webpage"
+			type="url"
+			label="COM_HOSPITALS_FIELD_INFORMATION_WEBPAGE_LABEL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_WEBPAGE_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="misc" type="editor"
+			label="COM_HOSPITALS_FIELD_INFORMATION_MISC_LABEL"
+			description="COM_HOSPITALS_FIELD_INFORMATION_MISC_DESC"
+			class="inputbox"
+			filter="safehtml"
+			buttons="true"
+			hide="readmore,pagebreak"
+		/>
+		
 		<field name="created_by" type="user"
 			label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="COM_HOSPITALS_FIELD_CREATED_BY_DESC" />
 

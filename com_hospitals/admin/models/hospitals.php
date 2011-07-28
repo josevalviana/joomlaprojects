@@ -21,6 +21,9 @@ class HospitalsModelHospitals extends JModelList {
 	protected function populateState($ordering = null, $direction = null) {
 		$app = JFactory::getApplication();
 		
+		$search = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
+		$this->setState('filter.search', $search);
+		
 		parent::populateState('a.name', 'asc');
 	}
 	
@@ -37,6 +40,17 @@ class HospitalsModelHospitals extends JModelList {
 			)
 		);
 		$query->from('#__hospitals AS a');
+		
+		// filter by search in name.
+		$search = $this->getState('filter.search');
+		if (!empty($search)) {
+			if (stripos($search, 'id:') === 0) {
+				$query->where('a.id = '.(int) substr($search, 3));
+			} else {
+				$search = $db->quote('%'.$db->getEscaped($search, true).'%');
+				$query->where('(a.name LIKE '.$search.')');
+			}
+		}
 		
 		$orderCol = $this->state->get('list.ordering');
 		$orderDirn = $this->state->get('list.direction');
