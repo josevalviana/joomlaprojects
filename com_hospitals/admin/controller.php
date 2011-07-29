@@ -11,7 +11,7 @@ class HospitalsController extends JController {
 	public function display($cachable = false, $urlparams = false) {
 		
 		// load the submenu.
-		HospitalHelper::addSubmenu(JRequest::getCmd('view', 'hospitals'));
+		HospitalsHelper::addSubmenu(JRequest::getCmd('view', 'hospitals'));
 		
 		$view 	= JRequest::getCmd('view', 'hospitals');
 		$layout	= JRequest::getCmd('layout', 'default');

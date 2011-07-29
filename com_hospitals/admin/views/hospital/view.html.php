@@ -29,7 +29,7 @@ class HospitalsViewHospital extends JView {
 		$user = JFactory::getUser();
 		$userId = $user->get('id');
 		$isNew = ($this->item->id == 0);
-		$canDo = HospitalHelper::getActions($this->state->get('filter.category_id'));
+		$canDo = HospitalsHelper::getActions($this->state->get('filter.category_id'));
 		
 		JToolBarHelper::title(JText::_('COM_HOSPITALS_MANAGER_HOSPITAL'), 'hospitals');
 		

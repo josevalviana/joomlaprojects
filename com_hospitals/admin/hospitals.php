@@ -3,7 +3,7 @@
 defined('_JEXEC') or die('Restricted access');
 
 // require helper file
-JLoader::register('HospitalHelper', dirname(__FILE__) . DS . 'helpers' . DS . 'hospital.php');
+JLoader::register('HospitalsHelper', dirname(__FILE__) . DS . 'helpers' . DS . 'hospitals.php');
 
 // include dependencies
 jimport('joomla.application.component.controller');

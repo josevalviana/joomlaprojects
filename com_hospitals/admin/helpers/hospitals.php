@@ -2,7 +2,7 @@
 // no direct access
 defined('_JEXEC') or die;
 
-class HospitalHelper {
+class HospitalsHelper {
 	
 	public static function addSubmenu($vName) {
 		JSubMenuHelper::addEntry(

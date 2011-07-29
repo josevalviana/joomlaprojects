@@ -26,7 +26,7 @@ class HospitalsViewHospitals extends JView {
 	
 	protected function addToolbar() {
 		
-		$canDo	= HospitalHelper::getActions($this->state->get('filter.category_id'));
+		$canDo	= HospitalsHelper::getActions($this->state->get('filter.category_id'));
 		$user	= JFactory::getUser();		
 		JToolBarHelper::title(JText::_('COM_HOSPITALS_MANAGER_HOSPITALS'), 'hospitals');
 		
