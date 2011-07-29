@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS `#__hospitals`;
 DROP TABLE IF EXISTS `#__equipments`;
+DROP TABLE IF EXISTS `#__specialties`;
 
 CREATE TABLE `#__hospitals` (
   `id` integer NOT NULL auto_increment,
@@ -26,6 +27,12 @@ CREATE TABLE `#__hospitals` (
 ) DEFAULT CHARSET=utf8;
 
 CREATE TABLE `#__equipments` (
+	`id` INTEGER NOT NULL auto_increment,
+	`name` VARCHAR(255) NOT NULL DEFAULT '',
+	PRIMARY KEY (`id`)
+) DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__specialties` (
 	`id` INTEGER NOT NULL auto_increment,
 	`name` VARCHAR(255) NOT NULL DEFAULT '',
 	PRIMARY KEY (`id`)
