@@ -20,6 +20,15 @@
 			required="true"
 		/>
 		
+		<field name="catid"
+			type="category"
+			extension="com_hospitals"
+			label="JCATEGORY"
+			description="JFIELD_CATEGORY_DESC"
+			class="inputbox"
+			required="true"
+		/>
+		
 		<field name="email_to" type="email"
 			label="JGLOBAL_EMAIL"
 			description="COM_HOSPITALS_FIELD_INFORMATION_EMAIL_DESC"

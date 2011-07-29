@@ -20,21 +20,17 @@ class HospitalsViewHospitals extends JView {
 			return false;
 		}
 		
-		$document = JFactory::getDocument();
-		$document->addStyleDeclaration('.icon-48-hospitals {background-image: url(../media/com_hospitals/images/icon-48-hospitals.png);}');
-		
 		$this->addToolbar();		
 		parent::display($tpl);
 	}
 	
 	protected function addToolbar() {
 		
-		$canDo	= HospitalHelper::getActions();
-		$user	= JFactory::getUser();
-		
+		$canDo	= HospitalHelper::getActions($this->state->get('filter.category_id'));
+		$user	= JFactory::getUser();		
 		JToolBarHelper::title(JText::_('COM_HOSPITALS_MANAGER_HOSPITALS'), 'hospitals');
 		
-		if ($canDo->get('core.create')) {
+		if ($canDo->get('core.create') || (count($user->getAuthorisedCategories('com_hospitals', 'core.create'))) >0) {
 			JToolBarHelper::addNew('hospital.add');
 		}
 		

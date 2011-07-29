@@ -10,6 +10,7 @@ class HospitalsModelHospitals extends JModelList {
 			$config['filter_fields'] = array(
 				'id', 'a.id',
 				'name', 'a.name',
+				'catid', 'a.catid', 'category_title',
 				'created', 'a.created',
 				'created_by', 'a.created_by'
 			);
@@ -21,9 +22,17 @@ class HospitalsModelHospitals extends JModelList {
 	protected function populateState($ordering = null, $direction = null) {
 		$app = JFactory::getApplication();
 		
+		if ($layout = JRequest::getVar('layout')) {
+			$this->context .= '.'.$layout;
+		}
+		
 		$search = $this->getUserStateFromRequest($this->context.'.filter.search', 'filter_search');
 		$this->setState('filter.search', $search);
 		
+		$categoryId = $this->getUserStateFromRequest($this->context.'.filter.category_id', 'filter_category_id');
+		$this->setState('filter.category_id', $categoryId);
+		
+		// list state information.
 		parent::populateState('a.name', 'asc');
 	}
 	
@@ -36,10 +45,24 @@ class HospitalsModelHospitals extends JModelList {
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.name, a.created, a.created_by'
+				'a.id, a.name, a.catid, a.created, a.created_by'
 			)
 		);
 		$query->from('#__hospitals AS a');
+		
+		// join over the categories.
+		$query->select('b.title AS category_title');
+		$query->leftJoin('#__categories AS b ON b.id = a.catid');
+		
+		// filter by a single or group of categories.
+		$categoryId = $this->getState('filter.category_id');
+		if (is_numeric($categoryId)) {
+			$query->where('a.catid = '.(int) $categoryId);
+		} else if (is_array($categoryId)) {
+			JArrayHelper::toInteger($categoryId);
+			$categoryId = implode(',', $categoryId);
+			$query->where('a.catid IN ('.$categoryId.')');
+		}
 		
 		// filter by search in name.
 		$search = $this->getState('filter.search');
@@ -57,6 +80,7 @@ class HospitalsModelHospitals extends JModelList {
 		
 		$query->order($db->getEscaped($orderCol.' '.$orderDirn));
 		
+		//echo nl2br(str_replace('#__','jos_',$query));
 		return $query;
 	}
 }

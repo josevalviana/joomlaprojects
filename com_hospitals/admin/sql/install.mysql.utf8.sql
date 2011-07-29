@@ -12,6 +12,7 @@ CREATE TABLE `#__hospitals` (
   `fax` varchar(255) default NULL,
   `misc` mediumtext,
   `email_to` varchar(255) default NULL,
+  `catid` integer NOT NULL default '0',
   `webpage` varchar(255) NOT NULL default '',
   `created` datetime NOT NULL default '0000-00-00 00:00:00',
   `created_by` int(10) unsigned NOT NULL default '0',
@@ -19,5 +20,6 @@ CREATE TABLE `#__hospitals` (
   `modified` datetime NOT NULL default '0000-00-00 00:00:00',
   `modified_by` int(10) unsigned NOT NULL default '0',
   PRIMARY KEY (`id`),
-  KEY `idx_createdby` (`created_by`)
+  KEY `idx_createdby` (`created_by`),
+  KEY `idx_catid` (`catid`)
 ) DEFAULT CHARSET=utf8;

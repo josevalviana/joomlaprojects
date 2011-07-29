@@ -17,6 +17,12 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			<button type="submit"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
 			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
 		</div>
+		<div class="filter-select fltrt">
+			<select name="filter_category_id" class="inputbox" onchange="this.form.submit()">
+				<option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY'); ?></option>
+				<?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_hospitals'), 'value', 'text', $this->state->get('filter.category_id')); ?>
+			</select>
+		</div>
 	</fieldset>
 	<div class="clr"> </div>
 	
@@ -29,6 +35,9 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<th>
 					<?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'a.name', $listDirn, $listOrder); ?>
 				</th>
+				<th width="10%">
+					<?php echo JHtml::_('grid.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
+				</th>
 				<th>
 					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
 				</th>
@@ -36,7 +45,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="3">
+				<td colspan="4">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -45,8 +54,10 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			<?php
 				$n = count($this->items);
 				foreach ($this->items as $i => $item) : 
-					$canEdit 	= $user->authorise('core.edit',		'com_hospitals.hospital'.$item->id);
-					$canEditOwn	= $user->authorise('core.edit.own', 'com_hospitals.hospital'.$item->id) && $item->created_by == $userId;
+					$canEdit 	= $user->authorise('core.edit',		'com_hospitals.category.'.$item->catid);
+					$canEditOwn	= $user->authorise('core.edit.own', 'com_hospitals.category.'.$item->catid) && $item->created_by == $userId;
+					
+					$item->cat_link = JRoute::_('index.php?option=com_categories&extension=com_hospitals&task=edit&type=other&id='.$item->catid);
 			?>
 			<tr class="row<?php echo $i % 2; ?>">
 				<td class="center">
@@ -59,6 +70,9 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<?php else : ?>
 						<?php echo $this->escape($item->name); ?>
 					<?php endif; ?>
+				</td>
+				<td align="center">
+					<?php echo $item->category_title; ?>
 				</td>
 				<td align="center">
 					<?php echo $item->id; ?>

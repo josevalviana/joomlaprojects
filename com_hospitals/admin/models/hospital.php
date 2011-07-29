@@ -21,7 +21,12 @@ class HospitalsModelHospital extends JModelAdmin {
 		$data = JFactory::getApplication()->getUserState('com_hospitals.edit.hospital.data', array());
 		
 		if (empty($data)) {
-			$data = $this->getItem();		
+			$data = $this->getItem();
+
+			if ($this->getState('hospital.id') == 0) {
+				$app = JFactory::getApplication();
+				$data->set('catid', JRequest::getInt('catid', $app->getUserState('com_hospitals.hospitals.filter.category_id')));
+			}
 		}
 		
 		return $data;
