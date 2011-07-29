@@ -17,13 +17,27 @@ class HospitalsHelper {
 		);
 		
 		$document = JFactory::getDocument();
-		$document->addStyleDeclaration('.icon-48-hospitals {background-image: url(../media/com_hospitals/images/icon-48-hospitals.png);}');
+		$document->addStyleDeclaration('
+			.icon-48-hospitals {
+				background-image: url(../media/com_hospitals/images/icon-48-hospitals.png);
+			}
+			.icon-48-hospitals-equipments {
+				background-image: url(../media/com_hospitals/images/icon-48-hospitals-equipments.png);
+			}
+		');
+		//$document->addStyleDeclaration('.icon-48-hospitals-equipments {background-image: url(../media/com_hospitals/images/icon-48-hospitals-equipments.png);}');
 		
 		if ($vName == 'categories') {
 			JToolBarHelper::title(
 				JText::sprintf('COM_CATEGORIES_CATEGORIES_TITLE', JText::_('com_hospitals')),
 				'hospitals-categories');
-		}		
+		}
+
+		JSubMenuHelper::addEntry(
+			JText::_('COM_HOSPITALS_SUBMENU_EQUIPMENTS'),
+			'index.php?option=com_hospitals&view=equipments',
+			$vName == 'equipments'
+		);
 	}
 	
 	/**
