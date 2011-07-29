@@ -25,7 +25,6 @@ class HospitalsHelper {
 				background-image: url(../media/com_hospitals/images/icon-48-hospitals-equipments.png);
 			}
 		');
-		//$document->addStyleDeclaration('.icon-48-hospitals-equipments {background-image: url(../media/com_hospitals/images/icon-48-hospitals-equipments.png);}');
 		
 		if ($vName == 'categories') {
 			JToolBarHelper::title(

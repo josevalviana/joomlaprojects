@@ -14,9 +14,9 @@ class HospitalsViewEquipments extends JView {
 	 */
 	public function display($tpl = null) {
 		// initialise variables.
-		$this->items = $this->get('Items');
-		$this->pagination = $this->get('Pagination');
-		$this->state = $this->get('State');
+		$this->items 		= $this->get('Items');
+		$this->pagination	= $this->get('Pagination');
+		$this->state 		= $this->get('State');
 		
 		// check for errors.
 		if (count($errors = $this->get('Errors'))) {
@@ -29,14 +29,27 @@ class HospitalsViewEquipments extends JView {
 	}
 	
 	protected function addToolbar() {
+		
+		$canDo = HospitalsHelper::getActions();
+		
 		JToolBarHelper::title(JText::_('COM_HOSPITALS_MANAGER_EQUIPMENTS'), 'hospitals-equipments');
 		
-		JToolBarHelper::addNew('equipment.add');
-		JToolBarHelper::editList('equipment.edit');
-		JToolBarHelper::deleteList('', 'equipments.delete', 'JTOOLBAR_DELETE');
-		JToolBarHelper::divider();
-		JToolBarHelper::preferences('com_hospitals');
-		JToolBarHelper::divider();
+		if ($canDo->get('core.create')) {
+			JToolBarHelper::addNew('equipment.add');
+		}
+		if ($canDo->get('core.edit')) {
+			JToolBarHelper::editList('equipment.edit');
+		}
+		if ($canDo->get('core.delete')) {
+			JToolBarHelper::deleteList('', 'equipments.delete', 'JTOOLBAR_DELETE');
+			JToolBarHelper::divider();
+		}
+		
+		if ($canDo->get('core.admin')) {
+			JToolBarHelper::preferences('com_hospitals');
+			JToolBarHelper::divider();
+		}
+		
 		JToolBarHelper::help('JHELP_COMPONENTS_HOSPITALS_EQUIPMENTS');
 	}
 }

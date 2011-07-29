@@ -43,13 +43,20 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 			</tr>
 		</tfoot>
 		<tbody>
-			<?php foreach ($this->items as $it => $item): ?>
+			<?php foreach ($this->items as $it => $item):
+				$canEdit 	= $user->authorise('core.edit', 'com_hospitals');
+			?>
 			<tr class="row<?php echo $i % 2; ?>">
 				<td class="center">
 					<?php echo JHtml::_('grid.id', $i, $item->id); ?>
 				</td>
 				<td>
-					<?php echo $this->escape($item->name); ?>
+					<?php if ($canEdit) : ?>
+						<a href="<?php echo JRoute::_('index.php?option=com_hospitals&task=equipment.edit&id='.(int) $item->id); ?>">
+							<?php echo $this->escape($item->name); ?></a>
+					<?php else : ?>
+							<?php echo $this->escape($item->name); ?>
+					<?php endif; ?>
 				</td>
 				<td class="center">
 					<?php echo $item->id; ?>
