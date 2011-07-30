@@ -1,0 +1,127 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset>
+		<field name="id"
+			type="text"
+			label="JGLOBAL_FIELD_ID_LABEL"
+			description="JGLOBAL_FIELD_ID_DESC"
+			size="10"
+			default="0"
+			readonly="true"
+			class="readonly"
+		/>
+		
+		<field name="name"
+			type="text"
+			label="COM_PROFESSIONAL_FIELD_NAME_LABEL"
+			description="COM_PROFESSIONAL_FIELD_NAME_DESC"
+			class="inputbox"
+			size="30"
+			required="true"
+		/>
+		
+		<field name="catid"
+			type="category"
+			extension="com_professional"
+			label="JCATEGORY"
+			description="JFIELD_CATEGORY_DESC"
+			class="inputbox"
+			required="true"
+		/>
+		
+		<field name="email_to" type="email"
+			label="JGLOBAL_EMAIL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_EMAIL_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="address" type="textarea"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_ADDRESS_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_ADDRESS_DESC"
+			class="inputbox"
+			rows="3"
+			cols="30"
+		/>
+		
+		<field name="suburb" type="text"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_SUBURB_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_SUBURB_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="state" type="text"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_STATE_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_STATE_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="postcode" type="text"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_POSTCODE_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_POSTCODE_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="country" type="text"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_COUNTRY_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_COUNTRY_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="telephone" type="text"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_TELEPHONE_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_TELEPHONE_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="fax" type="text"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_FAX_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_FAX_DESC"
+			class="inputbox"
+			size="30"
+		/>
+
+		<field name="webpage"
+			type="url"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_WEBPAGE_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_WEBPAGE_DESC"
+			class="inputbox"
+			size="30"
+		/>
+		
+		<field name="misc" type="editor"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_MISC_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_MISC_DESC"
+			class="inputbox"
+			filter="safehtml"
+			buttons="true"
+			hide="readmore,pagebreak"
+		/>
+		
+		<field name="created_by" type="user"
+			label="JGLOBAL_FIELD_CREATED_BY_LABEL" description="COM_PROFESSIONAL_FIELD_CREATED_BY_DESC" />
+
+		<field name="created_by_alias" type="text"
+			label="COM_PROFESSIONAL_FIELD_CREATED_BY_ALIAS_LABEL" description="COM_PROFESSIONAL_FIELD_CREATED_BY_ALIAS_DESC"
+			class="inputbox" size="20" />
+
+		<field name="created" type="calendar" label="COM_PROFESSIONAL_FIELD_CREATED_LABEL"
+			description="COM_PROFESSIONAL_FIELD_CREATED_DESC" class="inputbox" size="22"
+			format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+
+		<field name="modified" type="calendar" class="readonly"
+			label="JGLOBAL_FIELD_MODIFIED_LABEL" description="COM_PROFESSIONAL_FIELD_MODIFIED_DESC"
+			size="22" readonly="true" format="%Y-%m-%d %H:%M:%S" filter="user_utc" />
+
+		<field name="modified_by" type="user"
+		label="JGLOBAL_FIELD_MODIFIED_BY_LABEL"
+		class="readonly"
+		readonly="true"
+		filter="unset"/>
+	</fieldset>
+</form>
