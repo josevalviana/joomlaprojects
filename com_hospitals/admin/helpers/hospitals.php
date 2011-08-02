@@ -43,6 +43,12 @@ class HospitalsHelper {
 			'index.php?option=com_hospitals&view=specialties',
 			$vName == 'specialties'
 		);
+		
+		JSubMenuHelper::addEntry(
+			JText::_('COM_HOSPITALS_SUBMENU_SHIFTS'),
+			'index.php?option=com_hospitals&view=shifts',
+			$vName == 'shifts'
+		);
 	}
 	
 	/**
