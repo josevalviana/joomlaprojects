@@ -12,6 +12,7 @@ CREATE TABLE `#__professional` (
   `fax` varchar(255) default NULL,
   `misc` mediumtext,
   `email_to` varchar(255) default NULL,
+  `user_id` integer NOT NULL default '0',
   `catid` integer NOT NULL default '0',
   `webpage` varchar(255) NOT NULL default '',
   `created` datetime NOT NULL default '0000-00-00 00:00:00',

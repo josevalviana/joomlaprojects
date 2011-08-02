@@ -20,6 +20,12 @@
 			required="true"
 		/>
 		
+		<field name="user_id"
+			type="user"
+			label="COM_PROFESSIONAL_FIELD_LINKED_USER_LABEL"
+			description="COM_PROFESSIONAL_FIELD_LINKED_USER_DESC"
+		/>
+		
 		<field name="catid"
 			type="category"
 			extension="com_professional"

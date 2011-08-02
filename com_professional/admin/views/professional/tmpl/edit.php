@@ -22,6 +22,9 @@ JHtml::_('behavior.formvalidation');
 				<li><?php echo $this->form->getLabel('name'); ?>
 				<?php echo $this->form->getInput('name'); ?></li>
 				
+				<li><?php echo $this->form->getLabel('user_id'); ?>
+				<?php echo $this->form->getInput('user_id'); ?></li>
+				
 				<li><?php echo $this->form->getLabel('catid'); ?>
 				<?php echo $this->form->getInput('catid'); ?></li>
 			

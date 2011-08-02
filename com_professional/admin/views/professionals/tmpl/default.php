@@ -35,6 +35,9 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<th>
 					<?php echo JHtml::_('grid.sort', 'JGLOBAL_TITLE', 'a.name', $listDirn, $listOrder); ?>
 				</th>
+				<th>
+					<?php echo JHtml::_('grid.sort', 'COM_PROFESSIONAL_FIELD_LINKED_USER_LABEL', 'ul.name', $listDirn, $listOrder); ?>
+				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
 				</th>
@@ -45,7 +48,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="4">
+				<td colspan="5">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -69,6 +72,11 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 						<?php echo $this->escape($item->name); ?></a>
 					<?php else : ?>
 						<?php echo $this->escape($item->name); ?>
+					<?php endif; ?>
+				</td>
+				<td align="center">
+					<?php if (!empty($item->linked_user)) : ?>
+						<a href="<?php echo JRoute::_('index.php?option=com_professional&task=user.edit&id='.$item->user_id); ?>"><?php echo $item->linked_user; ?></a>
 					<?php endif; ?>
 				</td>
 				<td align="center">

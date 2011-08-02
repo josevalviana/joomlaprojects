@@ -11,8 +11,10 @@ class ProfessionalModelProfessionals extends JModelList {
 				'id', 'a.id',
 				'name', 'a.name',
 				'catid', 'a.catid', 'category_title',
+				'user_id', 'a.user_id',
 				'created', 'a.created',
-				'created_by', 'a.created_by'
+				'created_by', 'a.created_by',
+				'ul.name', 'linked_user',
 			);
 		}
 		
@@ -45,10 +47,14 @@ class ProfessionalModelProfessionals extends JModelList {
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.name, a.catid, a.created, a.created_by'
+				'a.id, a.name, a.catid, a.user_id, a.created, a.created_by'
 			)
 		);
 		$query->from('#__professional AS a');
+		
+		// join over the users for the linked user.
+		$query->select('ul.name AS linked_user');
+		$query->leftJoin('#__users AS ul ON ul.id = a.user_id');
 		
 		// join over the categories.
 		$query->select('b.title AS category_title');
