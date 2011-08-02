@@ -35,6 +35,20 @@
 			required="true"
 		/>
 		
+		<field name="con_registro" type="text"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_CON_REGISTRO_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_CON_REGISTRO_DESC"
+			class="inputbox"
+			size="20"
+		/>
+		
+		<field name="con_registro_emissor" type="text"
+			label="COM_PROFESSIONAL_FIELD_INFORMATION_CON_REGISTRO_EMISSOR_LABEL"
+			description="COM_PROFESSIONAL_FIELD_INFORMATION_CON_REGISTRO_EMISSOR_DESC"
+			class="inputbox"
+			size="20"
+		/>
+					
 		<field name="email_to" type="email"
 			label="JGLOBAL_EMAIL"
 			description="COM_PROFESSIONAL_FIELD_INFORMATION_EMAIL_DESC"

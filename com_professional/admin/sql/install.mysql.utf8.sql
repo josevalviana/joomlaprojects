@@ -11,6 +11,8 @@ CREATE TABLE `#__professional` (
   `telephone` varchar(255) default NULL,
   `fax` varchar(255) default NULL,
   `misc` mediumtext,
+  `con_registro` varchar(20) default NULL,
+  `con_registro_emissor` varchar(20) default NULL,
   `email_to` varchar(255) default NULL,
   `user_id` integer NOT NULL default '0',
   `catid` integer NOT NULL default '0',

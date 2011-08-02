@@ -66,7 +66,13 @@ JHtml::_('behavior.formvalidation');
 			<fieldset class="panelform">
 				<p><?php echo empty($this->item->id) ? JText::_('COM_PROFESSIONAL_DETAILS') : JText::sprintf('COM_PROFESSIONAL_EDIT_DETAILS', $this->item->id); ?></p>
 				
-				<ul class="adminformlist">				
+				<ul class="adminformlist">					
+					<li><?php echo $this->form->getLabel('con_registro'); ?>
+					<?php echo $this->form->getInput('con_registro'); ?></li>
+					
+					<li><?php echo $this->form->getLabel('con_registro_emissor'); ?>
+					<?php echo $this->form->getInput('con_registro_emissor'); ?></li>
+									
 					<li><?php echo $this->form->getLabel('email_to'); ?>
 					<?php echo $this->form->getInput('email_to'); ?></li>
 					
