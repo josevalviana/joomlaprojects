@@ -24,6 +24,12 @@ class HospitalsHelper {
 			.icon-48-hospitals-equipments {
 				background-image: url(../media/com_hospitals/images/icon-48-hospitals-equipments.png);
 			}
+			.icon-48-hospitals-shifts {
+				background-image: url(../media/com_hospitals/images/icon-48-hospitals-shifts.png);
+			}
+			.icon-48-hospitals-specialties {
+				background-image: url(../media/com_hospitals/images/icon-48-hospitals-specialties.png);
+			}
 		');
 		
 		if ($vName == 'categories') {
