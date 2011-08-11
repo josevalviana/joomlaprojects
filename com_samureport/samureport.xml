@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension type="component" version="1.7" method="upgrade">
+	<name>COM_SAMUREPORT</name>
+	<author>Joseval Viana</author>
+	<creationDate>August 2011</creationDate>
+	<copyright>(C) 2011 Joseval Viana. All rights reserved.	</copyright>
+	<license>GNU General Public License version 2 or later</license>
+	<authorEmail>josevalviana@gmail.com</authorEmail>
+	<authorUrl>www.medinfecto.med.br</authorUrl>
+	<version>1.0.0</version>
+	<description>COM_SAMUREPORT_XML_DESCRIPTION</description>
+	
+	<install> <!-- Runs on install -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+		</sql>
+	</install>
+	<uninstall> <!-- Runs on uninstall -->
+		<sql>
+			<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+		</sql>
+	</uninstall>
+	
+	<administration>
+		<files folder="admin">
+			<filename>access.xml</filename>
+			<filename>config.xml</filename>
+			<filename>samureport.php</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<folder>controllers</folder>
+			<folder>helpers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>tables</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="en-GB">language/en-GB.com_samureport.ini
+			</language>
+		</languages>
+	</administration>
+</extension>
+
+
