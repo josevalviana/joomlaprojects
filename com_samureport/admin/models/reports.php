@@ -13,6 +13,7 @@ class SamuReportModelReports extends JModelList
 			$config['filter_fields'] = array(
 				'id', 'a.id',
 				'hospitalid', 'a.hospitalid', 'hospital_name',
+				'shiftid', 'a.shiftid', 'shift_name',
 				'created', 'a.created',
 				'created_by', 'a.created_by',
 			);
@@ -48,6 +49,9 @@ class SamuReportModelReports extends JModelList
 		
 		$hospitalId = $app->getUserStateFromRequest($this->context.'.filter.hospital_id', 'filter_hospital_id');
 		$this->setState('filter.hospital_id', $hospitalId);
+		
+		$shiftId = $app->getUserStateFromRequest($this->context.'.filter.shift_id', 'filter_shift_id');
+		$this->setState('filter.shift_id', $shiftId);
 
 		// List state information.
 		parent::populateState('a.created', 'desc');
@@ -58,6 +62,7 @@ class SamuReportModelReports extends JModelList
 		// Compile the store id.
 		$id	.= ':'.$this->getState('filter.search');
 		$id .= ':'.$this->getState('filter.hospital_id');
+		$id .= ':'.$this->getState('filter.shift_id');
 		$id	.= ':'.$this->getState('filter.author_id');
 
 		return parent::getStoreId($id);
@@ -74,7 +79,7 @@ class SamuReportModelReports extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.hospitalid' .
+				'a.id, a.hospitalid, a.shiftid' .
 				', a.created, a.created_by'
 			)
 		);
@@ -83,6 +88,11 @@ class SamuReportModelReports extends JModelList
 		// Join over the hospitals.
 		$query->select('h.name AS hospital_name');
 		$query->join('LEFT', '#__hospitals AS h ON h.id = a.hospitalid');
+		
+		// Join over the hospital shifts.
+		
+		$query->select('hs.name AS shift_name');
+		$query->join('LEFT', '#__hospital_shifts AS hs ON hs.id = a.shiftid');
 
 		// Join over the users for the author.
 		$query->select('ua.name AS author_name');
@@ -96,6 +106,15 @@ class SamuReportModelReports extends JModelList
 			JArrayHelper::toInteger($hospitalId);
 			$hospitalId = implode(',', $hospitalId);
 			$query->where('a.hospitalid IN ('.$hospitalId.')');
+		}
+		
+		$shiftId = $this->getState('filter.shift_id');
+		if (is_numeric($shiftId)) {
+			$query->where('a.shiftif = '.(int) $shiftId);
+		} else if (is_array($shiftId)) {
+			JArrayHelper::toInteger($shiftId);
+			$shiftId = implode(',', $shiftId);
+			$query->where('a.shiftid IN ('.$shiftId.')');
 		}
 
 		// Filter by author
@@ -118,6 +137,10 @@ class SamuReportModelReports extends JModelList
 			else if (stripos($search, 'hospital:') === 0) {
 				$search = $db->Quote('%'.$db->getEscaped(substr($search, 9), true).'%');
 				$query->where('(h.name LIKE '.$search.')');
+			}
+			else if (stripos($search, 'shift:') === 0) {
+				$search = $db->Quote('%'.$db->getEscaped(substr($search, 6), true).'%');
+				$query->where('(hs.name LIKE '.$search.')');
 			}
 //			else {
 //				$search = $db->Quote('%'.$db->getEscaped($search, true).'%');
@@ -169,6 +192,25 @@ class SamuReportModelReports extends JModelList
 		$db->setQuery($query->__toString());
 		
 		// Return the result
+		return $db->loadObjectList();
+	}
+	
+	public function getShifts() {
+		// Create a new query object
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
+		
+		// Construct the query
+		$query->select('hs.id AS value, hs.name AS text');
+		$query->from('#__hospital_shifts AS hs');
+		$query->join('INNER', '#__samureport AS s ON s.shiftid = hs.id');
+		$query->group('hs.id');
+		$query->order('hs.name');
+		
+		// Setup the query
+		$db->setQuery($query->__toString());
+		
+		// return the result
 		return $db->loadObjectList();
 	}
 	

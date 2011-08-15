@@ -18,6 +18,7 @@ class SamuReportViewReports extends JView
 		$this->state		= $this->get('State');		
 		$this->hospitals    = $this->get('Hospitals');
 		$this->authors		= $this->get('Authors');
+		$this->shifts       = $this->get('Shifts');
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {

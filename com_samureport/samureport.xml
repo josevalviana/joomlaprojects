@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <extension type="component" version="1.7" method="upgrade">
-	<name>COM_SAMUREPORT</name>
+	<name>com_samureport</name>
 	<author>Joseval Viana</author>
 	<creationDate>August 2011</creationDate>
 	<copyright>(C) 2011 Joseval Viana. All rights reserved.	</copyright>

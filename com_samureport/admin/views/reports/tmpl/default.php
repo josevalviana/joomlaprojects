@@ -27,6 +27,11 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<option value=""><?php echo JText::_('COM_SAMUREPORT_SELECT_HOSPITAL'); ?></option>
 				<?php echo JHtml::_('select.options', $this->hospitals, 'value', 'text', $this->state->get('filter.hospital_id')); ?>
 			</select>
+			
+			<select name="filter_shift_id" class="inputbox" onchange="this.form.submit()">
+				<option value=""><?php echo JText::_('COM_SAMUREPORT_SELECT_SHIFT'); ?></option>
+				<?php echo JHtml::_('select.options', $this->shifts, 'value', 'text', $this->state->get('filter.shift_id')); ?>
+			</select>
 
 			<select name="filter_author_id" class="inputbox" onchange="this.form.submit()">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_AUTHOR');?></option>
@@ -46,6 +51,9 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 				<th>
 					<?php echo JHtml::_('grid.sort', 'COM_SAMUREPORT_REPORTS_HEADING_HOSPITAL_NAME', 'hospital_name', $listDirn, $listOrder); ?>
 				</th>
+				<th width="1%">
+					<?php echo JHtml::_('grid.sort', 'COM_SAMUREPORT_REPORTS_HEADING_SHIFT_NAME', 'shift_name', $listDirn, $listOrder); ?>
+				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>
@@ -59,7 +67,7 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="5">
+				<td colspan="6">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -81,6 +89,9 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 					<?php else : ?>
 						<?php echo $this->escape($item->hospital_name); ?>
 					<?php endif; ?>
+				</td>
+				<td class="center">
+					<?php echo $this->escape($item->shift_name); ?>
 				</td>
 				<td class="center">
 					<?php echo $this->escape($item->author_name); ?>
