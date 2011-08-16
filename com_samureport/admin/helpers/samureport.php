@@ -13,6 +13,12 @@ class SamuReportHelper
 			JText::_('COM_SAMUREPORT_SUBMENU_REPORTS'),
 			'index.php?option=com_samureport&view=reports',
 			$vName == 'reports');
+		
+		$document = JFactory::getDocument();
+		$document->addStyleDeclaration('
+			.icon-48-report {background-image: url(../media/com_samureport/images/icon-48-report.gif);}
+			.icon-48-report-add {background-image: url(../media/com_samureport/images/icon-48-report-add.png);}
+		');
 	}
 
 	public static function getActions($hospitalId = 0, $reportId = 0)

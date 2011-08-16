@@ -13,3 +13,12 @@ CREATE TABLE `#__samureport` (
   KEY `idx_shiftif` (`shiftid`),
   KEY `idx_createdby` (`created_by`)
 )  DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__samureport_equipments` (
+	`id` integer NOT NULL auto_increment,
+	`equipmentid` integer NOT NULL default '0',
+	`reportid` integer NOT NULL default '0',
+	PRIMARY KEY (`id`),
+	KEY `idx_equipmentid` (`equipmentid`),
+	KEY `idx_reportid` (`reportid`)
+) DEFAULT CHARSET=utf8;

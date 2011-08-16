@@ -9,6 +9,7 @@ class SamuReportViewReport extends JView
 {
 	protected $form;
 	protected $item;
+	protected $equipments;
 	protected $state;
 
 	public function display($tpl = null)
@@ -16,7 +17,8 @@ class SamuReportViewReport extends JView
 		// Initialiase variables.
 		$this->form		 = $this->get('Form');
 		$this->item		 = $this->get('Item');
-		$this->state	 = $this->get('State');
+		$this->equipments = $this->get('Equipments');
+		$this->state	 = $this->get('State');		
 		$this->canDo	 = SamuReportHelper::getActions($this->state->get('filter.hospital_id'));
 
 		// Check for errors.

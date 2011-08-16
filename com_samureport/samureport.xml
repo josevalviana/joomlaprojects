@@ -21,7 +21,13 @@
 		</sql>
 	</uninstall>
 	
+	<media destination="com_samureport" folder="media">
+		<filename>index.html</filename>
+		<folder>images</folder>
+	</media>
+	
 	<administration>
+		<menu img="../media/com_samureport/images/icon-16-report.png">com_samureport</menu>
 		<files folder="admin">
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>

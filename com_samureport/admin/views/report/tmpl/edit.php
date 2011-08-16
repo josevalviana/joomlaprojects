@@ -7,6 +7,7 @@ defined('_JEXEC') or die;
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');
+JHtml::_('behavior.modal');
 ?>
 
 <script type="text/javascript">
@@ -56,9 +57,15 @@ JHtml::_('behavior.keepalive');
 						<?php echo $this->form->getInput('modified'); ?></li>
 					<?php endif; ?>
 				</ul>
+			</fieldset>			
+
+		<?php echo JHtml::_('sliders.panel',JText::_('COM_SAMUREPORT_FIELDSET_EQUIPMENTS'), 'equipments-details'); ?>
+			<fieldset class="equipmentform">
+				<?php echo $this->loadTemplate('equipments'); ?>
 			</fieldset>
+			
 		<?php echo JHtml::_('sliders.end'); ?>
-	</div>
+	</div>	
 	<div>
 		<input type="hidden" name="task" value="" />
 		<input type="hidden" name="return" value="<?php echo JRequest::getCmd('return');?>" />

@@ -3,7 +3,7 @@
 // no direct access
 defined('_JEXEC') or die;
 
-//JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
+JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.multiselect');
 
@@ -25,17 +25,17 @@ $listDirn	= $this->escape($this->state->get('list.direction'));
 		
 			<select name="filter_hospital_id" class="inputbox" onchange="this.form.submit()">
 				<option value=""><?php echo JText::_('COM_SAMUREPORT_SELECT_HOSPITAL'); ?></option>
-				<?php echo JHtml::_('select.options', $this->hospitals, 'value', 'text', $this->state->get('filter.hospital_id')); ?>
+				<?php echo JHtml::_('select.options', JHtml::_('hospital.options'), 'value', 'text', $this->state->get('filter.hospital_id')); ?>
 			</select>
 			
 			<select name="filter_shift_id" class="inputbox" onchange="this.form.submit()">
 				<option value=""><?php echo JText::_('COM_SAMUREPORT_SELECT_SHIFT'); ?></option>
-				<?php echo JHtml::_('select.options', $this->shifts, 'value', 'text', $this->state->get('filter.shift_id')); ?>
+				<?php echo JHtml::_('select.options', JHtml::_('shift.options'), 'value', 'text', $this->state->get('filter.shift_id')); ?>
 			</select>
 
 			<select name="filter_author_id" class="inputbox" onchange="this.form.submit()">
 				<option value=""><?php echo JText::_('JOPTION_SELECT_AUTHOR');?></option>
-				<?php echo JHtml::_('select.options', $this->authors, 'value', 'text', $this->state->get('filter.author_id'));?>
+				<?php echo JHtml::_('select.options', JHtml::_('author.options'), 'value', 'text', $this->state->get('filter.author_id'));?>
 			</select>
 
 		</div>

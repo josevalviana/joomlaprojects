@@ -110,7 +110,7 @@ class SamuReportModelReports extends JModelList
 		
 		$shiftId = $this->getState('filter.shift_id');
 		if (is_numeric($shiftId)) {
-			$query->where('a.shiftif = '.(int) $shiftId);
+			$query->where('a.shiftid = '.(int) $shiftId);
 		} else if (is_array($shiftId)) {
 			JArrayHelper::toInteger($shiftId);
 			$shiftId = implode(',', $shiftId);
@@ -173,44 +173,6 @@ class SamuReportModelReports extends JModelList
 		$db->setQuery($query->__toString());
 
 		// Return the result
-		return $db->loadObjectList();
-	}
-	
-	public function getHospitals() {
-		// Create a new query object.
-		$db = $this->getDbo();
-		$query = $db->getQuery(true);
-		
-		// Construct the query
-		$query->select('h.id AS value, h.name AS text');
-		$query->from('#__hospitals AS h');
-		$query->join('INNER', '#__samureport AS s ON s.hospitalid = h.id');
-		$query->group('h.id');
-		$query->order('h.name');
-		
-		// Setup the query
-		$db->setQuery($query->__toString());
-		
-		// Return the result
-		return $db->loadObjectList();
-	}
-	
-	public function getShifts() {
-		// Create a new query object
-		$db = $this->getDbo();
-		$query = $db->getQuery(true);
-		
-		// Construct the query
-		$query->select('hs.id AS value, hs.name AS text');
-		$query->from('#__hospital_shifts AS hs');
-		$query->join('INNER', '#__samureport AS s ON s.shiftid = hs.id');
-		$query->group('hs.id');
-		$query->order('hs.name');
-		
-		// Setup the query
-		$db->setQuery($query->__toString());
-		
-		// return the result
 		return $db->loadObjectList();
 	}
 	
