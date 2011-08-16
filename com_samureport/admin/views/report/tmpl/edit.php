@@ -57,12 +57,14 @@ JHtml::_('behavior.modal');
 						<?php echo $this->form->getInput('modified'); ?></li>
 					<?php endif; ?>
 				</ul>
-			</fieldset>			
-
+			</fieldset>
+						
+	<?php if ($this->item->id != 0) : ?>
 		<?php echo JHtml::_('sliders.panel',JText::_('COM_SAMUREPORT_FIELDSET_EQUIPMENTS'), 'equipments-details'); ?>
 			<fieldset class="equipmentform">
 				<?php echo $this->loadTemplate('equipments'); ?>
 			</fieldset>
+	<?php endif; ?>
 			
 		<?php echo JHtml::_('sliders.end'); ?>
 	</div>	

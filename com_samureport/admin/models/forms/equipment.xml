@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form>
+	<fieldset>
+		<field name="id"  type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+			readonly="true"  />
+		<field name="reportid" type="text" class="readonly" label="Report ID"
+		    description="Report ID" size="10" default="0" readonly="true" />
+		<field name="equipmentid" type="text" class="inputbox" label="Equipment ID"
+		    description="Equipment ID" size="10" default="0" />
+	</fieldset>
+</form>
