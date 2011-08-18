@@ -1,87 +1,64 @@
 <?php
-
-// No direct access.
+// no direct access
 defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-/**
- * View to edit a module.
- *
- * @static
- * @package		Joomla.Administrator
- * @subpackage	com_modules
- * @since		1.6
- */
-class SamuReportViewEquipment extends JView
-{
+class SamuReportViewEquipment extends JView {
 	protected $form;
 	protected $item;
 	protected $state;
 	
-	public function display($tpl = null)
-	{
+	/**
+	 * Display the view
+	 */
+	public function display($tpl = null) {
+		// initialise variables.
 		$this->form		= $this->get('Form');
-		$this->item		= $this->get('Item');
+		$this->item 	= $this->get('Item');
 		$this->state	= $this->get('State');
-
-		// Check for errors.
+		
+		// check for errors.
 		if (count($errors = $this->get('Errors'))) {
 			JError::raiseError(500, implode("\n", $errors));
 			return false;
 		}
-
-		//$this->addToolbar();
+		
+		$this->addToolbar();
 		parent::display($tpl);
 	}
-
+	
 	/**
 	 * Add the page title and toolbar.
-	 *
-	 * @since	1.6
+	 * 
+	 * @since 1.7
 	 */
-	protected function addToolbar()
-	{
+	protected function addToolbar() {
 		JRequest::setVar('hidemainmenu', true);
-
-		$user		= JFactory::getUser();
-		$isNew		= ($this->item->id == 0);
-		$checkedOut	= !($this->item->checked_out == 0 || $this->item->checked_out == $user->get('id'));
-		$canDo		= ModulesHelper::getActions($this->state->get('filter.category_id'), $this->item->id);
-		$item		= $this->get('Item');
-
-		JToolBarHelper::title( JText::sprintf('COM_MODULES_MANAGER_MODULE', JText::_($this->item->module)), 'module.png');
-
-		// If not checked out, can save the item.
-		if (!$checkedOut && ($canDo->get('core.edit') || $canDo->get('core.create') )) {
-			JToolBarHelper::apply('module.apply');
-			JToolBarHelper::save('module.save');
+		
+		$user	= JFactory::getUser();
+		$isNew	= ($this->item->id == 0);
+		$canDo	= SamuReportHelper::getActions();
+		
+		JToolBarHelper::title(JText::_('COM_SAMUREPORT_MANAGER_EQUIPMENT'), 'reports-equipments');
+		
+		if ($canDo->get('core.edit') || $canDo->get('core.create')) {
+			JToolBarHelper::apply('equipment.apply');
+			JToolBarHelper::save('equipment.save');
+			JToolBarHelper::save2new('equipment.save2new');
 		}
-		if (!$checkedOut && $canDo->get('core.create')) {
-			JToolBarHelper::save2new('module.save2new');
-		}
-			// If an existing item, can save to a copy.
+		
 		if (!$isNew && $canDo->get('core.create')) {
-			JToolBarHelper::save2copy('module.save2copy');
+			JToolBarHelper::save2copy('equipment.save2copy');
 		}
-		if (empty($this->item->id))  {
-			JToolBarHelper::cancel('module.cancel');
+		
+		if (empty($this->item->id)) {
+			JToolBarHelper::cancel('equipment.cancel');
 		} else {
-			JToolBarHelper::cancel('module.cancel', 'JTOOLBAR_CLOSE');
+			JToolBarHelper::cancel('equipment.cancel', 'JTOOLBAR_CLOSE');
 		}
-
-		// Get the help information for the menu item.
-		$lang = JFactory::getLanguage();
-
-		$help = $this->get('Help');
-		if ($lang->hasKey($help->url)) {
-			$debug = $lang->setDebug(false);
-			$url = JText::_($help->url);
-			$lang->setDebug($debug);
-		}
-		else {
-			$url = null;
-		}
-		JToolBarHelper::help($help->key, false, $url);
+		
+		JToolBarHelper::divider();
+		JToolBarHelper::help('JHELP_COMPONENTS_REPORTS_EQUIPMENTS_EDIT');
 	}
 }

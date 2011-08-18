@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-	<fieldset>
+	<fieldset name="details" addfieldpath="/administrator/components/com_samureport/models/fields">
 		<field name="id"  type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
 			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
 			readonly="true"  />
-		<field name="reportid" type="text" class="readonly" label="Report ID"
-		    description="Report ID" size="10" default="0" readonly="true" />
-		<field name="equipmentid" type="text" class="inputbox" label="Equipment ID"
-		    description="Equipment ID" size="10" default="0" />
+		<field name="reportid" type="hidden" class="readonly" label="Report ID"
+		    description="Report ID" size="10" default="0"
+		    readonly="true" />
+		<field name="equipmentid" type="equipment" class="inputbox" label="Equipment ID"
+		    description="Equipment ID" required="true" />
 	</fieldset>
 </form>
