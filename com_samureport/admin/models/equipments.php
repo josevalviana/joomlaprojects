@@ -71,7 +71,7 @@ class SamuReportModelEquipments extends JModelList {
 		}
 		
 		$orderCol = $this->state->get('list.ordering');
-		$orderDirn = $this->state->get('list.drection');
+		$orderDirn = $this->state->get('list.direction');
 		
 		// add the list ordering clause.
 		$query->order($db->getEscaped($orderCol.' '.$orderDirn));

@@ -17,7 +17,7 @@ abstract class JHtmlShift {
 			
 			$query->select('hs.id, hs.name');
 			$query->from('#__hospital_shifts AS hs');
-			$query->join('RIGHT', '#__samureport AS s ON s.hospitalid = hs.id');
+			$query->join('RIGHT', '#__samureport AS s ON s.shiftid = hs.id');
 			$query->group('hs.id');
 			$query->order('hs.name');
 			

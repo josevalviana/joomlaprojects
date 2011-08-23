@@ -15,11 +15,12 @@ class SamuReportViewReport extends JView
 	public function display($tpl = null)
 	{
 		// Initialiase variables.
-		$this->form		 = $this->get('Form');
-		$this->item		 = $this->get('Item');
-		$this->equipments = $this->get('Equipments');
-		$this->state	 = $this->get('State');		
-		$this->canDo	 = SamuReportHelper::getActions($this->state->get('filter.hospital_id'));
+		$this->form		 	= $this->get('Form');
+		$this->item		 	= $this->get('Item');
+		$this->equipments 	= $this->get('Equipments');
+		$this->vehicles 	= $this->get('Vehicles');
+		$this->state	 	= $this->get('State');		
+		$this->canDo	 	= SamuReportHelper::getActions($this->state->get('filter.hospital_id'));
 
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {

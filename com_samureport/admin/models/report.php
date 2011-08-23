@@ -90,5 +90,27 @@ class SamuReportModelReport extends JModelAdmin
 		
 		return $result;
 	}
-
+	
+	public function getVehicles() {
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
+	
+		$query->select('a.id, a.reportid, v.name, a.quantity');
+		$query->from('#__samureport_vehicles AS a');
+		$query->join('RIGHT', '#__vehicle AS v ON v.id = a.vehicleid');
+		$query->where('a.reportid = '.(int) $this->getState('report.id'));
+		$query->group('a.id');
+		$query->order('v.name');
+	
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+	
+		if ($error = $db->getError()) {
+			$this->setError($error);
+			return false;
+		}
+	
+		return $result;
+	}
+	
 }

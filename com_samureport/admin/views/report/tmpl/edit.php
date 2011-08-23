@@ -31,6 +31,15 @@ JHtml::_('behavior.modal');
 				<li><?php echo $this->form->getLabel('shiftid'); ?>
 				<?php echo $this->form->getInput('shiftid'); ?></li>
 				
+				<li><?php echo $this->form->getLabel('contact_phone'); ?>
+				<?php echo $this->form->getInput('contact_phone'); ?></li>
+				
+				<li><?php echo $this->form->getLabel('contact_person'); ?>
+				<?php echo $this->form->getInput('contact_person'); ?></li>
+				
+				<li><?php echo $this->form->getLabel('staff_chief'); ?>
+				<?php echo $this->form->getInput('staff_chief'); ?></li>
+				
 				<li><?php echo $this->form->getLabel('id'); ?>
 				<?php echo $this->form->getInput('id'); ?></li>
 			</ul>
@@ -63,6 +72,11 @@ JHtml::_('behavior.modal');
 		<?php echo JHtml::_('sliders.panel',JText::_('COM_SAMUREPORT_FIELDSET_EQUIPMENTS'), 'equipments-details'); ?>
 			<fieldset class="equipmentform">
 				<?php echo $this->loadTemplate('equipments'); ?>
+			</fieldset>
+		
+		<?php echo JHtml::_('sliders.panel',JText::_('COM_SAMUREPORT_FIELDSET_VEHICLES'), 'vehicles-details'); ?>
+			<fieldset class="vehicleform">
+				<?php echo $this->loadTemplate('vehicles'); ?>
 			</fieldset>
 	<?php endif; ?>
 			

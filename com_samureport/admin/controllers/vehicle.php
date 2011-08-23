@@ -4,9 +4,9 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.controllerform');
 
-class SamuReportControllerEquipment extends JControllerForm {
+class SamuReportControllerVehicle extends JControllerForm {
 
-	protected $text_prefix = 'COM_SAMUREPORT_EQUIPMENT';
+	protected $text_prefix = 'COM_SAMUREPORT_VEHICLE';
 	
 	public function add()
 	{
@@ -26,7 +26,6 @@ class SamuReportControllerEquipment extends JControllerForm {
 			return JError::raiseWarning(500, JText::_('COM_MODULES_ERROR_INVALID_EXTENSION'));
 		}
 	
-		$app->setUserState('com_samureport.add.equipment.reportid', $reportId);
+		$app->setUserState('com_samureport.add.vehicle.reportid', $reportId);
 	}
-
 }
