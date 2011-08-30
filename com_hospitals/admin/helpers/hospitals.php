@@ -30,6 +30,9 @@ class HospitalsHelper {
 			.icon-48-hospitals-specialties {
 				background-image: url(../media/com_hospitals/images/icon-48-hospitals-specialties.png);
 			}
+			.icon-48-hospitals-reasons {
+				background-image: url(../media/com_hospitals/images/icon-48-hospitals-reasons.png);
+			}
 		');
 		
 		if ($vName == 'categories') {
@@ -54,6 +57,12 @@ class HospitalsHelper {
 			JText::_('COM_HOSPITALS_SUBMENU_SHIFTS'),
 			'index.php?option=com_hospitals&view=shifts',
 			$vName == 'shifts'
+		);
+		
+		JSubMenuHelper::addEntry(
+			JText::_('COM_HOSPITALS_SUBMENU_REASONS'),
+			'index.php?option=com_hospitals&view=reasons',
+			$vName == 'reasons'
 		);
 	}
 	
