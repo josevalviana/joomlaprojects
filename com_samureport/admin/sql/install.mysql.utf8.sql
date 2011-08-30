@@ -1,5 +1,6 @@
 DROP TABLE IF EXISTS `#__samureport_equipments`;
 DROP TABLE IF EXISTS `#__samureport_vehicles`;
+DROP TABLE IF EXISTS `#__samureport_staff`;
 DROP TABLE IF EXISTS `#__samureport`;
 
 CREATE TABLE `#__samureport` (
@@ -17,16 +18,16 @@ CREATE TABLE `#__samureport` (
   KEY `idx_hospitalid` (`hospitalid`),
   KEY `idx_shiftif` (`shiftid`),
   KEY `idx_createdby` (`created_by`)
-)  DEFAULT CHARSET=utf8;
+)  ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `#__samureport_equipments` (
 	`id` integer NOT NULL auto_increment,
 	`equipmentid` integer NOT NULL default '0',
 	`reportid` integer NOT NULL default '0',
 	PRIMARY KEY (`id`),
-	KEY `idx_equipmentid` (`equipmentid`),
-	KEY `idx_reportid` (`reportid`)
-) DEFAULT CHARSET=utf8;
+	FOREIGN KEY (`reportid`) REFERENCES `#__samureport`(`id`) ON DELETE CASCADE,
+	KEY `idx_equipmentid` (`equipmentid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 CREATE TABLE `#__samureport_vehicles` (
 	`id` integer NOT NULL auto_increment,
@@ -34,6 +35,17 @@ CREATE TABLE `#__samureport_vehicles` (
 	`reportid` integer NOT NULL default '0',
 	`quantity` integer NOT NULL default '0',
 	PRIMARY KEY (`id`),
-	KEY `idx_vehicleid` (`vehicleid`),
-	KEY `idx_reportid` (`reportid`)
-) DEFAULT CHARSET=utf8;
+	FOREIGN KEY (`reportid`) REFERENCES `#__samureport`(`id`) ON DELETE CASCADE,
+	KEY `idx_vehicleid` (`vehicleid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+CREATE TABLE `#__samureport_staff` (
+	`id` integer NOT NULL auto_increment,
+	`reportid` integer NOT NULL default '0',
+	`profid` integer NOT NULL default '0',
+	`specid` integer NOT NULL default '0',
+	PRIMARY KEY (`id`),
+	FOREIGN KEY (`reportid`) REFERENCES `#__samureport`(`id`) ON DELETE CASCADE,
+	KEY `idx_profid` (`profid`),
+	KEY `idx_specid` (`specid`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

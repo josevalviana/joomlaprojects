@@ -78,6 +78,11 @@ JHtml::_('behavior.modal');
 			<fieldset class="vehicleform">
 				<?php echo $this->loadTemplate('vehicles'); ?>
 			</fieldset>
+			
+		<?php echo JHtml::_('sliders.panel',JText::_('COM_SAMUREPORT_FIELDSET_STAFF'), 'staff-details'); ?>
+			<fieldset class="staffform">
+				<?php echo $this->loadTemplate('staff'); ?>
+			</fieldset>
 	<?php endif; ?>
 			
 		<?php echo JHtml::_('sliders.end'); ?>

@@ -10,6 +10,8 @@ class SamuReportViewReport extends JView
 	protected $form;
 	protected $item;
 	protected $equipments;
+	protected $vehicles;
+	protected $professionals;
 	protected $state;
 
 	public function display($tpl = null)
@@ -19,6 +21,7 @@ class SamuReportViewReport extends JView
 		$this->item		 	= $this->get('Item');
 		$this->equipments 	= $this->get('Equipments');
 		$this->vehicles 	= $this->get('Vehicles');
+		$this->professionals = $this->get('Professionals');
 		$this->state	 	= $this->get('State');		
 		$this->canDo	 	= SamuReportHelper::getActions($this->state->get('filter.hospital_id'));
 

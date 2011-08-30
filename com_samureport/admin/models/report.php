@@ -113,4 +113,27 @@ class SamuReportModelReport extends JModelAdmin
 		return $result;
 	}
 	
+	public function getProfessionals() {
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
+	
+		$query->select('s.id, s.reportid, p.name AS pname, sp.name AS spname');
+		$query->from('#__samureport_staff AS s');
+		$query->join('RIGHT', '#__professional AS p ON p.id = s.profid');
+		$query->join('RIGHT', '#__specialties AS sp ON sp.id = s.specid');
+		$query->where('s.reportid = '.(int) $this->getState('report.id'));
+		$query->group('s.id');
+		$query->order('p.name');
+	
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+	
+		if ($error = $db->getError()) {
+			$this->setError($error);
+			return false;
+		}
+	
+		return $result;
+	}
+	
 }
