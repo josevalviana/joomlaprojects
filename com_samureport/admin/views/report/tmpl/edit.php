@@ -13,6 +13,7 @@ JHtml::_('behavior.modal');
 <script type="text/javascript">
 	Joomla.submitbutton = function(task) {
 		if (task == 'report.cancel' || document.formvalidator.isValid(document.id('item-form'))) {
+			<?php echo $this->form->getField('misc')->save(); ?>
 			Joomla.submitform(task, document.getElementById('item-form'));
 		} else {
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
@@ -43,6 +44,10 @@ JHtml::_('behavior.modal');
 				<li><?php echo $this->form->getLabel('id'); ?>
 				<?php echo $this->form->getInput('id'); ?></li>
 			</ul>
+			<div class="clr"></div>
+			<?php echo $this->form->getLabel('misc'); ?>
+			<div class="clr"></div>
+			<?php echo $this->form->getInput('misc'); ?>
 		</fieldset>
 	</div>
 
@@ -82,6 +87,11 @@ JHtml::_('behavior.modal');
 		<?php echo JHtml::_('sliders.panel',JText::_('COM_SAMUREPORT_FIELDSET_STAFF'), 'staff-details'); ?>
 			<fieldset class="staffform">
 				<?php echo $this->loadTemplate('staff'); ?>
+			</fieldset>
+			
+		<?php echo JHtml::_('sliders.panel',JText::_('COM_SAMUREPORT_FIELDSET_REASONS'), 'reasons-details'); ?>
+			<fieldset class="reasonform">
+				<?php echo $this->loadTemplate('reasons'); ?>
 			</fieldset>
 	<?php endif; ?>
 			

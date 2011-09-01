@@ -4,7 +4,7 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.view');
 
-class SamuReportViewVehicle extends JView {
+class SamuReportViewReason extends JView {
 	protected $form;
 	protected $item;
 	protected $state;
@@ -23,7 +23,7 @@ class SamuReportViewVehicle extends JView {
 			JError::raiseError(500, implode("\n", $errors));
 			return false;
 		}
-		
+
 		if ($this->getLayout() !== 'modal') {
 			$this->addToolbar();
 		}
@@ -43,25 +43,25 @@ class SamuReportViewVehicle extends JView {
 		$isNew	= ($this->item->id == 0);
 		$canDo	= SamuReportHelper::getActions();
 		
-		JToolBarHelper::title(JText::_('COM_SAMUREPORT_MANAGER_VEHICLE'), 'reports-vehicles');
+		JToolBarHelper::title(JText::_('COM_SAMUREPORT_MANAGER_PROFESSIONAL'), 'reports-reasons');
 		
 		if ($canDo->get('core.edit') || $canDo->get('core.create')) {
-			JToolBarHelper::apply('vehicle.apply');
-			JToolBarHelper::save('vehicle.save');
-			JToolBarHelper::save2new('vehicle.save2new');
+			JToolBarHelper::apply('reason.apply');
+			JToolBarHelper::save('reason.save');
+			JToolBarHelper::save2new('reason.save2new');
 		}
 		
 		if (!$isNew && $canDo->get('core.create')) {
-			JToolBarHelper::save2copy('vehicle.save2copy');
+			JToolBarHelper::save2copy('reason.save2copy');
 		}
 		
 		if (empty($this->item->id)) {
-			JToolBarHelper::cancel('vehicle.cancel');
+			JToolBarHelper::cancel('reason.cancel');
 		} else {
-			JToolBarHelper::cancel('vehicle.cancel', 'JTOOLBAR_CLOSE');
+			JToolBarHelper::cancel('reason.cancel', 'JTOOLBAR_CLOSE');
 		}
 		
 		JToolBarHelper::divider();
-		JToolBarHelper::help('JHELP_COMPONENTS_REPORTS_VEHICLES_EDIT');
+		JToolBarHelper::help('JHELP_COMPONENTS_REPORTS_REASONS_EDIT');
 	}
 }

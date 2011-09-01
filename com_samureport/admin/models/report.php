@@ -136,4 +136,28 @@ class SamuReportModelReport extends JModelAdmin
 		return $result;
 	}
 	
+	public function getReasons() {
+		$db = $this->getDbo();
+		$query = $db->getQuery(true);
+	
+		$query->select('r.id, r.reportid, pf.name AS pfname, pt.name AS ptname, rr.name AS rrname');
+		$query->from('#__samureport_reasons AS r');
+		$query->join('RIGHT', '#__professional AS pf ON pf.id = r.proffromid');
+		$query->join('RIGHT', '#__professional AS pt ON pt.id = r.proftoid');
+		$query->join('RIGHT', '#__replacement_reasons AS rr ON rr.id = r.reasonid');
+		$query->where('r.reportid = '.(int) $this->getState('report.id'));
+		$query->group('r.id');
+		$query->order('pf.name');
+	
+		$db->setQuery($query);
+		$result = $db->loadObjectList();
+	
+		if ($error = $db->getError()) {
+			$this->setError($error);
+			return false;
+		}
+	
+		return $result;
+	}
+	
 }

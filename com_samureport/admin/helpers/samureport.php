@@ -20,11 +20,12 @@ class SamuReportHelper
 			.icon-48-report-add {background-image: url(../media/com_samureport/images/icon-48-report-add.png);}
 		');
 		
+		/**
 		JSubMenuHelper::addEntry(
 		JText::_('COM_SAMUREPORT_SUBMENU_EQUIPMENTS'),
 					'index.php?option=com_samureport&view=equipments',
 		$vName == 'equipments'
-		);
+		);*/
 	}
 
 	public static function getActions($hospitalId = 0, $reportId = 0)

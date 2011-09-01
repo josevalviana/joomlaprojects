@@ -24,7 +24,10 @@ class SamuReportViewEquipment extends JView {
 			return false;
 		}
 		
-		$this->addToolbar();
+		if ($this->getLayout() !== 'modal') {
+			$this->addToolbar();
+		}
+		
 		parent::display($tpl);
 	}
 	
