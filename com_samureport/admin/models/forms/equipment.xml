@@ -4,7 +4,7 @@
 		<field name="id"  type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
 			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
 			readonly="true"  />
-		<field name="reportid" type="hidden" class="readonly" label="Report ID"
+		<field name="reportid" class="readonly" label="Report ID"
 		    description="Report ID" size="10" default="0"
 		    readonly="true" />
 		<field name="equipmentid" type="equipment" class="inputbox" label="Equipment ID"

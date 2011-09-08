@@ -41,11 +41,14 @@ JFactory::getDocument()->addScriptDeclaration($script);
 				<li><?php echo $this->form->getLabel('id'); ?>
 				<?php echo $this->form->getInput('id'); ?></li>
 			<?php endif; ?>
+			</ul>
 			<div class="clr"></div>
 		</fieldset>
 	</div>
 	<div>
 		<input type="hidden" name="task" value="" />
+		<input type="hidden" name="cid" value="<?php echo $this->item->id; ?>" />
+		<input type="hidden" name="boxchecked" value="1" />		
 		<?php echo JHtml::_('form.token'); ?>
 	</div>
 </form>
