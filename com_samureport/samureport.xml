@@ -21,6 +21,14 @@
 		</sql>
 	</uninstall>
 	
+	<files folder="site">
+		<filename>index.html</filename>
+		<filename>samureport.php</filename>
+		<filename>controller.php</filename>
+		<folder>helpers</folder>
+		<folder>views</folder>		
+	</files>
+	
 	<media destination="com_samureport" folder="media">
 		<filename>index.html</filename>
 		<folder>images</folder>
