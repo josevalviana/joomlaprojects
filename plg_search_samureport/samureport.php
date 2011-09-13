@@ -64,7 +64,7 @@ class plgSearchSamuReport extends JPlugin {
 				foreach ($words as $word) {
 					$word = $db->Quote('%'.$db->getEscaped($word, true).'%', false);
 					$wheres2 = array();
-					$wheres2 = 'h.name LIKE '.$word;
+					$wheres2[] = 'h.name LIKE '.$word;
 					$wheres[] = implode(' OR ', $wheres2);
 				}
 				$where = '('.implode(($phrase == 'all' ? ') AND (' : ') OR ('), $wheres). ')';
@@ -93,7 +93,7 @@ class plgSearchSamuReport extends JPlugin {
 		// search reports
 		if ($sContent && $limit > 0) {
 			$query->clear();
-			$query->select('a.id AS id, h.name AS hospital_name, a.contact_phone AS telephone, a.contact_person AS contacted, a.staff_chief AS boss, a.created AS date_of_report');
+			$query->select('a.id AS id, h.name AS title, a.contact_phone AS telephone, a.contact_person AS contacted, a.staff_chief AS boss, a.created');
 			$query->from('#__samureport AS a');
 			$query->innerJoin('#__hospitals AS h ON h.id = a.hospitalid');
 			$query->where('('.$where.')');
@@ -101,18 +101,34 @@ class plgSearchSamuReport extends JPlugin {
 			$query->order($order);
 			
 			$db->setQuery($query, 0, $limit);
-			$rows = $db->loadObjectList();
-
-			if ($rows) {
-				foreach($rows as $key => $row) {
-					$rows[$key]->title = $row->hospital_name;
-					$rows[$key]->href = 'index.php?option=com_samureport&view=report&id='.$row->id;
-					$rows[$key]->text = $row->hospital_name;
-					$rows[$key]->text .= sprintf('Chefe de Equipe: %s', $row->boss);
-					$rows[$key]->created = $row->date_of_report;
+			$list = $db->loadObjectList();
+			$limit -= count($list);
+			
+			if (isset($list)) {
+				foreach ($list as $key => $item) {
+					$list[$key]->href = SamuReportHelperRoute::getReportRoute($item->id);
+					$list[$key]->text = JText::sprintf('PLG_SEARCH_SAMUREPORT_FIELD_LIST_TEXT', 
+										$item->contacted ? $item->contacted : JText::_('PLG_SEARCH_SAMUREPORT_NOT_INFORMED'), 
+										$item->telephone ? $item->telephone : JText::_('PLG_SEARCH_SAMUREPORT_NOT_INFORMED'),
+										$item->boss ? $item->boss : JText::_('PLG_SEARCH_SAMUREPORT_NOT_INFORMED'));
 				}
 			}
+			$rows[] = $list;						
 		}
-		return $rows;
+		
+		$results = array();
+		if (count($rows)) {
+			foreach ($rows as $row) {
+				$new_row = array();
+				foreach ($row as $key => $report) {
+					if (SearchHelper::checkNoHtml($report, $searchText, array('text', 'title'))) {
+						$new_row[] = $report;
+					}
+				}
+				$results = array_merge($results, (array) $new_row);
+			}
+		}
+		
+		return $results;
 	}
 }
