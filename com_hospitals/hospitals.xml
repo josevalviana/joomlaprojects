@@ -44,6 +44,8 @@
 		<languages folder="admin">
 			<language tag="en-GB">language/en-GB/en-GB.com_hospitals.ini</language>
 			<language tag="en-GB">language/en-GB/en-GB.com_hospitals.sys.ini</language>
+			<language tag="pt-BR">language/pt-BR/pt-BR.com_hospitals.ini</language>
+			<language tag="pt-BR">language/pt-BR/pt-BR.com_hospitals.sys.ini</language>
 		</languages>
 	</administration>
 </extension>
