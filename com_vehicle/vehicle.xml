@@ -25,7 +25,7 @@
 		<folder>images</folder>
 	</media>
 	<administration>
-		<menu img="../media/com_vehicle/images/ambulance-16x16.png">COM_VEHICLE_MENU</menu>
+		<menu img="../media/com_vehicle/images/ambulance-16x16.png">COM_VEHICLE</menu>
 		<files folder="admin">
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>			
