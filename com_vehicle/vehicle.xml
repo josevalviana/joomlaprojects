@@ -7,7 +7,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>josevalviana@gmail.com</authorEmail>
 	<authorUrl>www.medinfecto.med.br</authorUrl>
-	<version>0.0.1</version>
+	<version>1.0.1</version>
 	<description>COM_VEHICLE_XML_DESCRIPTION</description>
 
 	<install>
@@ -25,7 +25,7 @@
 		<folder>images</folder>
 	</media>
 	<administration>
-		<menu img="../media/com_vehicle/images/ambulance-16x16.png">COM_VEHICLE</menu>
+		<menu img="../media/com_vehicle/images/ambulance-16x16.png">COM_VEHICLE_MENU</menu>
 		<files folder="admin">
 			<filename>access.xml</filename>
 			<filename>config.xml</filename>			

@@ -52,6 +52,8 @@
 		<languages folder="admin">
 			<language tag="en-GB">language/en-GB/en-GB.com_samureport.ini</language>
 			<language tag="en-GB">language/en-GB/en-GB.com_samureport.sys.ini</language>
+			<language tag="pt-BR">language/pt-BR/pt-BR.com_samureport.ini</language>
+			<language tag="pt-BR">language/pt-BR/pt-BR.com_samureport.sys.ini</language>
 		</languages>
 	</administration>
 </extension>

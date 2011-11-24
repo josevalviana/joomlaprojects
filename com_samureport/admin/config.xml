@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <config>
+    <fieldset
+    	name="reports"
+    	label="COM_SAMUREPORT_CONFIG_REPORT_SETTINGS_LABEL"
+    	description="COM_SAMUREPORT_CONFIG_REPORT_SETTINGS_DESC">
+    	
+    	<field
+    		name="report_pageheader" type="editor"
+    		label="COM_SAMUREPORT_REPORT_PAGEHEADER_LABEL"
+    		description="COM_SAMUREPORT_REPORT_PAGEHEADER_DESC"
+    		buttons="true"
+    		hide="readmore,pagebreak"
+    	/>
+    	
+    </fieldset>
 	<fieldset
 		name="permissions"
 		label="JCONFIG_PERMISSIONS_LABEL"

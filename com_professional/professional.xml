@@ -7,7 +7,7 @@
 	<license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
 	<authorEmail>josevalviana@gmail.com</authorEmail>
 	<authorUrl>www.medinfecto.med.br</authorUrl>
-	<version>0.0.1</version>
+	<version>1.0.1</version>
 	<description>COM_PROFESSIONAL_XML_DESCRIPTION</description>
 	
 	<install> <!-- Runs on install -->
@@ -44,6 +44,8 @@
 		<languages folder="admin">
 			<language tag="en-GB">language/en-GB/en-GB.com_professional.ini</language>
 			<language tag="en-GB">language/en-GB/en-GB.com_professional.sys.ini</language>
+			<language tag="pt-BR">language/pt-BR/pt-BR.com_professional.ini</language>
+			<language tag="pt-BR">language/pt-BR/pt-BR.com_professional.sys.ini</language>
 		</languages>
 	</administration>
 </extension>
