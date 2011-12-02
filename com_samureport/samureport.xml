@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 2 or later</license>
 	<authorEmail>josevalviana@gmail.com</authorEmail>
 	<authorUrl>www.medinfecto.med.br</authorUrl>
-	<version>1.0.2</version>
+	<version>1.0.3</version>
 	<description>COM_SAMUREPORT_XML_DESCRIPTION</description>
 	
 	<install> <!-- Runs on install -->
