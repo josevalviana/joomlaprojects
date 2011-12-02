@@ -38,6 +38,9 @@ JHtml::_('behavior.modal');
 				<li><?php echo $this->form->getLabel('contact_person'); ?>
 				<?php echo $this->form->getInput('contact_person'); ?></li>
 				
+				<li><?php echo $this->form->getLabel('contact_hour'); ?>
+				<?php echo $this->form->getInput('contact_hour'); ?></li>
+				
 				<li><?php echo $this->form->getLabel('staff_chief'); ?>
 				<?php echo $this->form->getInput('staff_chief'); ?></li>
 				

@@ -26,6 +26,11 @@
 			class="inputbox" size="50" 
 		/>
 		
+		<field name="contact_hour" type="text"
+		   label="COM_SAMUREPORT_FIELD_CONTACT_HOUR_LABEL" description="COM_SAMUREPORT_FIELD_CONTACT_HOUR_DESC"
+		   class="inputbox" size="10"
+		/>
+		
 		<field name="staff_chief" type="text"
 			label="COM_SAMUREPORT_FIELD_STAFF_CHIEF_LABEL" description="COM_SAMUREPORT_FIELD_STAFF_CHIEF_DESC"
 			class="inputbox" size="50" 
