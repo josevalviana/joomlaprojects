@@ -4,13 +4,13 @@
 		<field name="id"  type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
 			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
 			readonly="true"  />
-		<field name="reportid" class="readonly" label="Report ID"
-		    description="Report ID" size="10" default="0"
+		<field name="reportid" class="readonly" label="COM_SAMUREPORT_REPORT_FIELD_REPORTID_LABEL"
+		    description="COM_SAMUREPORT_REPORT_FIELD_REPORTID_DESC" size="10" default="0"
 		    readonly="true" />
-		<field name="vehicleid" type="vehicle" class="inputbox" label="Vehicle ID"
-		    description="Vehicle ID" required="true" />		    
-		<field name="quantity" type="text" class="inputbox" label="Quantity"
-			description="Quantity of vehicles" required="true" default="0"
+		<field name="vehicleid" type="vehicle" class="inputbox" label="COM_SAMUREPORT_REPORT_FIELD_VEHICLEID_LABEL"
+		    description="COM_SAMUREPORT_REPORT_FIELD_VEHICLEID_DESC_" required="true" />		    
+		<field name="quantity" type="text" class="inputbox" label="COM_SAMUREPORT_REPORT_FIELD_QUANTITY_LABEL"
+			description="COM_SAMUREPORT_REPORT_FIELD_QUANTITY_DESC" required="true" default="0"
 		/>
 	</fieldset>
 </form>

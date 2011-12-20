@@ -4,13 +4,13 @@
 		<field name="id"  type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
 			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
 			readonly="true"  />
-		<field name="reportid" class="readonly" label="Report ID"
-		    description="Report ID" size="10" default="0"
+		<field name="reportid" class="readonly" label="COM_SAMUREPORT_REPORT_FIELD_REPORTID_LABEL"
+		    description="COM_SAMUREPORT_REPORT_FIELD_REPORTID_DESC" size="10" default="0"
 		    readonly="true" />
-		<field name="profid" type="professional" class="inputbox" label="Professional ID"
-		    description="Professional ID" required="true" />		    
-		<field name="specid" type="specialty" class="inputbox" label="Specialty"
-			description="Specialty" required="true" default="0"
+		<field name="profid" type="professional" class="inputbox" label="COM_SAMUREPORT_REPORT_FIELD_PROFESSIONALID_LABEL"
+		    description="COM_SAMUREPORT_REPORT_FIELD_PROFESSIONALID_DESC" required="true" />		    
+		<field name="specid" type="specialty" class="inputbox" label="COM_SAMUREPORT_REPORT_FIELD_SPECIALTY_LABEL"
+			description="COM_SAMUREPORT_REPORT_FIELD_SPECIALTY_DESC" required="true" default="0"
 		/>
 	</fieldset>
 </form>

@@ -4,10 +4,10 @@
 		<field name="id"  type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
 			description ="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
 			readonly="true"  />
-		<field name="reportid" class="readonly" label="Report ID"
-		    description="Report ID" size="10" default="0"
+		<field name="reportid" class="readonly" label="COM_SAMUREPORT_REPORT_FIELD_REPORTID_LABEL"
+		    description="COM_SAMUREPORT_REPORT_FIELD_REPORTID_DESC" size="10" default="0"
 		    readonly="true" />
-		<field name="equipmentid" type="equipment" class="inputbox" label="Equipment ID"
-		    description="Equipment ID" required="true" />
+		<field name="equipmentid" type="equipment" class="inputbox" label="COM_SAMUREPORT_REPORT_FIELD_EQUIPMENTID_LABEL"
+		    description="COM_SAMUREPORT_REPORT_FIELD_EQUIPMENTID_DESC" required="true" />
 	</fieldset>
 </form>
