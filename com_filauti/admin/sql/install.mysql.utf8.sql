@@ -10,7 +10,7 @@ CREATE TABLE `#__filauti` (
 	`municipioid` INT NOT NULL DEFAULT '0',
 	`hospfromid` INT NOT NULL DEFAULT '0',
 	`hosptoid` INT NOT NULL DEFAULT '0',
-	`promotoria` INT NOT NULL DEFAULT '0',
+	`promotoria` TINYINT(1) UNSIGNED NOT NULL default '0',
 	`created` datetime NOT NULL default '0000-00-00 00:00:00',
     `created_by` int(10) unsigned NOT NULL default '0',
     PRIMARY KEY (`id`)

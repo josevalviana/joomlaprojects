@@ -52,6 +52,10 @@ class FilaUtiModelPacientes extends JModelList
 		);
 		$query->from('#__filauti AS a');
 		
+		// Join over the users for the author.
+		$query->select('ua.name AS author_name');
+		$query->join('LEFT', '#__users AS ua ON ua.id = a.created_by');
+		
 		$search = $this->getState('filter.search');
 		if (!empty($search)) {
 			if (stripos($search, 'id:') === 0) {
@@ -61,7 +65,7 @@ class FilaUtiModelPacientes extends JModelList
 				$query->where('a.sisreg = '.(int) substr($search, 7));
 			}
 			else {
-				$search = $db->Quote('%'.$db->getEscaped($search, true).'%');
+				$search = $db->Quote('%'.$db->escape($search, true).'%');
 				$query->where('(a.nome LIKE '.$search.')');
 			}			
 		}
