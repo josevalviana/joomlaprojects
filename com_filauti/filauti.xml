@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" version="1.7" method="upgrade">
+  <name>COM_FILAUTI</name>
+  <author>Joseval Viana</author>
+  <creationDate>January 2012</creationDate>
+  <copyright>(C) 2012 Joseval Viana. Alll rights reserved.</copyright>
+  <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
+  <authorEmail>josevalviana@gmail.com</authorEmail>
+  <authorUrl>www.medinfecto.med.br</authorUrl>
+  <version>1.0.1</version>
+  <description>COM_FILAUTI_XML_DESCRIPTION</description>
+  
+  <install>
+  	<sql>
+  		<file driver="mysql" charset="utf8">sql/install.mysql.utf8.sql</file>
+  	</sql>
+  </install>
+  <uninstall>
+  	<sql>
+  		<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
+  	</sql>
+  </uninstall>
+  <media destination="com_filauti" folder="media">
+  	<filename>index.html</filename>
+  	<folder>images</folder>
+  </media>
+  <administration>
+  	<menu img="../media/com_filauti/images/uti-16x16.png">COM_FILAUTI_MENU</menu>
+  	<files folder="admin">
+  		<filename>controller.php</filename>
+  		<filename>index.html</filename>
+  		<filename>filauti.php</filename>
+  		<folder>controllers</folder>
+  		<folder>models</folder>
+  		<folder>sql</folder>
+  		<folder>tables</folder>
+  		<folder>views</folder>
+  	</files>
+  	<languages folder="admin">
+  		<language tag="en-GB">language/en-GB/en-GB.com_filauti.ini</language>
+  		<language tag="en-GB">language/en-GB/en-GB.com_filauti.sys.ini</language>
+  		<language tag="pt-BR">language/pt-BR/pt-BR.com_filauti.ini</language>
+  		<language tag="pt-BR">language/pt-BR/pt-BR.com_filauti.sys.ini</language>
+  	</languages>
+  </administration>
+</extension>
