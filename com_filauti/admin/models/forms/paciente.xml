@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <form>
-	<fieldset>
+	<fieldset name="details" addfieldpath="/administrator/components/com_filauti/models/fields">
 		<field name="id" type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
 			description="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
 			readonly="true" />
@@ -8,5 +8,28 @@
 		<field name="nome" type="text" label="COM_FILAUTI_NOME_LABEL"
 			description="COM_FILAUTI_NOME_DESC" class="inputbox" size="30"
 			required="true" />
+			
+		<field name="sisreg" type="text" label="COM_FILAUTI_SISREG_LABEL"
+		    description="COM_FILAUTI_SISREG_DESC" class="inputbox" size="10"
+		    required="true" />
+		
+		<field name="hospfromid" type="hospital" label="COM_FILAUTI_HOSPFROMID_LABEL"
+		    description="COM_FILAUTI_HOSPFROMID_DESC" class="inputbox"
+		    required="true" />
+		    
+		<field name="hosptoid" type="hospital" label="COM_FILAUTI_HOSPTOID_LABEL"
+		    description="COM_FILAUTI_HOSPTOID_DESC" class="inputbox"
+		    required="true" />
+		    
+		<field name="idade" type="text" label="COM_FILAUTI_IDADE_LABEL"
+			description="COM_FILAUTI_IDADE_DESC" class="inputbox" size="10"
+			required="true" />
+		
+		<field name="idade_c" type="list" class="inputbox" size="1" default="0" required="true">
+			<option value="0">COM_FILAUTI_YEARS</option>
+			<option value="1">COM_FILAUTI_MONTHS</option>
+			<option value="2">COM_FILAUTI_DAYS</option>
+		</field>
+		    
 	</fieldset>
 </form>

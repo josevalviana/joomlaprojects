@@ -2,6 +2,7 @@
 
 defined('_JEXEC') or die;
 
+JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.multiselect');
 
@@ -19,6 +20,17 @@ $saveOrder  = $listOrder == 'a.ordering';
 			
 			<button type="submit" class="btn"><?php echo JText::_('JSEARCH_FILTER_SUBMIT'); ?></button>
 			<button type="button" onclick="document.id('filter_search').value='';this.form.submit();"><?php echo JText::_('JSEARCH_FILTER_CLEAR'); ?></button>
+		</div>
+		<div class="filter-select fltrt">
+			<select name="filter_hospfrom_id" class="inputbox" onchange="this.form.submit()">
+				<option value=""><?php echo JText::_('COM_FILAUTI_SELECT_HOSPFROM'); ?></option>
+				<?php echo JHtml::_('select.options', JHtml::_('hospital.options'), 'value', 'text', $this->state->get('filter.hospfrom_id')); ?>
+			</select>
+			
+			<select name="filter_hospto_id" class="inputbox" onchange="this.form.submit()">
+				<option value=""><?php echo JText::_('COM_FILAUTI_SELECT_HOSPTO'); ?></option>
+				<?php echo JHtml::_('select.options', JHtml::_('hospital.options'), 'value', 'text', $this->state->get('filter.hospto_id')); ?>
+			</select>
 		</div>
 	</fieldset>
 	<div class="clr"> </div>

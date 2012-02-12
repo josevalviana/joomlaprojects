@@ -5,7 +5,7 @@ CREATE TABLE `#__filauti` (
 	`sisreg` INT NOT NULL UNIQUE,
 	`nome` VARCHAR(255) NOT NULL,
 	`idade` INT NOT NULL DEFAULT '0',
-	`idade_c` VARCHAR(1) NOT NULL DEFAULT 'A',
+	`idade_c` TINYINT(3) NOT NULL DEFAULT '0',
 	`cid` VARCHAR(10) NOT NULL DEFAULT '',
 	`municipioid` INT NOT NULL DEFAULT '0',
 	`hospfromid` INT NOT NULL DEFAULT '0',
