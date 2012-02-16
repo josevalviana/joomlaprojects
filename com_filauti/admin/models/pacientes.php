@@ -15,6 +15,7 @@ class FilaUtiModelPacientes extends JModelList
 					'nome', 'a.nome',
 					'hospfromid', 'a.hospfromid', 'hospfrom_name',
 					'hosptoid', 'a.hosptoid', 'hospto_name',
+					'promotoria', 'a.promotoria',
 					'created', 'a.created',
 					'created_by', 'a.created_by',
 			);
@@ -43,6 +44,9 @@ class FilaUtiModelPacientes extends JModelList
 		$hosptoId = $this->getUserStateFromRequest($this->context.'.filter.hospto_id', 'filter_hospto_id');
 		$this->setState('filter.hospto_id', $hosptoId);
 		
+		$promotoria = $this->getUserStateFromRequest($this->context.'.filter.promotoria', 'filter_promotoria');
+		$this->setState('filter.promotoria', $promotoria);
+		
 		parent::populateState('a.nome', 'asc');
 	}
 	
@@ -56,7 +60,7 @@ class FilaUtiModelPacientes extends JModelList
 			$this->getState(
 				'list.select',
 				'a.id, a.sisreg, a.nome, a.created, a.created_by'.
-				', a.hospfromid, a.hosptoid'
+				', a.hospfromid, a.hosptoid, a.promotoria'
 			)
 		);
 		$query->from('#__filauti AS a');
@@ -87,6 +91,11 @@ class FilaUtiModelPacientes extends JModelList
 			JArrayHelper::toInteger($hosptoId);
 			$hosptoId = implode(',', $hosptoId);
 			$query->where('a.hosptoid IN ('.$hosptoId.')');
+		}
+		
+		$promotoria = $this->getState('filter.promotoria');
+		if (is_numeric($promotoria)) {
+			$query->where('a.promotoria = '.(int) $promotoria);
 		}
 		
 		$search = $this->getState('filter.search');

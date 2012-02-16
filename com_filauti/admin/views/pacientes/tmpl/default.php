@@ -31,6 +31,13 @@ $saveOrder  = $listOrder == 'a.ordering';
 				<option value=""><?php echo JText::_('COM_FILAUTI_SELECT_HOSPTO'); ?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('hospital.options'), 'value', 'text', $this->state->get('filter.hospto_id')); ?>
 			</select>
+			
+			<select name="filter_promotoria" class="inputbox" onchange="this.form.submit()">
+			    <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_PROMOTORIA'); ?></option>
+				<?php echo JHtml::_('select.options', 
+									array(JHtml::_('select.option', '0', JText::_('JNO')), JHtml::_('select.option', '1', JText::_('JYES')))
+									, 'value', 'text', $this->state->get('filter.promotoria')); ?>
+			</select>
 		</div>
 	</fieldset>
 	<div class="clr"> </div>
@@ -47,9 +54,15 @@ $saveOrder  = $listOrder == 'a.ordering';
 				<th>
 					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_NOME', 'a.nome', $listDirn, $listOrder); ?>
 				</th>
+				<th>
+					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_HOSPTO_NOME', 'a.hospto_name', $listDirn, $listOrder); ?>
+				</th>
+				<th width="5%">
+					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_PROMOTORIA', 'a.promotoria', $listDirn, $listOrder); ?>
+				</th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
-				</th>
+				</th>				
 				<th width="5%">
 					<?php echo JHtml::_('grid.sort', 'JDATE', 'a.created', $listDirn, $listOrder); ?>
 				</th>
@@ -60,7 +73,7 @@ $saveOrder  = $listOrder == 'a.ordering';
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="6">
+				<td colspan="8">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -76,10 +89,16 @@ $saveOrder  = $listOrder == 'a.ordering';
 			</td>
 			<td>
 				<?php echo $this->escape($item->nome); ?>
+			</td>			
+			<td>
+				<?php echo $this->escape($item->hospto_name); ?>
+			</td>
+			<td class="center">			
+			    <?php echo JText::_($item->promotoria ? 'JYES' : 'JNO'); ?>
 			</td>
 			<td class="center">
 				<?php echo $this->escape($item->author_name); ?>
-			</td>
+			</td>			
 			<td class="center nowrap">
 				<?php echo JHtml::_('date', $item->created, JText::_('DATE_FORMAT_LC4')); ?>
 			</td>
