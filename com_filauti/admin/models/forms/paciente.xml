@@ -12,6 +12,10 @@
 		<field name="sisreg" type="text" label="COM_FILAUTI_SISREG_LABEL"
 		    description="COM_FILAUTI_SISREG_DESC" class="inputbox" size="10"
 		    required="true" />
+		    
+		<field name="munid" type="municipio" label="COM_FILAUTI_MUNICIPIO_LABEL"
+			description="COM_FILAUTI_MUNICIPIO_DESC" class="inputbox" 
+			required="true" />
 		
 		<field name="hospfromid" type="hospital" label="COM_FILAUTI_HOSPFROMID_LABEL"
 		    description="COM_FILAUTI_HOSPFROMID_DESC" class="inputbox"
@@ -36,6 +40,17 @@
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
+		
+		<field name="encerrado" type="list" label="COM_FILAUTI_ENCERRADO_LABEL"
+			   description="COM_FILAUTI_ENCERRADO_DESC" class="inputbox" size="1" default="0" required="true">
+			<option value="0">JNO</option>
+			<option value="1">JYES</option>
+		</field>
+		
+		<field name="encerramento" type="calendar"
+			label="COM_FILAUTI_ENCERRAMENTO_LABEL" description="COM_FILAUTI_ENCERRAMENTO_DESC"
+			class="inputbox" size="22" format="%Y-%m-%d %H:%M:%S"
+			filter="user_utc" />
 		    
 	</fieldset>
 </form>

@@ -15,7 +15,10 @@ class FilaUtiTablePaciente extends JTable
 		$date = JFactory::getDate();
 		$user = JFactory::getUser();
 		
-		if (!$this->id) {
+		if ($this->id) {
+			$this->modified = $date->toMySQL();
+			$this->modified_by = $user->get('id');
+		} else {
 			if (!intval($this->created)) {
 				$this->created = $date->toMySQL();
 			}

@@ -38,6 +38,13 @@ $saveOrder  = $listOrder == 'a.ordering';
 									array(JHtml::_('select.option', '0', JText::_('JNO')), JHtml::_('select.option', '1', JText::_('JYES')))
 									, 'value', 'text', $this->state->get('filter.promotoria')); ?>
 			</select>
+			
+			<select name="filter_encerrado" class="inputbox" onchange="this.form.submit()">
+			    <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_ENCERRADO'); ?></option>
+				<?php echo JHtml::_('select.options', 
+									array(JHtml::_('select.option', '0', JText::_('JNO')), JHtml::_('select.option', '1', JText::_('JYES')))
+									, 'value', 'text', $this->state->get('filter.encerrado')); ?>
+			</select>
 		</div>
 	</fieldset>
 	<div class="clr"> </div>

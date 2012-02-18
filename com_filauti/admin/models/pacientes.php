@@ -16,6 +16,8 @@ class FilaUtiModelPacientes extends JModelList
 					'hospfromid', 'a.hospfromid', 'hospfrom_name',
 					'hosptoid', 'a.hosptoid', 'hospto_name',
 					'promotoria', 'a.promotoria',
+					'encerrado', 'a.encerrado',
+					'encerramento', 'a.encerramento',
 					'created', 'a.created',
 					'created_by', 'a.created_by',
 			);
@@ -47,6 +49,9 @@ class FilaUtiModelPacientes extends JModelList
 		$promotoria = $this->getUserStateFromRequest($this->context.'.filter.promotoria', 'filter_promotoria');
 		$this->setState('filter.promotoria', $promotoria);
 		
+		$encerrado = $this->getUserStateFromRequest($this->context.'.filter.encerrado', 'filter_encerrado');
+		$this->setState('filter.encerrado', $encerrado);
+		
 		parent::populateState('a.nome', 'asc');
 	}
 	
@@ -60,7 +65,8 @@ class FilaUtiModelPacientes extends JModelList
 			$this->getState(
 				'list.select',
 				'a.id, a.sisreg, a.nome, a.created, a.created_by'.
-				', a.hospfromid, a.hosptoid, a.promotoria'
+				', a.hospfromid, a.hosptoid, a.promotoria, a.encerrado'.
+				', a.encerramento'
 			)
 		);
 		$query->from('#__filauti AS a');
@@ -96,6 +102,11 @@ class FilaUtiModelPacientes extends JModelList
 		$promotoria = $this->getState('filter.promotoria');
 		if (is_numeric($promotoria)) {
 			$query->where('a.promotoria = '.(int) $promotoria);
+		}
+		
+		$encerrado = $this->getState('filter.encerrado');
+		if (is_numeric($encerrado)) {
+			$query->where('a.encerrado = '.(int) $encerrado);
 		}
 		
 		$search = $this->getState('filter.search');
