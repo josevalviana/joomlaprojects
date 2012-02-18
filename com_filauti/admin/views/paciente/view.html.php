@@ -33,7 +33,7 @@ class FilaUtiViewPaciente extends JView
 		$userId = $user->get('id');
 		$isNew = ($this->item->id == 0);
 		//$canDo = FilaUtiHelper::getActions();
-		JToolBarHelper::title(JText::_('COM_FILAUTI_PAGE_'.($isNew ? 'ADD_PACIENTE' : 'EDIT_PACIENTE')), 'paciente-add.png');
+		JToolBarHelper::title(JText::_('COM_FILAUTI_PAGE_'.($isNew ? 'ADD_PACIENTE' : 'EDIT_PACIENTE')), 'timesand.png');
 		
 		if ($isNew) {
 			JToolBarHelper::apply('paciente.apply');

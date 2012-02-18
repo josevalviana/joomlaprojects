@@ -11,6 +11,11 @@ class FilautiController extends JController
 	
 	public function display($cachable = false, $urlparams = false)
 	{
+		require_once JPATH_COMPONENT.'/helpers/filauti.php';
+		
+		// Load the submenu.
+		FilaUtiHelper::addSubmenu(JRequest::getCmd('view', 'pacientes'));
+		
 		$view		= JRequest::getCmd('view', 'pacientes');
 		$layout     = JRequest::getCmd('layout', 'pacientes');
 		$id         = JRequest::getInt('id');

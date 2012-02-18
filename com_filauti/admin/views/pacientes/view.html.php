@@ -32,7 +32,7 @@ class FilaUtiViewPacientes extends JView
 	protected function addToolbar()
 	{
 		$user = JFactory::getUser();
-		JToolBarHelper::title(JText::_('COM_FILAUTI_PACIENTES_TITLE'), 'paciente.png');
+		JToolBarHelper::title(JText::_('COM_FILAUTI_PACIENTES_TITLE'), 'timesand.png');
 		
 		JToolBarHelper::addNew('paciente.add');
 		JToolBarHelper::editList('paciente.edit');		

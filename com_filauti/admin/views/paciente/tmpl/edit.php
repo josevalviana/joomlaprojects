@@ -41,6 +41,9 @@ JHtml::_('behavior.keepalive');
 				<li><?php echo $this->form->getLabel('hosptoid'); ?>
 				<?php echo $this->form->getInput('hosptoid'); ?></li>
 				
+				<li><?php echo $this->form->getLabel('cid'); ?>
+				<?php echo $this->form->getInput('cid'); ?></li>
+				
 				<li><?php echo $this->form->getLabel('promotoria'); ?>
 				<?php echo $this->form->getInput('promotoria'); ?></li>
 								
@@ -63,6 +66,12 @@ JHtml::_('behavior.keepalive');
 				
 					<li><?php echo $this->form->getLabel('encerramento'); ?>
 					<?php echo $this->form->getInput('encerramento'); ?></li>
+					
+					<li><?php echo $this->form->getLabel('obito'); ?>
+					<?php echo $this->form->getInput('obito'); ?></li>
+					
+					<li><?php echo $this->form->getLabel('dtobito'); ?>
+					<?php echo $this->form->getInput('dtobito'); ?></li>
 					
 				</ul>
 			</fieldset>

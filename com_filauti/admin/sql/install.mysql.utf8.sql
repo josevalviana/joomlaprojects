@@ -32,6 +32,8 @@ CREATE TABLE `#__filauti` (
 	`promotoria` TINYINT(1) UNSIGNED NOT NULL default '0',
 	`encerrado` TINYINT(1) UNSIGNED NOT NULL default '0',
 	`encerramento` datetime NOT NULL default '0000-00-00 00:00:00',
+	`obito` TINYINT(1) UNSIGNED NOT NULL default '0',
+	`dtobito` datetime NOT NULL default '0000-00-00 00:00:00',
 	`created` datetime NOT NULL default '0000-00-00 00:00:00',
     `created_by` int(10) unsigned NOT NULL default '0',
     `modified` datetime NOT NULL default '0000-00-00 00:00:00',
