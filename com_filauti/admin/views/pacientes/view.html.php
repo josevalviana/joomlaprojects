@@ -31,16 +31,27 @@ class FilaUtiViewPacientes extends JView
 	
 	protected function addToolbar()
 	{
+		$canDo = FilaUtiHelper::getActions();
 		$user = JFactory::getUser();
 		JToolBarHelper::title(JText::_('COM_FILAUTI_PACIENTES_TITLE'), 'timesand.png');
 		
-		JToolBarHelper::addNew('paciente.add');
-		JToolBarHelper::editList('paciente.edit');		
-		JToolBarHelper::deleteList('', 'pacientes.delete', 'JTOOLBAR_EMPTY_TRASH');
-		JToolBarHelper::divider();
+		if ($canDo->get('core.create')) {
+			JToolBarHelper::addNew('paciente.add');
+		}
 		
-		JToolBarHelper::preferences('com_filauti');
-		JToolBarHelper::divider();
+		if (($canDo->get('core.edit')) || ($canDo->get('core.edit.own'))) {
+			JToolBarHelper::editList('paciente.edit');
+		}
+		
+		if ($canDo->get('core.delete')) {
+			JToolBarHelper::deleteList('', 'pacientes.delete', 'JTOOLBAR_EMPTY_TRASH');
+			JToolBarHelper::divider();
+		}
+		
+		if ($canDo->get('core.admin')) {
+			JToolBarHelper::preferences('com_filauti');
+			JToolBarHelper::divider();
+		}
 		
 		JToolBarHelper::help('JHELP_FILAUTI_PACIENTE_MANAGER');		
 	}

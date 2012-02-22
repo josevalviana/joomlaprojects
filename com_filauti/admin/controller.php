@@ -20,6 +20,15 @@ class FilautiController extends JController
 		$layout     = JRequest::getCmd('layout', 'pacientes');
 		$id         = JRequest::getInt('id');
 		
+		if ($view == 'paciente' && $layout == 'edit' && !$this->checkEditId('com_filauti.edit.paciente', $id)) {
+			// Somehow the person just went to the form - we don't alow that.
+			$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_UNHELD_ID', $id));
+			$this->setMessage($this->getError(), 'error');
+			$this->setRedirect(JRoute::_('index.php?option=com_filauti&view=pacientes', false));
+			
+			return false;
+		}
+		
 		parent::display();
 		
 		return $this;

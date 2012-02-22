@@ -27,6 +27,8 @@
   <administration>
   	<menu img="../media/com_filauti/images/timesand-16x16.png">COM_FILAUTI_MENU</menu>
   	<files folder="admin">
+  	    <filename>access.xml</filename>
+  	    <filename>config.xml</filename>
   		<filename>controller.php</filename>
   		<filename>index.html</filename>
   		<filename>filauti.php</filename>
