@@ -40,8 +40,8 @@ CREATE TABLE `#__filauti` (
     `modified` datetime NOT NULL default '0000-00-00 00:00:00',
     `modified_by` int(10) unsigned NOT NULL default '0',
     PRIMARY KEY (`id`),
-    KEY (`idx_nome`) (`nome`),
-    KEY (`idx_cartao`) (`cartao`),
+    KEY `idx_nome` (`nome`),
+    KEY `idx_cartao` (`cartao`),
     FOREIGN KEY (`munid`) REFERENCES `#__municipios`(`id`) ON DELETE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
 
