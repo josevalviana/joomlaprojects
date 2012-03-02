@@ -58,7 +58,7 @@ JHtml::_('behavior.keepalive');
 	</div>
 	
 	<div class="width-60 fltrt">
-		<?php echo JHtml::_('sliders.start','content-sliders-'.$this->item->id, array('useCookie' => 1)); ?>
+		<?php echo JHtml::_('sliders.start','filauti-sliders-'.$this->item->id, array('useCookie' => 1)); ?>
 		
 			<?php echo JHtml::_('sliders.panel', JText::_('COM_FILAUTI_FIELDSET_ENCERRAMENTO'), 'encerramento-details'); ?>
 			<fieldset class="panelform">
@@ -78,6 +78,13 @@ JHtml::_('behavior.keepalive');
 					
 				</ul>
 			</fieldset>
+            
+                        <?php if (!empty($this->evolucoes)) : ?>
+                            <?php echo JHtml::_('sliders.panel', JText::_('COM_FILAUTI_PACIENTE_EVOLUCOES'), 'evolucoes-options'); ?>
+                            <fieldset>
+                                <?php echo $this->loadTemplate('evolucoes'); ?>
+                            </fieldset>
+                        <?php endif; ?>
 			<?php echo JHtml::_('sliders.end'); ?>
 	</div>
 	

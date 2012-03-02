@@ -8,15 +8,17 @@ class FilaUtiViewPaciente extends JView
 {
 	protected $form;
 	protected $item;
+        protected $evolucoes;
 	protected $state;
 	
 	public function display($tpl = null)
 	{
 		// Initialiase variables.
 		$this->form		= $this->get('Form');
-		$this->item 	= $this->get('Item');
-		$this->state 	= $this->get('State');
-		$this->canDo 	= FilaUtiHelper::getActions();
+		$this->item             = $this->get('Item');
+                $this->evolucoes        = $this->get('Evolucoes');
+		$this->state            = $this->get('State');
+		$this->canDo            = FilaUtiHelper::getActions();
 		
 		// Check for errors.
 		if (count($errors = $this->get('Errors'))) {
