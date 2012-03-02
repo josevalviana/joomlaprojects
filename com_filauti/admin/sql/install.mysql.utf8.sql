@@ -22,6 +22,7 @@ CREATE TABLE `#__municipios` (
 CREATE TABLE `#__filauti` (
 	`id` INT NOT NULL AUTO_INCREMENT,
 	`sisreg` INT NOT NULL UNIQUE,
+	`cartao` VARCHAR(255) NOT NULL,
 	`nome` VARCHAR(255) NOT NULL,
 	`idade` INT NOT NULL DEFAULT '0',
 	`idade_c` TINYINT(3) NOT NULL DEFAULT '0',
@@ -39,6 +40,8 @@ CREATE TABLE `#__filauti` (
     `modified` datetime NOT NULL default '0000-00-00 00:00:00',
     `modified_by` int(10) unsigned NOT NULL default '0',
     PRIMARY KEY (`id`),
+    KEY (`idx_nome`) (`nome`),
+    KEY (`idx_cartao`) (`cartao`),
     FOREIGN KEY (`munid`) REFERENCES `#__municipios`(`id`) ON DELETE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
 

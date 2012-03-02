@@ -13,6 +13,10 @@
 		    description="COM_FILAUTI_SISREG_DESC" class="inputbox" size="10"
 		    required="true" />
 		    
+		<field name="cartao" type="text" label="COM_FILAUTI_CARTAO_LABEL"
+			description="COM_FILAUTI_CARTAO_DESC" class="inputbox" size="15"
+			required="false" />
+		    
 		<field name="munid" type="municipio" label="COM_FILAUTI_MUNICIPIO_LABEL"
 			description="COM_FILAUTI_MUNICIPIO_DESC" class="inputbox" 
 			required="true" />

@@ -24,9 +24,12 @@ JHtml::_('behavior.keepalive');
 			
 				<li><?php echo $this->form->getLabel('sisreg'); ?>
 				<?php echo $this->form->getInput('sisreg'); ?></li>
-			
+							
 				<li><?php echo $this->form->getLabel('nome'); ?>
 				<?php echo $this->form->getInput('nome'); ?></li>
+				
+				<li><?php echo $this->form->getLabel('cartao'); ?>
+				<?php echo $this->form->getInput('cartao'); ?></li>
 				
 				<li><?php echo $this->form->getLabel('idade'); ?>
 				<?php echo $this->form->getInput('idade'); ?>&nbsp;
