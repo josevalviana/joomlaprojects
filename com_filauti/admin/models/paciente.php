@@ -15,7 +15,7 @@ class FilaUtiModelPaciente extends JModelAdmin
             
             $query->select('b.id, b.prioridade, b.created');
             $query->from('#__filauti AS a');
-            $query->join('LEFT', '#__filauti_evolucoes AS b ON b.filaid = a.id AND (b.filaid = '.(int) $this->getState('paciente.id').')');
+            $query->join('RIGHT', '#__filauti_evolucoes AS b ON b.filaid = a.id AND (b.filaid = '.(int) $this->getState('paciente.id').')');
             
             $query->select('u.name AS author_name');
             $query->join('LEFT', '#__users AS u ON u.id = b.created_by');

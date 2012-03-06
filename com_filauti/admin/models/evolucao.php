@@ -22,11 +22,11 @@ class FilaUtiModelEvolucao extends JModelAdmin
             $pacienteId = $item->filaid;
             $evolucao = $item->evolucao;
         } else {
-            $pacienteId = JArrayHelper::getValue($data, 'paciente_id');
+            $pacienteId = JArrayHelper::getValue($data, 'filaid');
             $evolucao = JArrayHelper::getValue($data, 'evolucao');
         }
         
-        $this->setState('item.paciente_id', $pacienteId);
+        $this->setState('item.filaid', $pacienteId);
         $this->setState('item.evolucao', $evolucao);
         
         $form = $this->loadForm('com_filauti.evolucao', 'evolucao', array('control' => 'jform', 'load_data' => $loadData));
@@ -46,6 +46,11 @@ class FilaUtiModelEvolucao extends JModelAdmin
         
         if (empty($data)) {
             $data = $this->getItem();
+            
+            if ($this->getState('evolucao.id') == 0) {
+                $app = JFactory::getApplication();
+                $data->set('filaid', JRequest::getInt('filaid', $app->getUserState('com_filauti.add.evolucao.filaid')));
+            }
         }
         
         return $data;

@@ -5,6 +5,7 @@ defined('_JEXEC') or die;
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');
+JHtml::_('behavior.modal');
 ?>
 
 <script type="text/javascript">
@@ -79,7 +80,7 @@ JHtml::_('behavior.keepalive');
 				</ul>
 			</fieldset>
             
-                        <?php if (!empty($this->evolucoes)) : ?>
+                        <?php if ($this->item->id != 0) : ?>
                             <?php echo JHtml::_('sliders.panel', JText::_('COM_FILAUTI_PACIENTE_EVOLUCOES'), 'evolucoes-options'); ?>
                             <fieldset>
                                 <?php echo $this->loadTemplate('evolucoes'); ?>
