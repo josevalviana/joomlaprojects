@@ -50,6 +50,7 @@ CREATE TABLE `#__filauti_evolucoes` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `filaid` INT NOT NULL default '0',
     `prioridade` INT NOT NULL default '0',
+    `misc` mediumtext,
     `created` datetime NOT NULL default '0000-00-00 00:00:00',
     `created_by` int(10) unsigned NOT NULL default '0', 
     PRIMARY KEY (`id`),

@@ -7,7 +7,7 @@
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
   <authorEmail>josevalviana@gmail.com</authorEmail>
   <authorUrl>www.medinfecto.med.br</authorUrl>
-  <version>1.0.1</version>
+  <version>1.0.3</version>
   <description>COM_FILAUTI_XML_DESCRIPTION</description>
   
   <install>
@@ -20,6 +20,11 @@
   		<file driver="mysql" charset="utf8">sql/uninstall.mysql.utf8.sql</file>
   	</sql>
   </uninstall>
+  <update>
+      <schemas>
+          <schemapath type="mysql">sql/updates/mysql</schemapath>
+      </schemas>
+  </update>
   <media destination="com_filauti" folder="media">
   	<filename>index.html</filename>
   	<folder>images</folder>

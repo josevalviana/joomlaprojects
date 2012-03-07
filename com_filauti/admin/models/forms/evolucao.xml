@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form>
+<form 
+    addrulepath="/administrator/components/com_filauti/models/rules">
     <fieldset name="details" addfieldpath="/administrator/components/com_filauti/models/fields">
         
         <field name="id" type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
@@ -15,7 +16,65 @@
             <option value="4">COM_FILAUTI_PRIORITY_4</option>
         </field>
         
-        <field name="filaid" class="readonly" label="COM_FILAUTI_EVOLUCAO_FIELD_FILAID_LABEL"
-            description="COM_FILAUTI_EVOLUCAO_FIELD_FILAID_DESC" required="true" default="0" />
+        <field name="misc" type="editor"
+                label="COM_FILAUTI_FIELD_INFORMATION_MISC_LABEL"
+                description="COM_FILAUTI_FIELD_INFORMATION_MISC_DESC"
+                class="inputbox"
+                filter="JComponentHelper::filterText"
+                buttons="true"
+                hide="readmore,pagebreak"
+        />
+        
+        <field name="filaid" type="text" class="readonly" 
+            label="COM_FILAUTI_EVOLUCAO_FIELD_FILAID_LABEL"
+            description="COM_FILAUTI_EVOLUCAO_FIELD_FILAID_DESC" 
+            required="true" size="10" default="0" readonly="true" 
+        />
+        
+        <field name="ventilacao" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_VENTILACAO_LABEL" description="COM_FILAUTI_FIELD_VENTILACAO_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="vasoativa" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_VASOATIVA_LABEL" description="COM_FILAUTI_FIELD_VASOATIVA_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="hemodialise" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_HEMODIALISE_LABEL" description="COM_FILAUTI_FIELD_HEMODIALISE_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="hepatica" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_HEPATICA_LABEL" description="COM_FILAUTI_FIELD_HEPATICA_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="gcs" type="text" class="inputbox validate-gcs" size="10" default="15" validate="gcs" required="true"
+            label="COM_FILAUTI_FIELD_GCS_LABEL" description="COM_FILAUTI_FIELD_GCS_DESC" />
+        
+        <field name="doador" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_DOADOR_LABEL" description="COM_FILAUTI_FIELD_DOADOR_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="isolamento" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_ISOLAMENTO_LABEL" description="COM_FILAUTI_FIELD_ISOLAMENTO_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
     </fieldset>
 </form>
