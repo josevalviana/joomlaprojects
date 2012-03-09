@@ -31,6 +31,27 @@
             required="true" size="10" default="0" readonly="true" 
         />
         
+        <field name="arritmia" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_ARRITMIA_LABEL" description="COM_FILAUTI_FIELD_ARRITMIA_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="iam" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_IAM_LABEL" description="COM_FILAUTI_FIELD_IAM_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="icc" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_ICC_LABEL" description="COM_FILAUTI_FIELD_ICC_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
         <field name="ventilacao" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_VENTILACAO_LABEL" description="COM_FILAUTI_FIELD_VENTILACAO_DESC">
                 <option value="0">COM_FILAUTI_NOT_INFORMED</option>
@@ -61,6 +82,34 @@
         
         <field name="gcs" type="text" class="inputbox validate-gcs" size="10" default="15" validate="gcs" required="true"
             label="COM_FILAUTI_FIELD_GCS_LABEL" description="COM_FILAUTI_FIELD_GCS_DESC" />
+            
+        <field name="tcc" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_TCC_LABEL" description="COM_FILAUTI_FIELD_TCC_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="avc" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_AVC_LABEL" description="COM_FILAUTI_FIELD_AVC_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="convulsao" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_CONVULSAO_LABEL" description="COM_FILAUTI_FIELD_CONVULSAO_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="mencef" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_MENCEF_LABEL" description="COM_FILAUTI_FIELD_MENCEF_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
         
         <field name="doador" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_DOADOR_LABEL" description="COM_FILAUTI_FIELD_DOADOR_DESC">
@@ -69,8 +118,43 @@
                 <option value="2">JNO</option>
         </field>
         
+        <field name="posop" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_POSOP_LABEL" description="COM_FILAUTI_FIELD_POSOP_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="monitor" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_MONITOR_LABEL" description="COM_FILAUTI_FIELD_MONITOR_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="sepse" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_SEPSE_LABEL" description="COM_FILAUTI_FIELD_SEPSE_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
         <field name="isolamento" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_ISOLAMENTO_LABEL" description="COM_FILAUTI_FIELD_ISOLAMENTO_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="acidose" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_ACIDOSE_LABEL" description="COM_FILAUTI_FIELD_ACIDOSE_DESC">
+                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                <option value="1">JYES</option>
+                <option value="2">JNO</option>
+        </field>
+        
+        <field name="pcr" type="list" class="inputbox" size="1" default="0" required="true"
+            label="COM_FILAUTI_FIELD_PCR_LABEL" description="COM_FILAUTI_FIELD_PCR_DESC">
                 <option value="0">COM_FILAUTI_NOT_INFORMED</option>
                 <option value="1">JYES</option>
                 <option value="2">JNO</option>

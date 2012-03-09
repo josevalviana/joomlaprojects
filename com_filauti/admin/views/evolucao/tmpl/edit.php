@@ -54,8 +54,29 @@ JFactory::getDocument()->addScriptDeclaration($script);
                     <li><?php echo $this->form->getLabel('gcs'); ?>
                     <?php echo $this->form->getInput('gcs'); ?></li>
                     
+                    <li><?php echo $this->form->getLabel('tcc'); ?>
+                    <?php echo $this->form->getInput('tcc'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('avc'); ?>
+                    <?php echo $this->form->getInput('avc'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('convulsao'); ?>
+                    <?php echo $this->form->getInput('convulsao'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('mencef'); ?>
+                    <?php echo $this->form->getInput('mencef'); ?></li>
+                    
                     <li><?php echo $this->form->getLabel('ventilacao'); ?>
                     <?php echo $this->form->getInput('ventilacao'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('arritmia'); ?>
+                    <?php echo $this->form->getInput('arritmia'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('iam'); ?>
+                    <?php echo $this->form->getInput('iam'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('icc'); ?>
+                    <?php echo $this->form->getInput('icc'); ?></li>
                     
                     <li><?php echo $this->form->getLabel('vasoativa'); ?>
                     <?php echo $this->form->getInput('vasoativa'); ?></li>
@@ -66,8 +87,23 @@ JFactory::getDocument()->addScriptDeclaration($script);
                     <li><?php echo $this->form->getLabel('hepatica'); ?>
                     <?php echo $this->form->getInput('hepatica'); ?></li>
                     
+                    <li><?php echo $this->form->getLabel('acidose'); ?>
+                    <?php echo $this->form->getInput('acidose'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('sepse'); ?>
+                    <?php echo $this->form->getInput('sepse'); ?></li>
+                    
                     <li><?php echo $this->form->getLabel('isolamento'); ?>
                     <?php echo $this->form->getInput('isolamento'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('posop'); ?>
+                    <?php echo $this->form->getInput('posop'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('monitor'); ?>
+                    <?php echo $this->form->getInput('monitor'); ?></li>
+                    
+                    <li><?php echo $this->form->getLabel('pcr'); ?>
+                    <?php echo $this->form->getInput('pcr'); ?></li>
                     
                     <li><?php echo $this->form->getLabel('doador'); ?>
                     <?php echo $this->form->getInput('doador'); ?></li>
