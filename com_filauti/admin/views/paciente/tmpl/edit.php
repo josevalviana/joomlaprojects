@@ -34,13 +34,19 @@ JHtml::_('behavior.modal');
 							
 				<li><?php echo $this->form->getLabel('nome'); ?>
 				<?php echo $this->form->getInput('nome'); ?></li>
-				
-				<li><?php echo $this->form->getLabel('cartao'); ?>
-				<?php echo $this->form->getInput('cartao'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('sexo'); ?>
+				<?php echo $this->form->getInput('sexo'); ?></li>
 				
 				<li><?php echo $this->form->getLabel('idade'); ?>
 				<?php echo $this->form->getInput('idade'); ?>&nbsp;
 				<?php echo $this->form->getInput('idade_c'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('solicitante'); ?>
+                                <?php echo $this->form->getInput('solicitante'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('crm'); ?>
+                                <?php echo $this->form->getInput('crm'); ?></li>
 				
 				<li><?php echo $this->form->getLabel('munid'); ?>
 				<?php echo $this->form->getInput('munid'); ?></li>
@@ -73,15 +79,12 @@ JHtml::_('behavior.modal');
 				
 					<li><?php echo $this->form->getLabel('encerrado'); ?>
 					<?php echo $this->form->getInput('encerrado'); ?></li>
+                                        
+                                        <li><?php echo $this->form->getLabel('motencerra'); ?>
+					<?php echo $this->form->getInput('motencerra'); ?></li>
 				
 					<li><?php echo $this->form->getLabel('encerramento'); ?>
 					<?php echo $this->form->getInput('encerramento'); ?></li>
-					
-					<li><?php echo $this->form->getLabel('obito'); ?>
-					<?php echo $this->form->getInput('obito'); ?></li>
-					
-					<li><?php echo $this->form->getLabel('dtobito'); ?>
-					<?php echo $this->form->getInput('dtobito'); ?></li>
 					
 				</ul>
 			</fieldset>

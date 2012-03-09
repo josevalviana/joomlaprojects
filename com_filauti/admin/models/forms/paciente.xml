@@ -8,14 +8,18 @@
 		<field name="nome" type="text" label="COM_FILAUTI_NOME_LABEL"
 			description="COM_FILAUTI_NOME_DESC" class="inputbox" size="30"
 			required="true" />
+                        
+                <field name="solicitante" type="text" label="COM_FILAUTI_SOLICITANTE_LABEL"
+                        description="COM_FILAUTI_SOLICITANTE_DESC" class="inputbox" size="30"
+                        required="true" />
+                        
+                <field name="crm" type="text" label="COM_FILAUTI_CRM_LABEL"
+                        description="COM_FILAUTI_CRM_DESC" class="inputbox" size="30"
+                        required="true" />
 			
 		<field name="sisreg" type="text" label="COM_FILAUTI_SISREG_LABEL"
 		    description="COM_FILAUTI_SISREG_DESC" class="inputbox" size="10"
 		    required="true" />
-		    
-		<field name="cartao" type="text" label="COM_FILAUTI_CARTAO_LABEL"
-			description="COM_FILAUTI_CARTAO_DESC" class="inputbox" size="15"
-			required="false" />
 		    
 		<field name="munid" type="municipio" label="COM_FILAUTI_MUNICIPIO_LABEL"
 			description="COM_FILAUTI_MUNICIPIO_DESC" class="inputbox" 
@@ -38,9 +42,16 @@
 			<option value="1">COM_FILAUTI_MONTHS</option>
 			<option value="2">COM_FILAUTI_DAYS</option>
 		</field>
+                
+                <field name="sexo" type="list" label="COM_FILAUTI_SEXO_LABEL"
+                       description="COM_FILAUTI_SEXO_DESC" class="inputbox" size="1" default="1" 
+                       required="true">
+                    <option value="1">COM_FILAUTI_GENDER_M</option>
+                    <option value="2">COM_FILAUTI_GENDER_F</option>
+                </field>
 		
 		<field name="cid" type="text" class="inputbox"
-			description="COM_FILAUTI_CID_DESC" label="COM_FILAUTI_CID_LABEL" size="10"
+			description="COM_FILAUTI_CID_DESC" label="COM_FILAUTI_CID_LABEL" size="30"
 			required="true" />
 		
 		<field name="promotoria" type="list" label="COM_FILAUTI_PROMOTORIA_LABEL"
@@ -54,21 +65,18 @@
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
+                
+                <field name="motencerra" type="list" label="COM_FILAUTI_MOTENCERRA_LABEL"
+                       description="COM_FILAUTI_MOTENCERRA_DESC" class="inputbox" size="1" default="0" required="true">
+                       <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+                       <option value="1">COM_FILAUTI_BETTER</option>
+                       <option value="2">COM_FILAUTI_TRANSFERED</option>
+                       <option value="3">COM_FILAUTI_DECEASED</option>
+                       <option value="4">COM_FILAUTI_GAVEUP</option>
+                </field>
 		
 		<field name="encerramento" type="calendar"
 			label="COM_FILAUTI_ENCERRAMENTO_LABEL" description="COM_FILAUTI_ENCERRAMENTO_DESC"
-			class="inputbox" size="22" format="%Y-%m-%d %H:%M:%S"
-			filter="user_utc" />
-			
-		<field name="obito" type="list" label="COM_FILAUTI_OBITO_LABEL"
-			   description="COM_FILAUTI_OBITO_DESC" class="inputbox" size="1" default="0" required="true">
-			<option value="0">JNO</option>
-			<option value="1">JYES</option>
-			<option value="9">COM_FILAUTI_IGNORED</option>
-		</field>
-		
-		<field name="dtobito" type="calendar"
-			label="COM_FILAUTI_DTOBITO_LABEL" description="COM_FILAUTI_DTOBITO_DESC"
 			class="inputbox" size="22" format="%Y-%m-%d %H:%M:%S"
 			filter="user_utc" />
 		    

@@ -12,7 +12,6 @@ class FilaUtiModelPacientes extends JModelList
 			$config['filter_fields'] = array (
 					'id', 'a.id',
 					'sisreg', 'a.sisreg',
-					'cartao', 'a.cartao',
 					'nome', 'a.nome',
 					'hospfromid', 'a.hospfromid', 'hospfrom_name',
 					'hosptoid', 'a.hosptoid', 'hospto_name',
@@ -65,7 +64,7 @@ class FilaUtiModelPacientes extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.sisreg, a.cartao, a.nome, a.created, a.created_by'.
+				'a.id, a.sisreg, a.nome, a.created, a.created_by'.
 				', a.hospfromid, a.hosptoid, a.promotoria, a.encerrado'.
 				', a.encerramento'
 			)
@@ -117,9 +116,6 @@ class FilaUtiModelPacientes extends JModelList
 			}
 			else if (stripos($search, 'sisreg:') === 0) {
 				$query->where('a.sisreg = '.(int) substr($search, 7));
-			}
-			else if (stripos($search, 'cns:') === 0) {
-				$query->where('a.cartao = '.substr($search, 4));
 			}
 			else {
 				$search = $db->Quote('%'.$db->escape($search, true).'%');
