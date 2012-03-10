@@ -59,6 +59,15 @@
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
+                
+                <field name="prioridade" type="list" class="inputbox" size="1" default="0" readonly="true"
+                       label="COM_FILAUTI_FIELD_PRIORIDADE_LABEL" description="COM_FILAUTI_FIELD_PRIORIDADE_DESC">
+                        <option value="0">COM_FILAUTI_NO_PRIORITY</option>
+                        <option value="1">COM_FILAUTI_PRIORITY_1</option>
+                        <option value="2">COM_FILAUTI_PRIORITY_2</option>
+                        <option value="3">COM_FILAUTI_PRIORITY_3</option>
+                        <option value="4">COM_FILAUTI_PRIORITY_4</option>
+                </field>
 		
 		<field name="encerrado" type="list" label="COM_FILAUTI_ENCERRADO_LABEL"
 			   description="COM_FILAUTI_ENCERRADO_DESC" class="inputbox" size="1" default="0" required="true">

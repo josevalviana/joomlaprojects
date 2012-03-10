@@ -6,13 +6,13 @@ defined('_JEXEC') or die;
     <thead>
         <tr>
             <th class="left">
-                Created
+                <?php echo JText::_('JDATE'); ?>
             </th>
             <th class="center">
-                Priority
+                <?php echo JText::_('COM_FILAUTI_HEADING_PRIORIDADE'); ?>
             </th>
             <th class="right">
-                Author Name
+                <?php echo JText::_('JGRID_HEADING_CREATED_BY'); ?>
             </th>
         </tr>
     </thead>

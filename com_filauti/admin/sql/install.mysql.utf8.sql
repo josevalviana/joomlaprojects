@@ -34,6 +34,7 @@ CREATE TABLE `#__filauti` (
 	`hospfromid` INT NOT NULL DEFAULT '0',
 	`hosptoid` INT NOT NULL DEFAULT '0',
 	`promotoria` TINYINT(1) UNSIGNED NOT NULL default '0',
+        `prioridade` TINYINT(1) UNSIGNED NOT NULL default '0',
 	`encerrado` TINYINT(1) UNSIGNED NOT NULL default '0',
         `motencerra` TINYINT(1) UNSIGNED NOT NULL default '0',
 	`encerramento` datetime NOT NULL default '0000-00-00 00:00:00',

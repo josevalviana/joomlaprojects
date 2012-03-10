@@ -16,6 +16,7 @@ class FilaUtiModelPacientes extends JModelList
 					'hospfromid', 'a.hospfromid', 'hospfrom_name',
 					'hosptoid', 'a.hosptoid', 'hospto_name',
 					'promotoria', 'a.promotoria',
+                                        'prioridade', 'a.prioridade',
 					'encerrado', 'a.encerrado',
 					'encerramento', 'a.encerramento',
 					'created', 'a.created',
@@ -51,6 +52,9 @@ class FilaUtiModelPacientes extends JModelList
 		
 		$encerrado = $this->getUserStateFromRequest($this->context.'.filter.encerrado', 'filter_encerrado');
 		$this->setState('filter.encerrado', $encerrado);
+                
+                $prioridade = $this->getUserStateFromRequest($this->context.'.filter.prioridade', 'filter_prioridade');
+                $this->setState('filter.prioridade', $prioridade);
 		
 		parent::populateState('a.nome', 'asc');
 	}
@@ -66,7 +70,7 @@ class FilaUtiModelPacientes extends JModelList
 				'list.select',
 				'a.id, a.sisreg, a.nome, a.created, a.created_by'.
 				', a.hospfromid, a.hosptoid, a.promotoria, a.encerrado'.
-				', a.encerramento'
+				', a.prioridade, a.encerramento'
 			)
 		);
 		$query->from('#__filauti AS a');
@@ -108,6 +112,11 @@ class FilaUtiModelPacientes extends JModelList
 		if (is_numeric($encerrado)) {
 			$query->where('a.encerrado = '.(int) $encerrado);
 		}
+                
+                $prioridade = $this->getState('filter.prioridade');
+                if (is_numeric($prioridade)) {
+                    $query->where('a.prioridade = '.(int) $prioridade);
+                }
 		
 		$search = $this->getState('filter.search');
 		if (!empty($search)) {

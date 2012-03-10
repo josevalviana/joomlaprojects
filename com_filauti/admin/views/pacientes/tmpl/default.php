@@ -38,6 +38,19 @@ $saveOrder  = $listOrder == 'a.ordering';
 									array(JHtml::_('select.option', '0', JText::_('JNO')), JHtml::_('select.option', '1', JText::_('JYES')))
 									, 'value', 'text', $this->state->get('filter.promotoria')); ?>
 			</select>
+                    
+                        <select name="filter_prioridade" class="inputbox" onchange="this.form.submit()">
+                            <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_PRIORIDADE'); ?></option>
+                            <?php echo JHtml::_('select.options',
+                                                        array(
+                                                            JHtml::_('select.option', '0', JText::_('COM_FILAUTI_NO_PRIORITY')),
+                                                            JHtml::_('select.option', '1', JText::_('COM_FILAUTI_PRIORITY_1')),
+                                                            JHtml::_('select.option', '2', JText::_('COM_FILAUTI_PRIORITY_2')),
+                                                            JHtml::_('select.option', '3', JText::_('COM_FILAUTI_PRIORITY_3')),
+                                                            JHtml::_('select.option', '4', JText::_('COM_FILAUTI_PRIORITY_4'))
+                                                        ), 'value', 'text', $this->state->get('filter.prioridade')
+                                               ); ?>
+                        </select>
 			
 			<select name="filter_encerrado" class="inputbox" onchange="this.form.submit()">
 			    <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_ENCERRADO'); ?></option>
@@ -64,6 +77,9 @@ $saveOrder  = $listOrder == 'a.ordering';
 				<th>
 					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_HOSPTO_NOME', 'a.hospto_name', $listDirn, $listOrder); ?>
 				</th>
+                                <th width="1%">
+                                    <?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_PRIORIDADE', 'a.prioridade', $listDirn, $listOrder); ?>
+                                </th>
 				<th width="5%">
 					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_PROMOTORIA', 'a.promotoria', $listDirn, $listOrder); ?>
 				</th>
@@ -80,7 +96,7 @@ $saveOrder  = $listOrder == 'a.ordering';
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="8">
+				<td colspan="9">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -108,6 +124,9 @@ $saveOrder  = $listOrder == 'a.ordering';
 			<td>
 				<?php echo $this->escape($item->hospto_name); ?>
 			</td>
+                        <td class="center">
+                            <?php echo (int) $item->prioridade; ?>
+                        </td>
 			<td class="center">			
 			    <?php echo JText::_($item->promotoria ? 'JYES' : 'JNO'); ?>
 			</td>

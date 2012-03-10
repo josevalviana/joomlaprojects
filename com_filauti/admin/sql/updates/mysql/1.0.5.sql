@@ -1,0 +1,1 @@
+ALTER TABLE `#__filauti` ADD COLUMN `prioridade` TINYINT(1) NOT NULL default '0' AFTER `promotoria`;
