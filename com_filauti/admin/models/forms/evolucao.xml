@@ -107,15 +107,9 @@
         <field name="mencef" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_MENCEF_LABEL" description="COM_FILAUTI_FIELD_MENCEF_DESC">
                 <option value="0">COM_FILAUTI_NOT_INFORMED</option>
-                <option value="1">JYES</option>
-                <option value="2">JNO</option>
-        </field>
-        
-        <field name="doador" type="list" class="inputbox" size="1" default="0" required="true"
-            label="COM_FILAUTI_FIELD_DOADOR_LABEL" description="COM_FILAUTI_FIELD_DOADOR_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
-                <option value="1">JYES</option>
-                <option value="2">JNO</option>
+                <option value="1">COM_FILAUTI_ME_DONOR</option>
+                <option value="2">COM_FILAUTI_ME_NOT_DONOR</option>
+                <option value="3">JNO</option>
         </field>
         
         <field name="posop" type="list" class="inputbox" size="1" default="0" required="true"

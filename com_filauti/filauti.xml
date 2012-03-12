@@ -3,11 +3,11 @@
   <name>COM_FILAUTI</name>
   <author>Joseval Viana</author>
   <creationDate>January 2012</creationDate>
-  <copyright>(C) 2012 Joseval Viana. Alll rights reserved.</copyright>
+  <copyright>(C) 2012 Joseval Viana. All rights reserved.</copyright>
   <license>http://www.gnu.org/licenses/gpl-2.0.html GNU/GPL</license>
   <authorEmail>josevalviana@gmail.com</authorEmail>
   <authorUrl>www.medinfecto.med.br</authorUrl>
-  <version>1.0.5</version>
+  <version>1.0.6</version>
   <description>COM_FILAUTI_XML_DESCRIPTION</description>
   
   <install>

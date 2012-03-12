@@ -105,9 +105,6 @@ JFactory::getDocument()->addScriptDeclaration($script);
                     <li><?php echo $this->form->getLabel('pcr'); ?>
                     <?php echo $this->form->getInput('pcr'); ?></li>
                     
-                    <li><?php echo $this->form->getLabel('doador'); ?>
-                    <?php echo $this->form->getInput('doador'); ?></li>
-                    
                 </ul>
             </fieldset>
             <?php echo JHtml::_('sliders.end'); ?>

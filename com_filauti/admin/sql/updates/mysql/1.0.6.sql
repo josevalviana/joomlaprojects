@@ -1,0 +1,1 @@
+ALTER TABLE `#__filauti_evolucoes` DROP COLUMN `doador`;
