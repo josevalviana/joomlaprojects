@@ -9,6 +9,7 @@ class FilaUtiViewPaciente extends JView
 	protected $form;
 	protected $item;
         protected $evolucoes;
+        protected $sofas;
 	protected $state;
 	
 	public function display($tpl = null)
@@ -17,6 +18,7 @@ class FilaUtiViewPaciente extends JView
 		$this->form		= $this->get('Form');
 		$this->item             = $this->get('Item');
                 $this->evolucoes        = $this->get('Evolucoes');
+                $this->sofas            = $this->get('Sofas');
 		$this->state            = $this->get('State');
 		$this->canDo            = FilaUtiHelper::getActions();
 		

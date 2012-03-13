@@ -95,6 +95,11 @@ JHtml::_('behavior.modal');
                             <fieldset>
                                 <?php echo $this->loadTemplate('evolucoes'); ?>
                             </fieldset>
+            
+                            <?php echo JHtml::_('sliders.panel', JText::_('COM_FILAUTI_PACIENTE_SOFAS'), 'sofas-options'); ?>
+                            <fieldset>
+                                <?php echo $this->loadTemplate('sofas'); ?>
+                            </fieldset>
                         <?php endif; ?>
 			<?php echo JHtml::_('sliders.end'); ?>
 	</div>
