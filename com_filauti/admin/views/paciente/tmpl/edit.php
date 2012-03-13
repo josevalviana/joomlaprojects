@@ -20,6 +20,7 @@ JHtml::_('behavior.modal');
                             document.id(name).addClass('invalid');
                         });
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED')); ?>');
+                }
 	}
 </script>
 

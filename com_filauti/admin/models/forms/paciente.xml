@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<form>
+<form
+    addrulepath="/administrator/components/com_filauti/models/rules">
 	<fieldset name="details" addfieldpath="/administrator/components/com_filauti/models/fields">
 		<field name="id" type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
 			description="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
@@ -18,8 +19,8 @@
                         required="true" />
 			
 		<field name="sisreg" type="text" label="COM_FILAUTI_SISREG_LABEL"
-		    description="COM_FILAUTI_SISREG_DESC" class="inputbox" size="10"
-		    required="true" />
+		    description="COM_FILAUTI_SISREG_DESC" class="inputbox validate-integeronly" size="10"
+		    required="true" validate="integeronly" />
 		    
 		<field name="munid" type="municipio" label="COM_FILAUTI_MUNICIPIO_LABEL"
 			description="COM_FILAUTI_MUNICIPIO_DESC" class="inputbox" 
@@ -34,8 +35,8 @@
 		    required="true" />
 		    
 		<field name="idade" type="text" label="COM_FILAUTI_IDADE_LABEL"
-			description="COM_FILAUTI_IDADE_DESC" class="inputbox" size="10"
-			required="true" />
+			description="COM_FILAUTI_IDADE_DESC" class="inputbox validate-integeronly" size="10"
+			required="true" validate="integeronly" />
 		
 		<field name="idade_c" type="list" class="inputbox" size="1" default="0" required="true">
 			<option value="0">COM_FILAUTI_YEARS</option>
