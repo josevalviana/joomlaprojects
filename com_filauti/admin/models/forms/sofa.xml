@@ -9,7 +9,7 @@
                 
         <field name="respiratory" type="list" class="inputbox" size="1" default="0" required="true"
                 label="COM_FILAUTI_FIELD_SOFA_RESPIRATORY_LABEL" description="COM_FILAUTI_FIELD_SOFA_RESPIRATORY_DESC">
-            <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+            <option value="0">COM_FILAUTI_SOFA_RESPIRATORY_0</option>
             <option value="1">COM_FILAUTI_SOFA_RESPIRATORY_1</option>
             <option value="2">COM_FILAUTI_SOFA_RESPIRATORY_2</option>
             <option value="3">COM_FILAUTI_SOFA_RESPIRATORY_3</option>
@@ -18,7 +18,7 @@
         
         <field name="coagulation" type="list" class="inputbox" size="1" default="0" required="true"
                 label="COM_FILAUTI_FIELD_SOFA_COAGULATION_LABEL" description="COM_FILAUTI_FIELD_SOFA_COAGULATION_DESC">
-            <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+            <option value="0">COM_FILAUTI_SOFA_COAGULATION_0</option>
             <option value="1">COM_FILAUTI_SOFA_COAGULATION_1</option>
             <option value="2">COM_FILAUTI_SOFA_COAGULATION_2</option>
             <option value="3">COM_FILAUTI_SOFA_COAGULATION_3</option>
@@ -27,7 +27,7 @@
         
         <field name="cardiovascular" type="list" class="inputbox" size="1" default="0" required="true"
                 label="COM_FILAUTI_FIELD_SOFA_CARDIOVASCULAR_LABEL" description="COM_FILAUTI_FIELD_SOFA_CARDIOVASCULAR_DESC">
-            <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+            <option value="0">COM_FILAUTI_SOFA_CARDIOVASCULAR_0</option>
             <option value="1">COM_FILAUTI_SOFA_CARDIOVASCULAR_1</option>
             <option value="2">COM_FILAUTI_SOFA_CARDIOVASCULAR_2</option>
             <option value="3">COM_FILAUTI_SOFA_CARDIOVASCULAR_3</option>
@@ -36,7 +36,7 @@
         
         <field name="glasgow" type="list" class="inputbox" size="1" default="0" required="true"
                 label="COM_FILAUTI_FIELD_SOFA_GLASGOW_LABEL" description="COM_FILAUTI_FIELD_SOFA_GLASGOW_DESC">
-            <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+            <option value="0">COM_FILAUTI_SOFA_GLASGOW_0</option>
             <option value="1">COM_FILAUTI_SOFA_GLASGOW_1</option>
             <option value="2">COM_FILAUTI_SOFA_GLASGOW_2</option>
             <option value="3">COM_FILAUTI_SOFA_GLASGOW_3</option>
@@ -45,7 +45,7 @@
         
         <field name="liver" type="list" class="inputbox" size="1" default="0" required="true"
                 label="COM_FILAUTI_FIELD_SOFA_LIVER_LABEL" description="COM_FILAUTI_FIELD_SOFA_LIVER_DESC">
-            <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+            <option value="0">COM_FILAUTI_SOFA_LIVER_0</option>
             <option value="1">COM_FILAUTI_SOFA_LIVER_1</option>
             <option value="2">COM_FILAUTI_SOFA_LIVER_2</option>
             <option value="3">COM_FILAUTI_SOFA_LIVER_3</option>
@@ -54,7 +54,7 @@
         
         <field name="renal" type="list" class="inputbox" size="1" default="0" required="true"
                 label="COM_FILAUTI_FIELD_SOFA_RENAL_LABEL" description="COM_FILAUTI_FIELD_SOFA_RENAL_DESC">
-            <option value="0">COM_FILAUTI_NOT_INFORMED</option>
+            <option value="0">COM_FILAUTI_SOFA_RENAL_0</option>
             <option value="1">COM_FILAUTI_SOFA_RENAL_1</option>
             <option value="2">COM_FILAUTI_SOFA_RENAL_2</option>
             <option value="3">COM_FILAUTI_SOFA_RENAL_3</option>

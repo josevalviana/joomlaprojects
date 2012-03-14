@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<form 
+    addrulepath="/administrator/components/com_filauti/models/rules">
+    <fieldset name="details" addfieldpath="/administrator/components/com_filauti/models/fields">
+        
+        <field name="id" type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
+                description="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
+                readonly="true" />
+                
+        <field name="respiratory" type="list" class="inputbox" size="1" default="0" required="true"
+                label="COM_FILAUTI_FIELD_MOD_RESPIRATORY_LABEL" description="COM_FILAUTI_FIELD_MOD_RESPIRATORY_DESC">
+            <option value="0">COM_FILAUTI_MOD_RESPIRATORY_0</option>
+            <option value="1">COM_FILAUTI_MOD_RESPIRATORY_1</option>
+            <option value="2">COM_FILAUTI_MOD_RESPIRATORY_2</option>
+            <option value="3">COM_FILAUTI_MOD_RESPIRATORY_3</option>
+            <option value="4">COM_FILAUTI_MOD_RESPIRATORY_4</option>
+        </field>
+        
+        <field name="coagulation" type="list" class="inputbox" size="1" default="0" required="true"
+                label="COM_FILAUTI_FIELD_MOD_COAGULATION_LABEL" description="COM_FILAUTI_FIELD_MOD_COAGULATION_DESC">
+            <option value="0">COM_FILAUTI_MOD_COAGULATION_0</option>
+            <option value="1">COM_FILAUTI_MOD_COAGULATION_1</option>
+            <option value="2">COM_FILAUTI_MOD_COAGULATION_2</option>
+            <option value="3">COM_FILAUTI_MOD_COAGULATION_3</option>
+            <option value="4">COM_FILAUTI_MOD_COAGULATION_4</option>
+        </field>
+        
+        <field name="cardiovascular" type="list" class="inputbox" size="1" default="0" required="true"
+                label="COM_FILAUTI_FIELD_MOD_CARDIOVASCULAR_LABEL" description="COM_FILAUTI_FIELD_MOD_CARDIOVASCULAR_DESC">
+            <option value="0">COM_FILAUTI_MOD_CARDIOVASCULAR_0</option>
+            <option value="1">COM_FILAUTI_MOD_CARDIOVASCULAR_1</option>
+            <option value="2">COM_FILAUTI_MOD_CARDIOVASCULAR_2</option>
+            <option value="3">COM_FILAUTI_MOD_CARDIOVASCULAR_3</option>
+            <option value="4">COM_FILAUTI_MOD_CARDIOVASCULAR_4</option>
+        </field>
+        
+        <field name="glasgow" type="list" class="inputbox" size="1" default="0" required="true"
+                label="COM_FILAUTI_FIELD_MOD_GLASGOW_LABEL" description="COM_FILAUTI_FIELD_MOD_GLASGOW_DESC">
+            <option value="0">COM_FILAUTI_MOD_GLASGOW_0</option>
+            <option value="1">COM_FILAUTI_MOD_GLASGOW_1</option>
+            <option value="2">COM_FILAUTI_MOD_GLASGOW_2</option>
+            <option value="3">COM_FILAUTI_MOD_GLASGOW_3</option>
+            <option value="4">COM_FILAUTI_MOD_GLASGOW_4</option>
+        </field>
+        
+        <field name="liver" type="list" class="inputbox" size="1" default="0" required="true"
+                label="COM_FILAUTI_FIELD_MOD_LIVER_LABEL" description="COM_FILAUTI_FIELD_MOD_LIVER_DESC">
+            <option value="0">COM_FILAUTI_MOD_LIVER_0</option>
+            <option value="1">COM_FILAUTI_MOD_LIVER_1</option>
+            <option value="2">COM_FILAUTI_MOD_LIVER_2</option>
+            <option value="3">COM_FILAUTI_MOD_LIVER_3</option>
+            <option value="4">COM_FILAUTI_MOD_LIVER_4</option>
+        </field>
+        
+        <field name="renal" type="list" class="inputbox" size="1" default="0" required="true"
+                label="COM_FILAUTI_FIELD_MOD_RENAL_LABEL" description="COM_FILAUTI_FIELD_MOD_RENAL_DESC">
+            <option value="0">COM_FILAUTI_MOD_RENAL_0</option>
+            <option value="1">COM_FILAUTI_MOD_RENAL_1</option>
+            <option value="2">COM_FILAUTI_MOD_RENAL_2</option>
+            <option value="3">COM_FILAUTI_MOD_RENAL_3</option>
+            <option value="4">COM_FILAUTI_MOD_RENAL_4</option>
+        </field>
+        
+        <field name="filaid" type="text" class="readonly" 
+            label="COM_FILAUTI_EVOLUCAO_FIELD_FILAID_LABEL"
+            description="COM_FILAUTI_EVOLUCAO_FIELD_FILAID_DESC" 
+            required="true" size="10" default="0" readonly="true" 
+        />
+        
+    </fieldset>
+</form>
