@@ -63,6 +63,24 @@ JHtml::_('behavior.modal');
 				
 				<li><?php echo $this->form->getLabel('promotoria'); ?>
 				<?php echo $this->form->getInput('promotoria'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('avc'); ?>
+				<?php echo $this->form->getInput('avc'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('mencef'); ?>
+				<?php echo $this->form->getInput('mencef'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('hemodialise'); ?>
+				<?php echo $this->form->getInput('hemodialise'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('isolamento'); ?>
+				<?php echo $this->form->getInput('isolamento'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('posop'); ?>
+                                <?php echo $this->form->getInput('posop'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('prioridade'); ?>
+                                <?php echo $this->form->getInput('prioridade'); ?></li>
 								
 				<li><?php echo $this->form->getLabel('id'); ?>
 				<?php echo $this->form->getInput('id'); ?></li>

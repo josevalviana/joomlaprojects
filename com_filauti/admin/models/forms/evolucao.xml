@@ -6,15 +6,6 @@
         <field name="id" type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
                 description="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
                 readonly="true" />
-                
-        <field name="prioridade" type="list" class="inputbox" size="1" default="0" required="true"
-                label="COM_FILAUTI_FIELD_PRIORIDADE_LABEL" description="COM_FILAUTI_FIELD_PRIORIDADE_DESC">
-            <option value="0">COM_FILAUTI_NO_PRIORITY</option>
-            <option value="1">COM_FILAUTI_PRIORITY_1</option>
-            <option value="2">COM_FILAUTI_PRIORITY_2</option>
-            <option value="3">COM_FILAUTI_PRIORITY_3</option>
-            <option value="4">COM_FILAUTI_PRIORITY_4</option>
-        </field>
         
         <field name="misc" type="editor"
                 label="COM_FILAUTI_FIELD_INFORMATION_MISC_LABEL"
@@ -66,13 +57,6 @@
                 <option value="2">JNO</option>
         </field>
         
-        <field name="hemodialise" type="list" class="inputbox" size="1" default="0" required="true"
-            label="COM_FILAUTI_FIELD_HEMODIALISE_LABEL" description="COM_FILAUTI_FIELD_HEMODIALISE_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
-                <option value="1">JYES</option>
-                <option value="2">JNO</option>
-        </field>
-        
         <field name="hepatica" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_HEPATICA_LABEL" description="COM_FILAUTI_FIELD_HEPATICA_DESC">
                 <option value="0">COM_FILAUTI_NOT_INFORMED</option>
@@ -90,30 +74,8 @@
                 <option value="2">JNO</option>
         </field>
         
-        <field name="avc" type="list" class="inputbox" size="1" default="0" required="true"
-            label="COM_FILAUTI_FIELD_AVC_LABEL" description="COM_FILAUTI_FIELD_AVC_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
-                <option value="1">JYES</option>
-                <option value="2">JNO</option>
-        </field>
-        
         <field name="convulsao" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_CONVULSAO_LABEL" description="COM_FILAUTI_FIELD_CONVULSAO_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
-                <option value="1">JYES</option>
-                <option value="2">JNO</option>
-        </field>
-        
-        <field name="mencef" type="list" class="inputbox" size="1" default="0" required="true"
-            label="COM_FILAUTI_FIELD_MENCEF_LABEL" description="COM_FILAUTI_FIELD_MENCEF_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
-                <option value="1">COM_FILAUTI_ME_DONOR</option>
-                <option value="2">COM_FILAUTI_ME_NOT_DONOR</option>
-                <option value="3">JNO</option>
-        </field>
-        
-        <field name="posop" type="list" class="inputbox" size="1" default="0" required="true"
-            label="COM_FILAUTI_FIELD_POSOP_LABEL" description="COM_FILAUTI_FIELD_POSOP_DESC">
                 <option value="0">COM_FILAUTI_NOT_INFORMED</option>
                 <option value="1">JYES</option>
                 <option value="2">JNO</option>
@@ -128,13 +90,6 @@
         
         <field name="sepse" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_SEPSE_LABEL" description="COM_FILAUTI_FIELD_SEPSE_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
-                <option value="1">JYES</option>
-                <option value="2">JNO</option>
-        </field>
-        
-        <field name="isolamento" type="list" class="inputbox" size="1" default="0" required="true"
-            label="COM_FILAUTI_FIELD_ISOLAMENTO_LABEL" description="COM_FILAUTI_FIELD_ISOLAMENTO_DESC">
                 <option value="0">COM_FILAUTI_NOT_INFORMED</option>
                 <option value="1">JYES</option>
                 <option value="2">JNO</option>

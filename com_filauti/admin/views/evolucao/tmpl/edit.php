@@ -31,9 +31,6 @@ JFactory::getDocument()->addScriptDeclaration($script);
                 <li><?php echo $this->form->getLabel('filaid'); ?>
                     <?php echo $this->form->getInput('filaid'); ?></li>
                 
-                <li><?php echo $this->form->getLabel('prioridade'); ?>
-                    <?php echo $this->form->getInput('prioridade'); ?></li>
-                
                 <?php if ($this->item->id) : ?>
                     <li><?php echo $this->form->getLabel('id'); ?>
 				<?php echo $this->form->getInput('id'); ?></li>
@@ -57,14 +54,8 @@ JFactory::getDocument()->addScriptDeclaration($script);
                     <li><?php echo $this->form->getLabel('tcc'); ?>
                     <?php echo $this->form->getInput('tcc'); ?></li>
                     
-                    <li><?php echo $this->form->getLabel('avc'); ?>
-                    <?php echo $this->form->getInput('avc'); ?></li>
-                    
                     <li><?php echo $this->form->getLabel('convulsao'); ?>
                     <?php echo $this->form->getInput('convulsao'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('mencef'); ?>
-                    <?php echo $this->form->getInput('mencef'); ?></li>
                     
                     <li><?php echo $this->form->getLabel('ventilacao'); ?>
                     <?php echo $this->form->getInput('ventilacao'); ?></li>
@@ -81,9 +72,6 @@ JFactory::getDocument()->addScriptDeclaration($script);
                     <li><?php echo $this->form->getLabel('vasoativa'); ?>
                     <?php echo $this->form->getInput('vasoativa'); ?></li>
                     
-                    <li><?php echo $this->form->getLabel('hemodialise'); ?>
-                    <?php echo $this->form->getInput('hemodialise'); ?></li>
-                    
                     <li><?php echo $this->form->getLabel('hepatica'); ?>
                     <?php echo $this->form->getInput('hepatica'); ?></li>
                     
@@ -92,12 +80,6 @@ JFactory::getDocument()->addScriptDeclaration($script);
                     
                     <li><?php echo $this->form->getLabel('sepse'); ?>
                     <?php echo $this->form->getInput('sepse'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('isolamento'); ?>
-                    <?php echo $this->form->getInput('isolamento'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('posop'); ?>
-                    <?php echo $this->form->getInput('posop'); ?></li>
                     
                     <li><?php echo $this->form->getLabel('monitor'); ?>
                     <?php echo $this->form->getInput('monitor'); ?></li>
