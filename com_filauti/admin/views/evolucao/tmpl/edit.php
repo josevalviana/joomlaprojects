@@ -48,26 +48,8 @@ JFactory::getDocument()->addScriptDeclaration($script);
             <?php echo JHtml::_('sliders.panel', JText::_('COM_FILAUTI_EVOLUCAO_FIELDSET_INTERROG'), 'interroga-details'); ?>
             <fieldset class="panelform">
                 <ul class="adminformlist">
-                    <li><?php echo $this->form->getLabel('gcs'); ?>
-                    <?php echo $this->form->getInput('gcs'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('tcc'); ?>
-                    <?php echo $this->form->getInput('tcc'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('convulsao'); ?>
-                    <?php echo $this->form->getInput('convulsao'); ?></li>
-                    
                     <li><?php echo $this->form->getLabel('ventilacao'); ?>
                     <?php echo $this->form->getInput('ventilacao'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('arritmia'); ?>
-                    <?php echo $this->form->getInput('arritmia'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('iam'); ?>
-                    <?php echo $this->form->getInput('iam'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('icc'); ?>
-                    <?php echo $this->form->getInput('icc'); ?></li>
                     
                     <li><?php echo $this->form->getLabel('vasoativa'); ?>
                     <?php echo $this->form->getInput('vasoativa'); ?></li>
@@ -75,17 +57,8 @@ JFactory::getDocument()->addScriptDeclaration($script);
                     <li><?php echo $this->form->getLabel('hepatica'); ?>
                     <?php echo $this->form->getInput('hepatica'); ?></li>
                     
-                    <li><?php echo $this->form->getLabel('acidose'); ?>
-                    <?php echo $this->form->getInput('acidose'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('sepse'); ?>
-                    <?php echo $this->form->getInput('sepse'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('monitor'); ?>
-                    <?php echo $this->form->getInput('monitor'); ?></li>
-                    
-                    <li><?php echo $this->form->getLabel('pcr'); ?>
-                    <?php echo $this->form->getInput('pcr'); ?></li>
+                    <li><?php echo $this->form->getLabel('ira'); ?>
+                    <?php echo $this->form->getInput('ira'); ?></li>
                     
                 </ul>
             </fieldset>

@@ -9,7 +9,7 @@ defined('_JEXEC') or die;
                 <?php echo JText::_('JDATE'); ?>
             </th>
             <th class="center">
-                <?php echo JText::_('COM_FILAUTI_HEADING_PRIORIDADE'); ?>
+                <?php echo JText::_('COM_FILAUTI_DISFUNCOES'); ?>
             </th>
             <th class="right">
                 <?php echo JText::_('JGRID_HEADING_CREATED_BY'); ?>
@@ -26,7 +26,11 @@ defined('_JEXEC') or die;
                     <?php echo JHtml::_('date', $evolucao->created, JText::_('DATE_FORMAT_CS1')); ?>
                 </td>
                 <td class="center">
-                    <?php echo $this->escape($evolucao->prioridade); ?>
+                    <?php (int) $final_score = (int) $evolucao->ventilacao +
+                                         (int) $evolucao->hepatica +
+                                         (int) $evolucao->vasoativa +
+                                         (int) $evolucao->ira; ?>
+                    <?php echo (int) $final_score; ?>
                 </td>
                 <td class="right">
                     <?php echo $this->escape($evolucao->author_name); ?>

@@ -118,11 +118,6 @@ JHtml::_('behavior.modal');
                             <fieldset>
                                 <?php echo $this->loadTemplate('sofas'); ?>
                             </fieldset>
-            
-                            <?php echo JHtml::_('sliders.panel', JText::_('COM_FILAUTI_PACIENTE_MODS'), 'mods-options'); ?>
-                            <fieldset>
-                                <?php echo $this->loadTemplate('mods'); ?>
-                            </fieldset>
                         <?php endif; ?>
 			<?php echo JHtml::_('sliders.end'); ?>
 	</div>

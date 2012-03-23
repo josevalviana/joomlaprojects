@@ -51,7 +51,51 @@ $saveOrder  = $listOrder == 'a.ordering';
                                                         ), 'value', 'text', $this->state->get('filter.prioridade')
                                                ); ?>
                         </select>
-			
+                    
+                        <select name="filter_avc" class="inputbox" onchange="this.form.submit()">
+                            <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_AVC'); ?></option>
+                            <?php echo JHtml::_('select.options',
+                                                        array(
+                                                            JHtml::_('select.option', '0', JText::_('COM_FILAUTI_NONE')),
+                                                            JHtml::_('select.option', '1', JText::_('COM_FILAUTI_AVC')),
+                                                            JHtml::_('select.option', '2', JText::_('COM_FILAUTI_TCE'))
+                                                        ), 'value', 'text', $this->state->get('filter.avc')
+                                               ); ?>
+                        </select>
+                    
+                        <select name="filter_mencef" class="inputbox" onchange="this.form.submit()">
+                            <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_MENCEF'); ?></option>
+                            <?php echo JHtml::_('select.options',
+                                                        array(
+                                                            JHtml::_('select.option', '0', JText::_('COM_FILAUTI_NOT_INFORMED')),
+                                                            JHtml::_('select.option', '1', JText::_('COM_FILAUTI_ME_DONOR')),
+                                                            JHtml::_('select.option', '2', JText::_('COM_FILAUTI_ME_NOT_DONOR')),
+                                                            JHtml::_('select.option', '3', JText::_('JNO'))
+                                                        ), 'value', 'text', $this->state->get('filter.mencef')
+                                               ); ?>
+                        </select>
+                    
+                        <select name="filter_hemodialise" class="inputbox" onchange="this.form.submit()">
+			    <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_HEMODIALISE'); ?></option>
+				<?php echo JHtml::_('select.options', 
+									array(JHtml::_('select.option', '0', JText::_('JNO')), JHtml::_('select.option', '1', JText::_('JYES')))
+									, 'value', 'text', $this->state->get('filter.hemodialise')); ?>
+			</select>
+                    
+                        <select name="filter_isolamento" class="inputbox" onchange="this.form.submit()">
+			    <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_ISOLAMENTO'); ?></option>
+				<?php echo JHtml::_('select.options', 
+									array(JHtml::_('select.option', '0', JText::_('JNO')), JHtml::_('select.option', '1', JText::_('JYES')))
+									, 'value', 'text', $this->state->get('filter.isolamento')); ?>
+			</select>
+                    
+                        <select name="filter_posop" class="inputbox" onchange="this.form.submit()">
+			    <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_POSOP'); ?></option>
+				<?php echo JHtml::_('select.options', 
+									array(JHtml::_('select.option', '0', JText::_('JNO')), JHtml::_('select.option', '1', JText::_('JYES')))
+									, 'value', 'text', $this->state->get('filter.posop')); ?>
+			</select>
+                    
 			<select name="filter_encerrado" class="inputbox" onchange="this.form.submit()">
 			    <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_ENCERRADO'); ?></option>
 				<?php echo JHtml::_('select.options', 

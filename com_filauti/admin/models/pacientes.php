@@ -17,6 +17,11 @@ class FilaUtiModelPacientes extends JModelList
 					'hosptoid', 'a.hosptoid', 'hospto_name',
 					'promotoria', 'a.promotoria',
                                         'prioridade', 'a.prioridade',
+                                        'avc', 'a.avc',
+                                        'mencef', 'a.mencef',
+                                        'hemodialise', 'a.hemodialise',
+                                        'isolamento', 'a.isolamento',
+                                        'posop', 'a.posop',
 					'encerrado', 'a.encerrado',
 					'encerramento', 'a.encerramento',
 					'created', 'a.created',
@@ -49,6 +54,21 @@ class FilaUtiModelPacientes extends JModelList
 		
 		$promotoria = $this->getUserStateFromRequest($this->context.'.filter.promotoria', 'filter_promotoria');
 		$this->setState('filter.promotoria', $promotoria);
+                
+                $avc = $this->getUserStateFromRequest($this->context, '.filter.avc', 'filter_avc');
+                $this->setState('filter.avc', $avc);
+                
+                $mencef = $this->getUserStateFromRequest($this->context, '.filter.mencef', 'filter_mencef');
+                $this->setState('filter.mencef', $mencef);
+                
+                $hemodialise = $this->getUserStateFromRequest($this->context, '.filter.hemodialise', 'filter_hemodialise');
+                $this->setState('filter.hemodialise', $hemodialise);
+                
+                $isolamento = $this->getUserStateFromRequest($this->context, '.filter.isolamento', 'filter_isolamento');
+                $this->setState('filter.isolamento', $isolamento);
+                
+                $posop = $this->getUserStateFromRequest($this->context, '.filter.posop', 'filter_posop');
+                $this->setState('filter.posop', $posop);
 		
 		$encerrado = $this->getUserStateFromRequest($this->context.'.filter.encerrado', 'filter_encerrado');
 		$this->setState('filter.encerrado', $encerrado);
@@ -70,7 +90,8 @@ class FilaUtiModelPacientes extends JModelList
 				'list.select',
 				'a.id, a.sisreg, a.nome, a.created, a.created_by'.
 				', a.hospfromid, a.hosptoid, a.promotoria, a.encerrado'.
-				', a.prioridade, a.encerramento'
+				', a.prioridade, a.avc, a.mencef, a.hemodialise, a.encerramento'.
+                                ', a.isolamento, a.posop'
 			)
 		);
 		$query->from('#__filauti AS a');
@@ -116,6 +137,31 @@ class FilaUtiModelPacientes extends JModelList
                 $prioridade = $this->getState('filter.prioridade');
                 if (is_numeric($prioridade)) {
                     $query->where('a.prioridade = '.(int) $prioridade);
+                }
+                
+                $avc = $this->getState('filter.avc');
+                if (is_numeric($avc)) {
+                    $query->where('a.avc = '.(int) $avc);
+                }
+                
+                $mencef = $this->getState('filter.mencef');
+                if (is_numeric($mencef)) {
+                    $query->where('a.mencef = '.(int) $mencef);
+                }
+                
+                $hemodialise = $this->getState('filter.hemodialise');
+                if (is_numeric($hemodialise)) {
+                    $query->where('a.hemodialise = '.(int) $hemodialise);
+                }
+                
+                $isolamento = $this->getState('filter.isolamento');
+                if (is_numeric($isolamento)) {
+                    $query->where('a.isolamento = '.(int) $isolamento);
+                }
+                
+                $posop = $this->getState('filter.posop');
+                if (is_numeric($posop)) {
+                    $query->where('a.posop = '.(int) $posop);
                 }
 		
 		$search = $this->getState('filter.search');
