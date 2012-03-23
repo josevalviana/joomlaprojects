@@ -23,31 +23,27 @@
         />
                 
         <field name="ventilacao" type="list" class="inputbox" size="1" default="0" required="true"
-            label="COM_FILAUTI_FIELD_VENTILACAO_LABEL" description="COM_FILAUTI_FIELD_VENTILACAO_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
-                <option value="1">JYES</option>
-                <option value="2">JNO</option>
+            label="COM_FILAUTI_FIELD_VENTILACAO_LABEL" description="COM_FILAUTI_FIELD_VENTILACAO_DESC">>
+                <option value="0">JYES</option>
+                <option value="1">JNO</option>
         </field>
         
         <field name="vasoativa" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_VASOATIVA_LABEL" description="COM_FILAUTI_FIELD_VASOATIVA_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
                 <option value="1">JYES</option>
-                <option value="2">JNO</option>
+                <option value="0">JNO</option>
         </field>
         
         <field name="hepatica" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_HEPATICA_LABEL" description="COM_FILAUTI_FIELD_HEPATICA_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
                 <option value="1">JYES</option>
-                <option value="2">JNO</option>
+                <option value="0">JNO</option>
         </field>
         
         <field name="ira" type="list" class="inputbox" size="1" default="0" required="true"
             label="COM_FILAUTI_FIELD_IRA_LABEL" description="COM_FILAUTI_FIELD_IRA_DESC">
-                <option value="0">COM_FILAUTI_NOT_INFORMED</option>
                 <option value="1">JYES</option>
-                <option value="2">JNO</option>
+                <option value="0">JNO</option>
         </field>
         
     </fieldset>
