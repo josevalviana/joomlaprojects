@@ -98,7 +98,7 @@
                         <option value="2">JNO</option>
                 </field>
                 
-                <field name="prioridade" type="list" class="inputbox" size="1" default="0" readonly="true"
+                <field name="prioridade" type="list" class="inputbox" size="1" default="0" required="true"
                        label="COM_FILAUTI_FIELD_PRIORIDADE_LABEL" description="COM_FILAUTI_FIELD_PRIORIDADE_DESC">
                         <option value="0">COM_FILAUTI_NO_PRIORITY</option>
                         <option value="1">COM_FILAUTI_PRIORITY_1</option>

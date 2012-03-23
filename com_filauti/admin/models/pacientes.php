@@ -55,19 +55,19 @@ class FilaUtiModelPacientes extends JModelList
 		$promotoria = $this->getUserStateFromRequest($this->context.'.filter.promotoria', 'filter_promotoria');
 		$this->setState('filter.promotoria', $promotoria);
                 
-                $avc = $this->getUserStateFromRequest($this->context, '.filter.avc', 'filter_avc');
+                $avc = $this->getUserStateFromRequest($this->context.'.filter.avc', 'filter_avc');
                 $this->setState('filter.avc', $avc);
                 
-                $mencef = $this->getUserStateFromRequest($this->context, '.filter.mencef', 'filter_mencef');
+                $mencef = $this->getUserStateFromRequest($this->context.'.filter.mencef', 'filter_mencef');
                 $this->setState('filter.mencef', $mencef);
                 
-                $hemodialise = $this->getUserStateFromRequest($this->context, '.filter.hemodialise', 'filter_hemodialise');
+                $hemodialise = $this->getUserStateFromRequest($this->context.'.filter.hemodialise', 'filter_hemodialise');
                 $this->setState('filter.hemodialise', $hemodialise);
                 
-                $isolamento = $this->getUserStateFromRequest($this->context, '.filter.isolamento', 'filter_isolamento');
+                $isolamento = $this->getUserStateFromRequest($this->context.'.filter.isolamento', 'filter_isolamento');
                 $this->setState('filter.isolamento', $isolamento);
                 
-                $posop = $this->getUserStateFromRequest($this->context, '.filter.posop', 'filter_posop');
+                $posop = $this->getUserStateFromRequest($this->context.'.filter.posop', 'filter_posop');
                 $this->setState('filter.posop', $posop);
 		
 		$encerrado = $this->getUserStateFromRequest($this->context.'.filter.encerrado', 'filter_encerrado');
