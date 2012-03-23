@@ -24,6 +24,8 @@ class FilaUtiModelPacientes extends JModelList
                                         'posop', 'a.posop',
 					'encerrado', 'a.encerrado',
 					'encerramento', 'a.encerramento',
+                                        'sofa', 'a.sofa',
+                                        'disf', 'a.disf',
 					'created', 'a.created',
 					'created_by', 'a.created_by',
 			);
@@ -91,7 +93,7 @@ class FilaUtiModelPacientes extends JModelList
 				'a.id, a.sisreg, a.nome, a.created, a.created_by'.
 				', a.hospfromid, a.hosptoid, a.promotoria, a.encerrado'.
 				', a.prioridade, a.avc, a.mencef, a.hemodialise, a.encerramento'.
-                                ', a.isolamento, a.posop'
+                                ', a.isolamento, a.posop, a.sofa, a.disf'
 			)
 		);
 		$query->from('#__filauti AS a');

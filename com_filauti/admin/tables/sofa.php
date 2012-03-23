@@ -12,5 +12,27 @@ class FilaUtiTableSofa extends JTable
             $this->created_by = JFactory::getUser()->get('id');
         }
     }
+    
+    public function store($updateNulls = false) {
+        
+        $query = 'UPDATE #__filauti'
+		. ' SET sofa = ' . (int) $this->calculaScore()
+		. ' WHERE id = ' . (int) $this->filaid
+		;
+        $this->_db->setQuery($query);
+	$this->_db->query();
+        
+        parent::store($updateNulls);
+    }
+    
+    protected function calculaScore() {
+        $score = (int) $this->respiratory + 
+                 (int) $this->coagulation +
+                 (int) $this->cardiovascular +
+                 (int) $this->liver +
+                 (int) $this->renal +
+                 (int) $this->glasgow;
+        return $score;
+    }
 }
 ?>

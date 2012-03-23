@@ -44,6 +44,8 @@ CREATE TABLE `#__filauti` (
 	`encerrado` TINYINT(1) UNSIGNED NOT NULL default '0',
         `motencerra` TINYINT(1) UNSIGNED NOT NULL default '0',
 	`encerramento` datetime NOT NULL default '0000-00-00 00:00:00',
+        `sofa` int(10) unsigned NOT NULL default '0',
+        `disf` int(10) unsigned NOT NULL default '0',
 	`created` datetime NOT NULL default '0000-00-00 00:00:00',
         `created_by` int(10) unsigned NOT NULL default '0',
         `modified` datetime NOT NULL default '0000-00-00 00:00:00',
