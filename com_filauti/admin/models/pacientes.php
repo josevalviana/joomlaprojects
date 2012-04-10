@@ -134,7 +134,9 @@ class FilaUtiModelPacientes extends JModelList
 		$encerrado = $this->getState('filter.encerrado');
 		if (is_numeric($encerrado)) {
 			$query->where('a.encerrado = '.(int) $encerrado);
-		}
+		} else {
+                        $query->where('a.encerrado = 0');
+                }
                 
                 $prioridade = $this->getState('filter.prioridade');
                 if (is_numeric($prioridade)) {
