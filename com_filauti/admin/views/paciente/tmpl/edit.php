@@ -6,6 +6,9 @@ JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');
 JHtml::_('behavior.modal');
+
+$user   = JFactory::getUser();
+$userId = $user->get('id');
 ?>
 
 <script type="text/javascript">
@@ -78,10 +81,17 @@ JHtml::_('behavior.modal');
                                 
                                 <li><?php echo $this->form->getLabel('posop'); ?>
                                 <?php echo $this->form->getInput('posop'); ?></li>
-                                
-                                <li><?php echo $this->form->getLabel('prioridade'); ?>
-                                <?php echo $this->form->getInput('prioridade'); ?></li>
-								
+                                <?php 
+                                    $canEdit = $user->authorise('core.edit', 'com_filauti.paciente.'.(int) $this->item->id);
+                                    $prioridade = 4;
+                                    if ($this->item->prioridade) $prioridade = $this->item->prioridade;
+                                    if ($canEdit) : ?>
+                                    <li><?php echo $this->form->getLabel('prioridade'); ?>
+                                    <?php echo $this->form->getInput('prioridade'); ?></li>                                
+                                <?php else : ?>
+                                    <input type="hidden" name="jform[prioridade]" value="<?php echo (int) $prioridade; ?>" />
+                                <?php endif; ?>
+                              								
 				<li><?php echo $this->form->getLabel('id'); ?>
 				<?php echo $this->form->getInput('id'); ?></li>
 				
