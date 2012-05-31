@@ -1,5 +1,6 @@
 <?php
 defined('_JEXEC') or die;
+$user		= JFactory::getUser();
 ?>
 <table class="adminlist">
     <thead>
@@ -17,12 +18,18 @@ defined('_JEXEC') or die;
     </thead>
     <?php if (count($this->sofas) > 0) : ?>
     <tbody>
-        <?php foreach ($this->sofas as $i => &$sofa) : ?>
+        <?php foreach ($this->sofas as $i => &$sofa) :
+        	$canEdit = $user->authorise('core.edit', 'com_filauti.paciente.'. (int) $this->item->id);
+        ?>
             <tr class="row<?php echo $i %2; ?>">
                 <td class="left">
-                    <?php $link = 'index.php?option=com_filauti&amp;filaid='. (int) $this->item->id.'&amp;task=sofa.edit&amp;id='. (int) $sofa->id.'&amp;tmpl=component&amp;view=sofa&amp;layout=modal'; ?>
-                    <a class="modal" href="<?php echo $link; ?>" rel="{handler: 'iframe', size: {x: 900, y: 550}}" title="<?php echo JText::_('COM_FILAUTI_EDIT_SOFA_SETTINGS'); ?>">
-                    <?php echo JHtml::_('date', $sofa->created, JText::_('DATE_FORMAT_CS1')); ?></a>
+                	<?php if ($canEdit): ?>
+                    	<?php $link = 'index.php?option=com_filauti&amp;filaid='. (int) $this->item->id.'&amp;task=sofa.edit&amp;id='. (int) $sofa->id.'&amp;tmpl=component&amp;view=sofa&amp;layout=modal'; ?>
+                    	<a class="modal" href="<?php echo $link; ?>" rel="{handler: 'iframe', size: {x: 900, y: 550}}" title="<?php echo JText::_('COM_FILAUTI_EDIT_SOFA_SETTINGS'); ?>">
+                    	<?php echo JHtml::_('date', $sofa->created, JText::_('DATE_FORMAT_CS1')); ?></a>
+                    <?php else: ?>
+                    	<?php echo JHtml::_('date', $sofa->created, JText::_('DATE_FORMAT_CS1')); ?>
+                    <?php endif; ?>
                 </td>
                 <td class="center">
                     <?php (int) $final_score = (int) $sofa->respiratory +
