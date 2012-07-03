@@ -13,6 +13,8 @@ class FilaUtiModelPacientes extends JModelList
 					'id', 'a.id',
 					'sisreg', 'a.sisreg',
 					'nome', 'a.nome',
+					'idade', 'a.idade',
+					'idade_c', 'a.idade_c',
 					'hospfromid', 'a.hospfromid', 'hospfrom_name',
 					'hosptoid', 'a.hosptoid', 'hospto_name',
 					'promotoria', 'a.promotoria',
@@ -90,7 +92,7 @@ class FilaUtiModelPacientes extends JModelList
 		$query->select(
 			$this->getState(
 				'list.select',
-				'a.id, a.sisreg, a.nome, a.created, a.created_by'.
+				'a.id, a.sisreg, a.nome, a.idade, a.idade_c, a.created, a.created_by'.
 				', a.hospfromid, a.hosptoid, a.promotoria, a.encerrado'.
 				', a.prioridade, a.avc, a.mencef, a.hemodialise, a.encerramento'.
                                 ', a.isolamento, a.posop, a.sofa, a.disf'

@@ -118,6 +118,9 @@ $saveOrder  = $listOrder == 'a.ordering';
 				<th>
 					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_NOME', 'a.nome', $listDirn, $listOrder); ?>
 				</th>
+				<th width="1%">
+				    <?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_IDADE', 'a.idade', $listDirn, $listOrder); ?>
+				</th>
 				<th>
 					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_HOSPTO_NOME', 'a.hospto_name', $listDirn, $listOrder); ?>
 				</th>
@@ -146,7 +149,7 @@ $saveOrder  = $listOrder == 'a.ordering';
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="11">
+				<td colspan="12">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -170,6 +173,16 @@ $saveOrder  = $listOrder == 'a.ordering';
 				<?php else : ?>
 					<?php echo $this->escape($item->nome); ?>
 				<?php endif; ?>
+			</td>
+			<td width="1%">
+				<?php
+				   $idade_c = array(
+				   		COM_FILAUTI_YEARS, 
+				   		COM_FILAUTI_MONTHS, 
+				   		COM_FILAUTI_DAYS
+				   ); 
+				   sprintf('%d %s', $this->idade, $idade_c[$this->idade_c]); 
+				?>
 			</td>			
 			<td>
 				<?php echo $this->escape($item->hospto_name); ?>
