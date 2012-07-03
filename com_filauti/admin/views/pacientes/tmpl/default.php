@@ -142,6 +142,9 @@ $saveOrder  = $listOrder == 'a.ordering';
 				<th width="5%">
 					<?php echo JHtml::_('grid.sort', 'JDATE', 'a.created', $listDirn, $listOrder); ?>
 				</th>
+				<th width="1%">
+				    <?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_T_FILA', 't_fila', $listDirn, $listOrder); ?>
+				</th>
 				<th width="1%" class="nowrap">
 					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
 				</th>
@@ -149,7 +152,7 @@ $saveOrder  = $listOrder == 'a.ordering';
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="12">
+				<td colspan="13">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -174,14 +177,14 @@ $saveOrder  = $listOrder == 'a.ordering';
 					<?php echo $this->escape($item->nome); ?>
 				<?php endif; ?>
 			</td>
-			<td width="1%">
+			<td class="center">
 				<?php
 				   $idade_c = array(
-				   		COM_FILAUTI_YEARS, 
-				   		COM_FILAUTI_MONTHS, 
-				   		COM_FILAUTI_DAYS
+				   		JText::_(COM_FILAUTI_YEARS), 
+				   		JText::_(COM_FILAUTI_MONTHS), 
+				   		JText::_(COM_FILAUTI_DAYS)
 				   ); 
-				   sprintf('%d %s', $this->idade, $idade_c[$this->idade_c]); 
+				   echo sprintf('%d %s', (int) $item->idade, $idade_c[(int) $item->idade_c]); 
 				?>
 			</td>			
 			<td>
@@ -204,6 +207,9 @@ $saveOrder  = $listOrder == 'a.ordering';
 			</td>			
 			<td class="center nowrap">
 				<?php echo JHtml::_('date', $item->created, JText::_('DATE_FORMAT_CS1')); ?>
+			</td>
+			<td class="center">
+				<?php echo (int) $item->t_fila; ?>
 			</td>
 			<td class="center">
 				<?php echo (int) $item->id; ?>
