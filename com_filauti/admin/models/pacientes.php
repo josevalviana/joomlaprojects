@@ -18,16 +18,16 @@ class FilaUtiModelPacientes extends JModelList
 					'hospfromid', 'a.hospfromid', 'hospfrom_name',
 					'hosptoid', 'a.hosptoid', 'hospto_name',
 					'promotoria', 'a.promotoria',
-                                        'prioridade', 'a.prioridade',
-                                        'avc', 'a.avc',
-                                        'mencef', 'a.mencef',
-                                        'hemodialise', 'a.hemodialise',
-                                        'isolamento', 'a.isolamento',
-                                        'posop', 'a.posop',
+                    'prioridade', 'a.prioridade',
+                    'avc', 'a.avc',
+                    'mencef', 'a.mencef',
+                    'hemodialise', 'a.hemodialise',
+                    'isolamento', 'a.isolamento',
+                    'posop', 'a.posop',
 					'encerrado', 'a.encerrado',
 					'encerramento', 'a.encerramento',
-                                        'sofa', 'a.sofa',
-                                        'disf', 'a.disf',
+                    'sofa', 'a.sofa',
+                    'disf', 'a.disf',
 					'created', 'a.created',
 					'created_by', 'a.created_by',
 			);
@@ -59,26 +59,26 @@ class FilaUtiModelPacientes extends JModelList
 		$promotoria = $this->getUserStateFromRequest($this->context.'.filter.promotoria', 'filter_promotoria');
 		$this->setState('filter.promotoria', $promotoria);
                 
-                $avc = $this->getUserStateFromRequest($this->context.'.filter.avc', 'filter_avc');
-                $this->setState('filter.avc', $avc);
+        $avc = $this->getUserStateFromRequest($this->context.'.filter.avc', 'filter_avc');
+        $this->setState('filter.avc', $avc);
                 
-                $mencef = $this->getUserStateFromRequest($this->context.'.filter.mencef', 'filter_mencef');
-                $this->setState('filter.mencef', $mencef);
+        $mencef = $this->getUserStateFromRequest($this->context.'.filter.mencef', 'filter_mencef');
+        $this->setState('filter.mencef', $mencef);
                 
-                $hemodialise = $this->getUserStateFromRequest($this->context.'.filter.hemodialise', 'filter_hemodialise');
-                $this->setState('filter.hemodialise', $hemodialise);
+        $hemodialise = $this->getUserStateFromRequest($this->context.'.filter.hemodialise', 'filter_hemodialise');
+        $this->setState('filter.hemodialise', $hemodialise);
                 
-                $isolamento = $this->getUserStateFromRequest($this->context.'.filter.isolamento', 'filter_isolamento');
-                $this->setState('filter.isolamento', $isolamento);
+        $isolamento = $this->getUserStateFromRequest($this->context.'.filter.isolamento', 'filter_isolamento');
+        $this->setState('filter.isolamento', $isolamento);
                 
-                $posop = $this->getUserStateFromRequest($this->context.'.filter.posop', 'filter_posop');
-                $this->setState('filter.posop', $posop);
+        $posop = $this->getUserStateFromRequest($this->context.'.filter.posop', 'filter_posop');
+        $this->setState('filter.posop', $posop);
 		
 		$encerrado = $this->getUserStateFromRequest($this->context.'.filter.encerrado', 'filter_encerrado');
 		$this->setState('filter.encerrado', $encerrado);
                 
-                $prioridade = $this->getUserStateFromRequest($this->context.'.filter.prioridade', 'filter_prioridade');
-                $this->setState('filter.prioridade', $prioridade);
+        $prioridade = $this->getUserStateFromRequest($this->context.'.filter.prioridade', 'filter_prioridade');
+        $this->setState('filter.prioridade', $prioridade);
 		
 		parent::populateState('a.nome', 'asc');
 	}
@@ -95,7 +95,8 @@ class FilaUtiModelPacientes extends JModelList
 				'a.id, a.sisreg, a.nome, a.idade, a.idade_c, a.created, datediff(curdate(), a.created) as t_fila, a.created_by'.
 				', a.hospfromid, a.hosptoid, a.promotoria, a.encerrado'.
 				', a.prioridade, a.avc, a.mencef, a.hemodialise, a.encerramento'.
-                                ', a.isolamento, a.posop, a.sofa, a.disf'
+                ', a.isolamento, a.posop, a.sofa, a.disf'.
+				', timestampdiff(MINUTE, (SELECT convert_tz(max(ev.created), \'UTC\', \'America/Fortaleza\') FROM #__filauti_evolucoes AS ev WHERE ev.filaid = a.id), now()) as t_evolucao'
 			)
 		);
 		$query->from('#__filauti AS a');

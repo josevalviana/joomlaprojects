@@ -143,7 +143,10 @@ $saveOrder  = $listOrder == 'a.ordering';
 					<?php echo JHtml::_('grid.sort', 'JDATE', 'a.created', $listDirn, $listOrder); ?>
 				</th>
 				<th width="1%">
-				    <?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_T_FILA', 't_fila', $listDirn, $listOrder); ?>
+				    <?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_T_FILA', 'a.t_fila', $listDirn, $listOrder); ?>
+				</th>
+				<th width="1%">
+					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_T_EVOLUCAO', 't_evolucao', $listDirn, $listOrder); ?>
 				</th>
 				<th width="1%" class="nowrap">
 					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_ID', 'a.id', $listDirn, $listOrder); ?>
@@ -152,7 +155,7 @@ $saveOrder  = $listOrder == 'a.ordering';
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="13">
+				<td colspan="14">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -210,6 +213,13 @@ $saveOrder  = $listOrder == 'a.ordering';
 			</td>
 			<td class="center">
 				<?php echo (int) $item->t_fila; ?>
+			</td>
+			<td class="center">			   
+			   <?php if ($item->t_evolucao != 0): ?>
+			   		<?php echo (int) $item->t_evolucao; ?>
+			   <?php else: ?>
+			     	<?php echo '-'; ?>
+			   <?php endif; ?>
 			</td>
 			<td class="center">
 				<?php echo (int) $item->id; ?>
