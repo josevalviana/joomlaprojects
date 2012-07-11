@@ -8,7 +8,7 @@ class CensoUTIController extends JController
 {
 	protected $default_view = 'censos';
 	
-	public function display($cachabel = false, $urlparams = false)
+	public function display($cachable = false, $urlparams = false)
 	{
 		$view = JRequest::getCmd('view', 'censos');
 		$layout = JRequest::getCmd('layout', 'censos');

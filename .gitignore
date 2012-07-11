@@ -142,6 +142,7 @@ parts
 bin
 var
 sdist
+*.zip
 develop-eggs
 .installed.cfg
 
