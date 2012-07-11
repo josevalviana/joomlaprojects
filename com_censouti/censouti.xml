@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" version="2.5" method="upgrade">
+	<name>COM_CENSOUTI</name>
+	<author>Joseval Viana</author>
+	<creationDate>July 2012</creationDate>
+	<copyright>(C) 2012 Joseval Viana. All rights reserved.</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>josevalviana@gmail.com</authorEmail>
+	<authorUrl>www.medinfecto.med.br</authorUrl>
+	<version>0.0.1</version>
+	<description>COM_CENSOUTI_XML_DESCRIPTION</description>
+	
+	<update>
+		<schemas>
+			<schemapath type="mysql">sql/updates/mysql</schemapath>
+		</schemas>
+	</update>
+	
+	<administration>
+		<files folder="admin">
+			<filename>censouti.php</filename>
+			<filename>controller.php</filename>
+			<filename>index.html</filename>
+			<folder>controllers</folder>
+			<folder>models</folder>
+			<folder>sql</folder>
+			<folder>views</folder>
+		</files>
+		<languages folder="admin">
+			<language tag="pt-BR">language/pt-BR/pt-BR.com_censouti.ini</language>
+		</languages>
+	</administration>
+</extension>
