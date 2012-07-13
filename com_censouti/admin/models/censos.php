@@ -13,6 +13,9 @@ class CensoUTIModelCensos extends JModelList
 				'id', 'a.id',
 				'sisreg', 'a.sisreg',
 				'nome', 'a.nome',
+				'admissao', 'a.admissao',
+				'alta', 'a.alta',
+				'hospital_id', 'a.hospital_id', 'hospital_name',
 				'created', 'a.created',
 				'created_by', 'a.created_by',				
 			);
@@ -38,6 +41,12 @@ class CensoUTIModelCensos extends JModelList
 		$authorId = $this->getUserStateFromRequest($this->context.'.filter.author_id', 'filter_author_id');
 		$this->setState('filter.author_id', $authorId);
 		
+		$hospitalId = $this->getUserStateFromRequest($this->context.'.filter.hospital_id', 'filter_hospital_id');
+		$this->setState('filter.hospital_id', $hospitalId);
+		
+		$altaId = $this->getUserStateFromRequest($this->context.'.filter.alta', 'filter_alta');
+		$this->setState('filter.alta', $altaId);
+		
 		// List state information.
 		parent::populateState('a.nome', 'asc');
 	}
@@ -53,7 +62,7 @@ class CensoUTIModelCensos extends JModelList
 		$query->select(
 				$this->getState(
 						'list.select',
-						'a.id, a.sisreg, a.nome, a.created, a.created_by'
+						'a.id, a.sisreg, a.nome, a.hospital_id, a.admissao, a.created, a.created_by'
 				)
 		);
 		$query->from('#__censouti AS a');
@@ -62,11 +71,29 @@ class CensoUTIModelCensos extends JModelList
 		$query->select('ua.name AS author_name');
 		$query->join('LEFT', '#__users AS ua ON ua.id = a.created_by');
 		
+		// Join over the hospitals.
+		$query->select('h.name AS hospital_name');
+		$query->join('LEFT', '#__hospitals AS h ON h.id = a.hospital_id');
+		
 		// Filter by author
 		$authorId = $this->getState('filter.author_id');
 		if (is_numeric($authorId)) {
 			$type = $this->getState('filter.author_id.include', true) ? '= ' : '<>';
 			$query->where('a.created_by '.$type.(int) $authorId);
+		}
+		
+		// Filter by a single hospital.
+		$hospitalId = $this->getState('filter.hospital_id');
+		if (is_numeric($hospitalId))
+		{
+			$query->where('a.hospital_id = '.(int) $hospitalId);
+		}
+		
+		// Filter by alta.
+		$altaId = $this->getState('filter.alta');
+		if (is_numeric($altaId))
+		{
+			$query->where('a.alta = '.(int) $altaId);
 		}
 		
 		// Filter by search in title.
