@@ -5,7 +5,6 @@ CREATE TABLE `#__censouti` (
 	`sisreg` INTEGER NOT NULL,
 	`nome` VARCHAR(255) NOT NULL,
 	`hospital_id` INT NOT NULL default '0',
-	`leito` VARCHAR(20) NOT NULL,
 	`admissao` date NOT NULL default '0000-00-00',
 	`diagnostico` VARCHAR(255) NOT NULL,
 	`evolucao` TINYINT(1) NOT NULL default '0',

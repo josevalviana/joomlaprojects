@@ -2,7 +2,6 @@
 // no direct access
 defined('_JEXEC') or die;
 
-JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.multiselect');
 
@@ -25,17 +24,6 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 				<option value=""><?php echo JText::_('JOPTION_SELECT_AUTHOR'); ?></option>
 				<?php echo JHtml::_('select.options', $this->authors, 'value', 'text', $this->state->get('filter.author_id')); ?>
 			</select>
-			<select name="filter_hospital_id" class="inputbox" onchange="this.form.submit()">
-				<option value=""><?php echo JText::_('JOPTION_SELECT_HOSPITAL'); ?></option>
-				<?php echo JHtml::_('select.options', JHtml::_('hospital.options', 'com_censouti'), 'value', 'text', $this->state->get('filter.hospital_id')); ?>
-			</select>
-			<select name="filter_alta" class="inputbox" onchange="this.form.submit()">
-				<?php echo JHtml::_('select.options', 
-						array(
-							JHtml::_('select.option', 0, JText::_('JNO')),
-							JHtml::_('select.option', 1, JText::_('JYES')),
-						), 'value', 'text', $this->state->get('filter.alta')); ?>
-			</select>
 		</div>
 	</fieldset>
 	<div class="clr"> </div>
@@ -53,12 +41,6 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 				    <?php echo JHtml::_('grid.sort', 'COM_CENSOUTI_HEADING_NOME', 'a.nome', $listDirn, $listOrder); ?>
 				</th>
 				<th width="10%">
-					<?php echo JHtml::_('grid.sort', 'COM_CENSOUTI_HEADING_HOSPITAL', 'hospital_name', $listDirn, $listOrder); ?>
-				</th>
-				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'COM_CENSOUTI_HEADING_ADMISSAO', 'a.admissao', $listDirn, $listOrder); ?>
-				</th>
-				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>
 				<th width="5%">
@@ -71,7 +53,7 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="8">
+				<td colspan="6">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -88,12 +70,6 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 			</td>
 			<td>
 				<?php echo $this->escape($item->nome); ?>
-			</td>
-			<td>
-				<?php echo $this->escape($item->hospital_name); ?>
-			</td>
-			<td class="center nowrap">
-				<?php echo JHtml::_('date', $item->admissao, JText::_('DATE_FORMAT_LC4')); ?>
 			</td>
 			<td class="center">
 				<?php echo $this->escape($item->author_name); ?>
