@@ -16,6 +16,12 @@ JHtml::_('behavior.keepalive');
         <fieldset class="adminform">
             <legend><?php echo empty($this->item->id) ? JText::_('COM_CENSOUTI_NEW_CENSO') : JText::sprintf('COM_CENSOUTI_EDIT_CENSO', $this->item->id); ?></legend>
             <ul class="adminformlist">
+                <li><?php echo $this->form->getLabel('sisreg'); ?>
+                <?php echo $this->form->getInput('sisreg'); ?></li>
+                
+                <li><?php echo $this->form->getLabel('nome'); ?>
+                <?php echo $this->form->getInput('nome'); ?></li>
+                
                 <li><?php echo $this->form->getLabel('id'); ?>
                 <?php echo $this->form->getInput('id'); ?></li>
             </ul>

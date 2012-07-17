@@ -5,5 +5,11 @@
         <field name="id" type="text" class="readonly" label="JGLOBAL_FIELD_ID_LABEL"
                 description="JGLOBAL_FIELD_ID_DESC" size="10" default="0"
                 readonly="true" />
+        <field name="sisreg" type="text" label="COM_CENSOUTI_FIELD_SISREG_LABEL"
+                description="COM_CENSOUTI_FIELD_SISREG_DESC" class="inputbox" size="10" default="0"
+                required="true" />
+        <field name="nome" type="text" label="COM_CENSOUTI_FIELD_NOME_LABEL"
+                description="COM_CENSOUTI_FIELD_NOME_DESC" class="inputbox" size="50"
+                required="true" />
     </fieldset>
 </form>
