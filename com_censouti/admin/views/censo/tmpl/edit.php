@@ -22,6 +22,9 @@ JHtml::_('behavior.keepalive');
                 <li><?php echo $this->form->getLabel('nome'); ?>
                 <?php echo $this->form->getInput('nome'); ?></li>
                 
+                <li><?php echo $this->form->getLabel('hospital_id'); ?>
+                <?php echo $this->form->getInput('hospital_id'); ?></li>
+                
                 <li><?php echo $this->form->getLabel('id'); ?>
                 <?php echo $this->form->getInput('id'); ?></li>
             </ul>

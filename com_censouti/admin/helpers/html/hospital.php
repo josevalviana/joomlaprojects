@@ -1,6 +1,6 @@
 <?php
 // no direct access
-defined('_JEXEC') or die;
+defined('JPATH_PLATFORM') or die;
 
 /**
  * @package Joomla.Administrator

@@ -2,6 +2,7 @@
 // no direct access
 defined('_JEXEC') or die;
 
+JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.multiselect');
 
@@ -24,6 +25,11 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 				<option value=""><?php echo JText::_('JOPTION_SELECT_AUTHOR'); ?></option>
 				<?php echo JHtml::_('select.options', $this->authors, 'value', 'text', $this->state->get('filter.author_id')); ?>
 			</select>
+                    
+                    <select name="filter_hospital_id" class="inputbox" onchange="this.form.submit()">
+                        <option value=""><?php echo JText::_('COM_CENSOUTI_SELECT_HOSPITAL'); ?></option>
+                        <?php echo JHtml::_('select.options', JHtml::_('hospital.options'), 'value','text', $this->state->get('filter.hospital_id'));?>
+                    </select>
 		</div>
 	</fieldset>
 	<div class="clr"> </div>
@@ -40,6 +46,9 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 				<th>
 				    <?php echo JHtml::_('grid.sort', 'COM_CENSOUTI_HEADING_NOME', 'a.nome', $listDirn, $listOrder); ?>
 				</th>
+                                <th width="10%">
+                                    <?php echo JHtml::_('grid.sort', 'COM_CENSOUTI_HEADING_HOSPITAL', 'hospital_name', $listDirn, $listOrder); ?>
+                                </th>
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>
@@ -53,7 +62,7 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="6">
+				<td colspan="7">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -71,6 +80,9 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 			<td>
 				<?php echo $this->escape($item->nome); ?>
 			</td>
+                        <td class="center">
+                                <?php echo $this->escape($item->hospital_name); ?>
+                        </td>
 			<td class="center">
 				<?php echo $this->escape($item->author_name); ?>
 			</td>

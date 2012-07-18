@@ -4,6 +4,7 @@ CREATE TABLE `#__censouti` (
 	`id` INTEGER NOT NULL AUTO_INCREMENT,
 	`sisreg` INTEGER NOT NULL,
 	`nome` VARCHAR(255) NOT NULL,
+        `leito` VARCHAR(255) NOT NULL,
 	`hospital_id` INT NOT NULL default '0',
 	`admissao` date NOT NULL default '0000-00-00',
 	`diagnostico` VARCHAR(255) NOT NULL,
