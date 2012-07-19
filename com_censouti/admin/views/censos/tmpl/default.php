@@ -110,6 +110,8 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 		</tfoot>
 		<tbody>
 		<?php foreach ($this->items as $i => $item) :
+                        $canEdit = $user->authorise('core.edit',        'com_censouti.censo.'.$item->id);
+                        $canEditOwn = $user->authorise('core.edit.own', 'com_censouti.censo.'.$item->id) && $item->created_by == $userId;
 		?>
 		<tr class="row<?php echo $i % 2; ?>">
 			<td class="center">
@@ -119,7 +121,11 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 				<?php echo $this->escape($item->sisreg); ?>
 			</td>
 			<td>
+                            <?php if ($canEdit || $canEditOwn) : ?>
+                                <a href="<?php echo JRoute::_('index.php?option=com_censouti&task=censo.edit&id='.$item->id); ?>"><?php echo $this->escape($item->nome); ?></a>
+                            <?php else : ?>
 				<?php echo $this->escape($item->nome); ?>
+                            <?php endif; ?>
 			</td>
                         <td class="center">
                                 <?php echo $this->escape($item->hospital_name); ?>

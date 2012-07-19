@@ -33,17 +33,27 @@ class CensoUTIViewCensos extends JView
 	
 	public function addToolbar()
 	{
+                $canDo  = CensoUTIHelper::getActions();
+                $user   = JFactory::getUser();                
 		JToolBarHelper::title(JText::_('COM_CENSOUTI_CENSOS_TITLE'));
+                
+                if ($canDo->get('core.create')) {
+                    JToolBarHelper::addNew('censo.add');
+                }
+				
+		if (($canDo->get('core.edit')) || ($canDo->get('core.edit.own'))) {
+                    JToolBarHelper::editList('censo.edit');
+                }
+                
+                if ($canDo->get('core.delete')) {                    
+                    JToolBarHelper::deleteList('', 'censos.delete');
+                    JToolBarHelper::divider();
+                }
 		
-		JToolBarHelper::addNew('censo.add');
-		
-		JToolBarHelper::editList('censo.edit');
-		
-		JToolBarHelper::deleteList('', 'censos.delete', 'JTOOLBAR_EMPTY_TRASH');
-		JToolBarHelper::divider();
-		
-		JToolBarHelper::preferences('com_censouti');
-		JToolBarHelper::divider();
+                if ($canDo->get('core.admin')) {
+                    JToolBarHelper::preferences('com_censouti');
+                    JToolBarHelper::divider();
+                }
 		
 		JToolBarHelper::help('JHELP_CENSOUTI_CENSO_MANAGER');
 	}

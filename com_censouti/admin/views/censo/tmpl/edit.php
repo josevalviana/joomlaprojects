@@ -11,6 +11,16 @@ JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');
 ?>
 
+<script type="text/javascript">
+	Joomla.submitbutton = function(task) {
+		if (task == 'censo.cancel' || document.formvalidator.isValid(document.id('item-form'))) {
+			Joomla.submitform(task, document.getElementById('item-form'));
+		} else {
+			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
+		}
+	}
+</script>
+
 <form action="<?php echo JRoute::_('index.php?option=com_censouti&layout=edit&id='.(int) $this->item->id); ?>" method="post" name="adminForm" id="item-form" class="form-validate">
     <div class="width-60 fltlft">
         <fieldset class="adminform">

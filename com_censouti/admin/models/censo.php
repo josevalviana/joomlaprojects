@@ -4,6 +4,8 @@ defined('_JEXEC') or die;
 
 jimport('joomla.application.component.modeladmin');
 
+require_once JPATH_COMPONENT_ADMINISTRATOR.'/helpers/censouti.php';
+
 class CensoUTIModelCenso extends JModelAdmin
 {
     protected $text_prefix = 'COM_CENSOUTI';
@@ -21,6 +23,14 @@ class CensoUTIModelCenso extends JModelAdmin
         }
         
         return $form;
+    }
+    
+    protected function canDelete($censo)
+    {
+        if (!empty($censo->id)) {
+            $user = JFactory::getUser();
+            return $user->authorise('core.delete', 'com_censouti.censo.'.(int) $censo->id);
+        }
     }
     
     protected function loadFormData()
