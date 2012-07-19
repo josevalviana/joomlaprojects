@@ -25,6 +25,24 @@ JHtml::_('behavior.keepalive');
                 <li><?php echo $this->form->getLabel('hospital_id'); ?>
                 <?php echo $this->form->getInput('hospital_id'); ?></li>
                 
+                <li><?php echo $this->form->getLabel('admissao'); ?>
+                <?php echo $this->form->getInput('admissao'); ?></li>
+                
+                <li><?php echo $this->form->getLabel('leito'); ?>
+                <?php echo $this->form->getInput('leito'); ?></li>
+                
+                <li><?php echo $this->form->getLabel('diagnostico'); ?>
+                <?php echo $this->form->getInput('diagnostico'); ?></li>
+                
+                <li><?php echo $this->form->getLabel('evolucao'); ?>
+                <?php echo $this->form->getInput('evolucao'); ?></li>
+                
+                <li><?php echo $this->form->getLabel('alta'); ?>
+                <?php echo $this->form->getInput('alta'); ?></li>
+                
+                <li><?php echo $this->form->getLabel('dt_alta'); ?>
+                <?php echo $this->form->getInput('dt_alta'); ?></li>
+                
                 <li><?php echo $this->form->getLabel('id'); ?>
                 <?php echo $this->form->getInput('id'); ?></li>
             </ul>

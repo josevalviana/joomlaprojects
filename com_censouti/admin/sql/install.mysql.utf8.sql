@@ -10,7 +10,7 @@ CREATE TABLE `#__censouti` (
 	`diagnostico` VARCHAR(255) NOT NULL,
 	`evolucao` TINYINT(1) NOT NULL default '0',
 	`alta` TINYINT(1) NOT NULL default '0',
-	`dt_alta` date NOT NULL default '0000-00-00',
+	`dt_alta` date,
 	`created` datetime NOT NULL default '0000-00-00 00:00:00',
     `created_by` int(10) unsigned NOT NULL default '0',
     `modified` datetime NOT NULL default '0000-00-00 00:00:00',

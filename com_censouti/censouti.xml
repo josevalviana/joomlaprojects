@@ -28,7 +28,9 @@
 	
 	<administration>
 		<files folder="admin">
+                        <filename>access.xml</filename>
 			<filename>censouti.php</filename>
+                        <filename>config.xml</filename>
 			<filename>controller.php</filename>
 			<filename>index.html</filename>
 			<folder>controllers</folder>

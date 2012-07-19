@@ -14,6 +14,10 @@ class CensoUTIModelCensos extends JModelList
 				'sisreg', 'a.sisreg',
 				'nome', 'a.nome',
                                 'hospital_id', 'a.hospital_id', 'hospital_name',
+                                'admissao', 'a.admissao',
+                                'evolucao', 'a.evolucao',
+                                'alta', 'a.alta',
+                                'dt_alta', 'a.dt_alta',
 				'created', 'a.created',
 				'created_by', 'a.created_by',				
 			);
@@ -39,6 +43,12 @@ class CensoUTIModelCensos extends JModelList
 		$authorId = $this->getUserStateFromRequest($this->context.'.filter.author_id', 'filter_author_id');
 		$this->setState('filter.author_id', $authorId);
                 
+                $alta = $this->getUserStateFromRequest($this->context.'.filter.alta', 'filter_alta');
+                $this->setState('filter.alta', $alta);
+                
+                $evolucao = $this->getUserStateFromRequest($this->context.'.filter.evolucao', 'filter_evolucao');
+                $this->setState('filter.evolucao', $evolucao);
+                
                 $hospitalId = $this->getUserStateFromRequest($this->context.'.filter.hospital_id', 'filter_hospital_id');
                 $this->setState('filter.hospital_id', $hospitalId);
 		
@@ -57,7 +67,8 @@ class CensoUTIModelCensos extends JModelList
 		$query->select(
 				$this->getState(
 						'list.select',
-						'a.id, a.sisreg, a.nome, a.hospital_id, a.created, a.created_by'
+						'a.id, a.sisreg, a.nome, a.hospital_id, a.created, a.created_by,'.
+                                                'a.admissao, a.leito, a.diagnostico, a.evolucao, a.alta, a.dt_alta'
 				)
 		);
 		$query->from('#__censouti AS a');
@@ -81,6 +92,18 @@ class CensoUTIModelCensos extends JModelList
                 $hospitalId = $this->getState('filter.hospital_id');
                 if (is_numeric($hospitalId)) {
                     $query->where('a.hospital_id ='.(int) $hospitalId);
+                }
+                
+                // Filter by alta
+                $alta = $this->getState('filter.alta');
+                if (is_numeric($alta)) {
+                    $query->where('a.alta ='.(int) $alta);
+                }
+                
+                // Filter by evolucao
+                $evolucao = $this->getState('filter.evolucao');
+                if (is_numeric($evolucao)) {
+                    $query->where('a.evolucao ='.(int) $evolucao);
                 }
 		
 		// Filter by search in title.

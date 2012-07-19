@@ -11,7 +11,7 @@ class CensoUTITableCensoUTI extends JTable
 		parent::__construct('#__censouti', 'id', $db);
 	}
         
-        public function store($updateNulls = false)
+        public function store($updateNulls = true)
         {
             $date = JFactory::getDate();
             $user = JFactory::getUser();
@@ -27,6 +27,8 @@ class CensoUTITableCensoUTI extends JTable
                     $this->created_by = $user->get('id');
                 }
             }
+            
+            if ($this->dt_alta == '' || $this->dt_alta == '0000-00-00') $this->dt_alta = null;
             
             // Attempt to store the data.
             return parent::store($updateNulls);

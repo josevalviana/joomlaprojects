@@ -14,5 +14,32 @@
         <field name="hospital_id" type="hospital" label="COM_CENSOUTI_FIELD_HOSPITAL_LABEL"
                 description="COM_CENSOUTI_FIELD_HOSPITAL_DESC" class="inputbox"
                 required="true" />
+        <field name="admissao" type="calendar" label="COM_CENSOUTI_FIELD_ADMISSAO_LABEL"
+                description="COM_CENSOUTI_FIELD_ADMISSAO_DESC" class="inputbox"
+                format="%Y-%m-%d" size="12" required="true" />
+        <field name="leito" type="text" label="COM_CENSOUTI_FIELD_LEITO_LABEL"
+               description="COM_CENSOUTI_FIELD_LEITO_DESC" class="inputbox"
+               required="true" size="22" />
+        <field name="diagnostico" type="text" label="COM_CENSOUTI_FIELD_DIAGNOSTICO_LABEL"
+               description="COM_CENSOUTI_FIELD_DIAGNOSTICO_DESC" class="inputbox"
+               required="true" size="50" />
+        <field name="evolucao" type="list" label="COM_CENSOUTI_FIELD_EVOLUCAO_LABEL"
+               description="COM_CENSOUTI_FIELD_EVOLUCAO_DESC" class="inputbox"
+               required="true" filter="intval" size="1" default="0">
+               <option value="0">COM_CENSOUTI_EVOLUCAO_OPTION_NOT_INFORMED</option>
+               <option value="1">COM_CENSOUTI_EVOLUCAO_OPTION_CRITICAL</option>
+               <option value="2">COM_CENSOUTI_EVOLUCAO_OPTION_REGULAR</option>
+               <option value="3">COM_CENSOUTI_EVOLUCAO_OPTION_BETTER</option>
+               <option value="4">COM_CENSOUTI_EVOLUCAO_OPTION_DECEASED</option>
+        </field>
+        <field name="alta" type="list" label="COM_CENSOUTI_FIELD_ALTA_LABEL"
+               description="COM_CENSOUTI_FIELD_ALTA_DESC" class="inputbox"
+               required="true" filter="intval" size="1" default="0">
+               <option value="0">JNO</option>
+               <option value="1">JYES</option>
+        </field>
+        <field name="dt_alta" type="calendar" label="COM_CENSOUTI_FIELD_DT_ALTA_LABEL"
+                description="COM_CENSOUTI_FIELD_DT_ALTA_DESC" class="inputbox"
+                format="%Y-%m-%d" size="12" />
     </fieldset>
 </form>
