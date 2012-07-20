@@ -41,6 +41,8 @@
 			<folder>views</folder>
 		</files>
 		<languages folder="admin">
+                        <language tag="en-GB">language/en-GB/en-GB.com_censouti.ini</language>
+                        <language tag="en-GB">language/en-GB/en-GB.com_censouti.sys.ini</language>
 			<language tag="pt-BR">language/pt-BR/pt-BR.com_censouti.ini</language>
 			<language tag="pt-BR">language/pt-BR/pt-BR.com_censouti.sys.ini</language>
 		</languages>

@@ -98,6 +98,8 @@ class CensoUTIModelCensos extends JModelList
                 $alta = $this->getState('filter.alta');
                 if (is_numeric($alta)) {
                     $query->where('a.alta ='.(int) $alta);
+                } else {
+                    $query->where('a.alta = 0');
                 }
                 
                 // Filter by evolucao
