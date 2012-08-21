@@ -96,7 +96,8 @@ class FilaUtiModelPacientes extends JModelList
 				', a.hospfromid, a.hosptoid, a.promotoria, a.encerrado'.
 				', a.prioridade, a.avc, a.mencef, a.hemodialise, a.encerramento'.
                 ', a.isolamento, a.posop, a.sofa, a.disf'.
-				', timestampdiff(MINUTE, (SELECT convert_tz(max(ev.created), \'UTC\', \'America/Fortaleza\') FROM #__filauti_evolucoes AS ev WHERE ev.filaid = a.id), now()) as t_evolucao'
+				//', timestampdiff(MINUTE, (SELECT convert_tz(max(ev.created), \'UTC\', \'America/Fortaleza\') FROM #__filauti_evolucoes AS ev WHERE ev.filaid = a.id), now()) as t_evolucao'
+                                ', datediff(curdate(), (SELECT convert_tz(max(ev.created), \'UTC\', \'America/Fortaleza\') FROM #__filauti_evolucoes AS ev WHERE ev.filaid = a.id)) as t_evolucao'
 			)
 		);
 		$query->from('#__filauti AS a');
