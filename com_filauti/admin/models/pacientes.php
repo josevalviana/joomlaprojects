@@ -55,6 +55,9 @@ class FilaUtiModelPacientes extends JModelList
 		
 		$hosptoId = $this->getUserStateFromRequest($this->context.'.filter.hospto_id', 'filter_hospto_id');
 		$this->setState('filter.hospto_id', $hosptoId);
+                
+                $authorId = $this->getUserStateFromRequest($this->context.'.filter.author_id', 'filter_author_id');
+                $this->setState('filter.author_id', $authorId);
 		
 		$promotoria = $this->getUserStateFromRequest($this->context.'.filter.promotoria', 'filter_promotoria');
 		$this->setState('filter.promotoria', $promotoria);
@@ -129,6 +132,12 @@ class FilaUtiModelPacientes extends JModelList
 			$hosptoId = implode(',', $hosptoId);
 			$query->where('a.hosptoid IN ('.$hosptoId.')');
 		}
+                
+                $authorId = $this->getState('filter.author_id');
+                if (is_numeric($authorId)) {
+                    $type = $this->getState('filter.author_id.include', true) ? '= ' : '<>';
+                    $query->where('a.created_by '.$type.(int) $authorId);
+                }
 		
 		$promotoria = $this->getState('filter.promotoria');
 		if (is_numeric($promotoria)) {
@@ -192,4 +201,23 @@ class FilaUtiModelPacientes extends JModelList
 			
 		return $query;		
 	}
+        
+        public function getAuthors() {
+            // Create a new query object.
+            $db = $this->getDbo();
+            $query = $db->getQuery(true);
+            
+            // Construct the query
+            $query->select('u.id AS value, u.name AS text');
+            $query->from('#__users AS u');
+            $query->join('INNER', '#__filauti AS f ON f.created_by = u.id');
+            $query->group('u.id');
+            $query->order('u.name');
+            
+            // Setup the query
+            $db->setQuery($query->__toString());
+            
+            // Return the result
+            return $db->loadObjectList();
+        }
 }

@@ -31,6 +31,11 @@ $saveOrder  = $listOrder == 'a.ordering';
 				<option value=""><?php echo JText::_('COM_FILAUTI_SELECT_HOSPTO'); ?></option>
 				<?php echo JHtml::_('select.options', JHtml::_('hospital.options'), 'value', 'text', $this->state->get('filter.hospto_id')); ?>
 			</select>
+                    
+                    <select name="filter_author_id" class="inputbox" onchange="this.form.submit()">
+                        <option value=""><?php echo JText::_('JOPTION_SELECT_AUTHOR'); ?></option>
+                        <?php echo JHtml::_('select.options', $this->authors, 'value', 'text', $this->state->get('filter.author_id')); ?>
+                    </select>
 			
 			<select name="filter_promotoria" class="inputbox" onchange="this.form.submit()">
 			    <option value=""><?php echo JText::_('COM_FILAUTI_SELECT_PROMOTORIA'); ?></option>
