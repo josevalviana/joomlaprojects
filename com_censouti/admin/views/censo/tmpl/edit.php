@@ -35,6 +35,9 @@ JHtml::_('behavior.keepalive');
                 <li><?php echo $this->form->getLabel('hospital_id'); ?>
                 <?php echo $this->form->getInput('hospital_id'); ?></li>
                 
+                <li><?php echo $this->form->getLabel('catid'); ?>
+                <?php echo $this->form->getInput('catid'); ?></li>
+                
                 <li><?php echo $this->form->getLabel('admissao'); ?>
                 <?php echo $this->form->getInput('admissao'); ?></li>
                 

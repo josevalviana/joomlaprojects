@@ -6,6 +6,7 @@ CREATE TABLE `#__censouti` (
 	`nome` VARCHAR(255) NOT NULL,
         `leito` VARCHAR(255) NOT NULL,
 	`hospital_id` INT NOT NULL default '0',
+        `catid` INTEGER UNSIGNED NOT NULL DEFAULT 0,
 	`admissao` date NOT NULL default '0000-00-00',
 	`diagnostico` VARCHAR(255) NOT NULL,
 	`evolucao` TINYINT(1) NOT NULL default '0',

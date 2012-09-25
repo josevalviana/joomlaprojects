@@ -7,6 +7,22 @@ jimport('joomla.application.component.controllerform');
 
 class CensoUTIControllerCenso extends JControllerForm
 {
+    protected function allowAdd($data = array()) {
+        $user           = JFactory::getUser();
+        $categoryId     = JArrayHelper::getValue($data, 'catid', JRequest::getInt('filter_category_id'), 'int');
+        $allow          = null;
+        
+        if ($categoryId) {
+            $allow = $user->authorise('core.create', 'com_censouti.category'.$categoryId);
+        }
+        
+        if ($allow === null) {
+            return parent::allowAdd();
+        } else {
+            return $allow;
+        }
+    }
+    
     protected function allowEdit($data = array(), $key = 'id')
     {
         $censoId = (int) isset($data[$key]) ? $data[$key] : 0;

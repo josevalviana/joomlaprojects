@@ -22,6 +22,15 @@ class CensoUTIModelCenso extends JModelAdmin
             return false;
         }
         
+        if ($id = (int) $this->getState('censo.id')) {
+            // Existing record. Can only edit in selected categories.
+            $form->setFieldAttribute('catid', 'action', 'core.edit');
+            // Existing record. Can only edit own censos in selected categories.
+            $form->setFieldAttribute('catid', 'action', 'core.edit.own');
+        } else {
+            $form->setFieldAttribute('catid', 'action', 'core.create');
+        }
+        
         return $form;
     }
     
@@ -43,9 +52,9 @@ class CensoUTIModelCenso extends JModelAdmin
             // Prime some default values.
             if ($this->getState('censo.id' == 0)) {
                 $app = JFactory::getApplication();
-            }
-            
-            return $data;
+                $data->set('catid', JRequest::getInt('catid', $app->getUserState('com_censouti.censos.filter.category_id')));
+            }                        
         }
+        return $data;
     }
 }

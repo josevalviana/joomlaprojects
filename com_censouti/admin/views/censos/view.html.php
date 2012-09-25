@@ -33,11 +33,11 @@ class CensoUTIViewCensos extends JView
 	
 	public function addToolbar()
 	{
-                $canDo  = CensoUTIHelper::getActions();
+                $canDo  = CensoUTIHelper::getActions($this->state->get('filter.category_id'));
                 $user   = JFactory::getUser();                
 		JToolBarHelper::title(JText::_('COM_CENSOUTI_CENSOS_TITLE'));
                 
-                if ($canDo->get('core.create')) {
+                if ($canDo->get('core.create') || (count($user->getAuthorisedCategories('com_censouti', 'core.create'))) > 0) {
                     JToolBarHelper::addNew('censo.add');
                 }
 				

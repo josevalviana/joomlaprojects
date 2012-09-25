@@ -32,6 +32,11 @@
                <option value="3">COM_CENSOUTI_EVOLUCAO_OPTION_BETTER</option>
                <option value="4">COM_CENSOUTI_EVOLUCAO_OPTION_DECEASED</option>
         </field>
+        <field name="catid" type="category" extension="com_censouti"
+                label="JCATEGORY" description="JFIELD_CATEGORY_DESC"
+                class="inputbox" required="true"
+        >
+        </field>
         <field name="alta" type="list" label="COM_CENSOUTI_FIELD_ALTA_LABEL"
                description="COM_CENSOUTI_FIELD_ALTA_DESC" class="inputbox"
                required="true" filter="intval" size="1" default="0">

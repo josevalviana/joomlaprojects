@@ -14,6 +14,7 @@ class CensoUTIModelCensos extends JModelList
 				'sisreg', 'a.sisreg',
 				'nome', 'a.nome',
                                 'hospital_id', 'a.hospital_id', 'hospital_name',
+                                'catid', 'a.catid', 'category_title',
                                 'admissao', 'a.admissao',
                                 'evolucao', 'a.evolucao',
                                 'alta', 'a.alta',
@@ -51,6 +52,9 @@ class CensoUTIModelCensos extends JModelList
                 
                 $hospitalId = $this->getUserStateFromRequest($this->context.'.filter.hospital_id', 'filter_hospital_id');
                 $this->setState('filter.hospital_id', $hospitalId);
+                
+                $categoryId = $this->getUserStateFromRequest($this->context.'.filter.category_id', 'filter_category_id');
+                $this->setState('filter.category_id', $categoryId);
 		
 		// List state information.
 		parent::populateState('a.nome', 'asc');
@@ -67,7 +71,7 @@ class CensoUTIModelCensos extends JModelList
 		$query->select(
 				$this->getState(
 						'list.select',
-						'a.id, a.sisreg, a.nome, a.hospital_id, a.created, a.created_by,'.
+						'a.id, a.sisreg, a.nome, a.hospital_id, a.created, a.created_by, a.catid, '.
                                                 'a.admissao, a.leito, a.diagnostico, a.evolucao, a.alta, a.dt_alta'
 				)
 		);
@@ -80,6 +84,20 @@ class CensoUTIModelCensos extends JModelList
                 // Join over the hospitals.
                 $query->select('h.name AS hospital_name');
                 $query->join('LEFT', '#__hospitals AS h ON h.id = a.hospital_id');
+                
+                // Join over the categories
+                $query->select('c.title AS category_title');
+                $query->join('LEFT', '#__categories AS c ON c.id = a.catid');
+                
+                // Filter by a single or group of categories
+                $categoryId = $this->getState('filter.category_id');
+                if (is_numeric($categoryId)) {
+                    $query->where('a.catid ='.(int) $categoryId);
+                } else if (is_array($categoryId)) {
+                    JArrayHelper::toInteger($categoryId);
+                    $categoryId = implode(',', $categoryId);
+                    $query->where('a.catid IN ('.$categoryId.')');
+                }
 		
 		// Filter by author
 		$authorId = $this->getState('filter.author_id');

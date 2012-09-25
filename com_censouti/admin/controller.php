@@ -10,6 +10,11 @@ class CensoUTIController extends JController
 	
 	public function display($cachable = false, $urlparams = false)
 	{
+                require_once JPATH_COMPONENT.'/helpers/censouti.php';
+                
+                // Load the submenu.
+                CensoUTIHelper::addSubmenu(JRequest::getCmd('view', 'censos'));
+                
 		$view = JRequest::getCmd('view', 'censos');
 		$layout = JRequest::getCmd('layout', 'censos');
 		$id = JRequest::getInt('id');

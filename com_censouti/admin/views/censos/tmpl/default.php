@@ -31,6 +31,11 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
                         <?php echo JHtml::_('select.options', JHtml::_('hospital.options'), 'value','text', $this->state->get('filter.hospital_id'));?>
                     </select>
                     
+                    <select name="filter_category_id" class="inputbox" onchange="this.form.submit()">
+                        <option value=""><?php echo JText::_('JOPTION_SELECT_CATEGORY'); ?></option>
+                        <?php echo JHtml::_('select.options', JHtml::_('category.options', 'com_censouti'), 'value', 'text', $this->state->get('filter.category_id')); ?>
+                    </select>
+                    
                     <select name="filter_evolucao" class="inputbox" onchange="this.form.submit()">
                         <option value=""><?php echo JText::_('COM_CENSOUTI_SELECT_EVOLUCAO'); ?></option>
                         <?php echo JHtml::_('select.options',
@@ -72,6 +77,9 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
                                 <th width="10%">
                                     <?php echo JHtml::_('grid.sort', 'COM_CENSOUTI_HEADING_HOSPITAL', 'hospital_name', $listDirn, $listOrder); ?>
                                 </th>
+                                <th width="10%">
+                                    <?php echo JHtml::_('grid.sort', 'JCATEGORY', 'category_title', $listDirn, $listOrder); ?>
+                                </th>
                                 <th width="5%">
                                     <?php echo JHtml::_('grid.sort', 'COM_CENSOUTI_HEADING_ADMISSAO', 'a.admissao', $listDirn, $listOrder); ?>
                                 </th>
@@ -103,13 +111,14 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="13">
+				<td colspan="14">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
 		</tfoot>
 		<tbody>
 		<?php foreach ($this->items as $i => $item) :
+                        $canCreate = $user->authorise('core.create',    'com_censouti.category.'.$item->catid);
                         $canEdit = $user->authorise('core.edit',        'com_censouti.censo.'.$item->id);
                         $canEditOwn = $user->authorise('core.edit.own', 'com_censouti.censo.'.$item->id) && $item->created_by == $userId;
 		?>
@@ -129,6 +138,9 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 			</td>
                         <td class="center">
                                 <?php echo $this->escape($item->hospital_name); ?>
+                        </td>
+                        <td class="center">
+                            <?php echo $this->escape($item->category_title); ?>
                         </td>
                         <td class="center nowrap">
                                 <?php echo JHtml::_('date', $item->admissao, JText::_('DATE_FORMAT_LC4'), null); ?>
