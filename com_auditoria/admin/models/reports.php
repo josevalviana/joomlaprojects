@@ -113,4 +113,5 @@ class AuditoriaModelReports extends JModelList
         // Return the result
         return $db->loadObjectList();
     }
+
 }

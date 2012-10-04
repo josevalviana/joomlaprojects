@@ -10,6 +10,7 @@ class AuditoriaViewReport extends JView
     protected $form;
     protected $item;
     protected $state;
+    protected $atividades;
     
     public function display($tpl = null)
     {
@@ -17,6 +18,7 @@ class AuditoriaViewReport extends JView
         $this->form     = $this->get('Form');
         $this->item     = $this->get('Item');
         $this->state    = $this->get('State');
+        $this->atividades = $this->get('Atividades');
         $this->canDo    = AuditoriaHelper::getActions();
         
         // check for errors.

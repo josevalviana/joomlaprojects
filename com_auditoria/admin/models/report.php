@@ -40,4 +40,24 @@ class AuditoriaModelReport extends JModelAdmin
         
         return $data;
     }
+    
+    public function getAtividades()
+    {
+        $db = $this->getDbo();
+        $query = $db->getQuery(true);
+        
+        $query->select('aa.id, aa.sisreg, aa.nome');
+        $query->from('#__auditoria_atividades AS aa');
+        $query->where('aa.auditoria = '.(int) $this->getState('report.id'));
+        
+        $db->setQuery($query);
+        $result = $db->loadObjectList();
+        
+        if ($error = $db->getError()) {
+            $this->setError($error);
+            return false;
+        }
+        
+        return $result;
+    }
 }

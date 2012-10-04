@@ -69,6 +69,15 @@ JHtml::_('behavior.keepalive');
                     <?php endif; ?>
                 </ul>
             </fieldset>
+        <div class="clr"></div>
+        
+        <?php if (!empty($this->atividades)) : ?>
+            <?php echo JHtml::_('sliders.panel',JText::_('COM_AUDITORIA_REPORT_ATIVIDADE_ASSIGNMENT'), 'atividade-options'); ?>
+            <fieldset>
+                <?php echo $this->loadTemplate('atividades'); ?>
+            </fieldset>
+        <?php endif; ?>
+        
         <?php echo JHtml::_('sliders.end'); ?>
     </div>
     
