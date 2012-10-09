@@ -10,14 +10,21 @@ JHtml::addIncludePath(JPATH_COMPONENT.'/helpers/html');
 JHtml::_('behavior.tooltip');
 JHtml::_('behavior.formvalidation');
 JHtml::_('behavior.keepalive');
+JHtml::_('behavior.modal');
 ?>
 
 <script type="text/javascript">
 	Joomla.submitbutton = function(task) {
 		if (task == 'report.cancel' || document.formvalidator.isValid(document.id('item-form'))) {
 			<?php echo $this->form->getField('intercorrencia')->save(); ?>
-			Joomla.submitform(task, document.getElementById('item-form'));
+			Joomla.submitform(task, document.getElementById('item-form'));                
 		} else {
+                        $$('#item-form .modal-value.invalid').each(function(field) {
+                            var idReversed = field.id.split("").reverse().join("");
+                            var separatorLocation = idReversed.indexOf('_');
+                            var name = idReversed.substr(separatorLocation).split("").reverse().join("")+'name';
+                            document.id(name).addClass('invalid');
+                        });
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
@@ -69,9 +76,8 @@ JHtml::_('behavior.keepalive');
                     <?php endif; ?>
                 </ul>
             </fieldset>
-        <div class="clr"></div>
         
-        <?php if (!empty($this->atividades)) : ?>
+        <?php if ($this->item->id != 0) : ?>
             <?php echo JHtml::_('sliders.panel',JText::_('COM_AUDITORIA_REPORT_ATIVIDADE_ASSIGNMENT'), 'atividade-options'); ?>
             <fieldset>
                 <?php echo $this->loadTemplate('atividades'); ?>

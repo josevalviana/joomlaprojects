@@ -48,7 +48,7 @@ class AuditoriaModelReport extends JModelAdmin
         
         $query->select('aa.id, aa.sisreg, aa.nome');
         $query->from('#__auditoria_atividades AS aa');
-        $query->where('aa.auditoria = '.(int) $this->getState('report.id'));
+        $query->where('aa.auditoriaid = '.(int) $this->getState('report.id'));
         
         $db->setQuery($query);
         $result = $db->loadObjectList();

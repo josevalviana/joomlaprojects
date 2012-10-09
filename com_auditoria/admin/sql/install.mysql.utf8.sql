@@ -14,7 +14,7 @@ CREATE TABLE IF NOT EXISTS `#__auditoria` (
 
 CREATE TABLE IF NOT EXISTS `#__auditoria_atividades` (
     `id` INTEGER NOT NULL auto_increment,
-    `auditoria` INTEGER NOT NULL,
+    `auditoriaid` INTEGER NOT NULL,
     `sisreg` INTEGER NOT NULL,
     `nome` VARCHAR(255) NOT NULL,
     `diagnostico` VARCHAR(255) NOT NULL,
@@ -24,5 +24,5 @@ CREATE TABLE IF NOT EXISTS `#__auditoria_atividades` (
     `modified` datetime NOT NULL default '0000-00-00 00:00:00',
     `modified_by` int(10) unsigned NOT NULL default '0',
     PRIMARY KEY (`id`),
-    FOREIGN KEY `fk_auditoria_atividade` (`auditoria`) REFERENCES `#__auditoria` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
+    FOREIGN KEY `fk_auditoria_atividade` (`auditoriaid`) REFERENCES `#__auditoria` (`id`) ON DELETE CASCADE ON UPDATE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
