@@ -7,10 +7,10 @@ $user		= JFactory::getUser();
 <table class="adminlist">
     <thead>
         <tr>
-            <th class="left">
+            <th class="left" width="5%">
                 <?php echo JText::_('COM_AUDITORIA_HEADING_SISREG'); ?>
             </th>                       
-            <th>
+            <th style="text-align: right;">
                 <?php echo JText::_('COM_AUDITORIA_HEADING_PACIENTE'); ?>
             </th>
         </tr>
@@ -21,7 +21,7 @@ $user		= JFactory::getUser();
             $canEdit = $user->authorise('core.edit', 'com_auditoria.report.'.(int) $this->item->id);
         ?>
             <tr class="row<?php echo $i % 2;?>">
-                <td>
+                <td class="left">
                     <?php if ($canEdit): ?>
                     	<?php $link = 'index.php?option=com_auditoria&amp;auditoriaid='. (int) $this->item->id.'&amp;task=atividade.edit&amp;id='.(int) $atividade->id.'&amp;tmpl=component&amp;view=atividade&amp;layout=modal'; ?>
                     	<a class="modal" href="<?php echo $link; ?>" rel="{handler: 'iframe', size: {x: 900, y: 550}}" title="<?php echo JText::_('COM_AUDITORIA_EDIT_ATIVIDADE_SETTINGS'); ?>">
@@ -30,7 +30,7 @@ $user		= JFactory::getUser();
                         <?php echo $atividade->sisreg; ?>
                     <?php endif; ?>
                 </td>
-                <td class="center">
+                <td class="right">
                     <?php echo $atividade->nome; ?>
                 </td>
             </tr>
@@ -39,7 +39,7 @@ $user		= JFactory::getUser();
     <?php else : ?>
     <tbody>
         <tr>
-            <td>
+            <td colspan="2" class="center">
                 <?php echo JText::_('COM_AUDITORIA_NO_ATIVIDADES'); ?>
             </td>
         </tr>
