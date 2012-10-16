@@ -8,6 +8,9 @@
         <field name="sisreg" type="text" label="COM_CENSOUTI_FIELD_SISREG_LABEL"
                 description="COM_CENSOUTI_FIELD_SISREG_DESC" class="inputbox" size="10" default="0"
                 required="true" />
+        <field name="fila_id" type="text" label="COM_CENSOUTI_FIELD_FILA_LABEL"
+                description="COM_CENSOUTI_FIELD_FILA_DESC" class="inputbox" size="10" default="0"
+                required="true" />
         <field name="nome" type="text" label="COM_CENSOUTI_FIELD_NOME_LABEL"
                 description="COM_CENSOUTI_FIELD_NOME_DESC" class="inputbox" size="50"
                 required="true" />
@@ -42,9 +45,15 @@
                required="true" filter="intval" size="1" default="0">
                <option value="0">JNO</option>
                <option value="1">JYES</option>
-        </field>
+        </field>        
         <field name="dt_alta" type="calendar" label="COM_CENSOUTI_FIELD_DT_ALTA_LABEL"
                 description="COM_CENSOUTI_FIELD_DT_ALTA_DESC" class="inputbox"
                 format="%Y-%m-%d" size="12" />
+        <field name="regulado" type="list" label="COM_CENSOUTI_FIELD_REGULADO_LABEL"
+               description="COM_CENSOUTI_FIELD_REGULADO_DESC" class="inputbox"
+               required="true" filter="intval" size="1" default="0">
+               <option value="0">JNO</option>
+               <option value="1">JYES</option>
+        </field>
     </fieldset>
 </form>

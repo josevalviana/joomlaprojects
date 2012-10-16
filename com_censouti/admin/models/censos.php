@@ -19,6 +19,7 @@ class CensoUTIModelCensos extends JModelList
                                 'evolucao', 'a.evolucao',
                                 'alta', 'a.alta',
                                 'dt_alta', 'a.dt_alta',
+                                'regulado', 'a.regulado',
 				'created', 'a.created',
 				'created_by', 'a.created_by',				
 			);
@@ -56,6 +57,9 @@ class CensoUTIModelCensos extends JModelList
                 $categoryId = $this->getUserStateFromRequest($this->context.'.filter.category_id', 'filter_category_id');
                 $this->setState('filter.category_id', $categoryId);
 		
+                $regulado = $this->getUserStateFromRequest($this->context.'.filter.regulado', 'filter_regulado');
+                $this->setState('filter.regulado', $regulado);
+                
 		// List state information.
 		parent::populateState('a.nome', 'asc');
 	}
@@ -72,7 +76,7 @@ class CensoUTIModelCensos extends JModelList
 				$this->getState(
 						'list.select',
 						'a.id, a.sisreg, a.nome, a.hospital_id, a.created, a.created_by, a.catid, '.
-                                                'a.admissao, a.leito, a.diagnostico, a.evolucao, a.alta, a.dt_alta'
+                                                'a.admissao, a.leito, a.diagnostico, a.evolucao, a.alta, a.dt_alta, a.regulado'
 				)
 		);
 		$query->from('#__censouti AS a');
@@ -118,6 +122,13 @@ class CensoUTIModelCensos extends JModelList
                     $query->where('a.alta ='.(int) $alta);
                 } else {
                     $query->where('a.alta = 0');
+                }
+                
+                $regulado = $this->getState('filter.regulado');
+                if (is_numeric($regulado)) {
+                    $query->where('a.regulado ='.(int) $regulado);
+                } else {
+                    $query->where('a.regulado = 0');
                 }
                 
                 // Filter by evolucao

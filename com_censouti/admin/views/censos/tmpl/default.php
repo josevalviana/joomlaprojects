@@ -58,6 +58,16 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
                                 )
                                 , 'value', 'text', $this->state->get('filter.alta'));?>
                     </select>
+                    
+                    <select name="filter_regulado" class="inputbox" onchange="this.form.submit()">
+                        <option value=""><?php echo JText::_('COM_CENSOUTI_SELECT_REGULADO'); ?></option>
+                        <?php echo JHtml::_('select.options',
+                                array(
+                                    JHtml::_('select.option', 0, JText::_('JNO')),
+                                    JHtml::_('select.option', 1, JText::_('JYES'))
+                                )
+                                , 'value', 'text', $this->state->get('filter.regulado'));?>
+                    </select>
 		</div>
 	</fieldset>
 	<div class="clr"> </div>
@@ -98,6 +108,9 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
                                 <th width="5%">
                                     <?php echo JHtml::_('grid.sort', 'COM_CENSOUTI_HEADING_DT_ALTA', 'a.dt_alta', $listDirn, $listOrder); ?>
 				</th>
+                                <th width="1%">
+                                    <?php echo JHtml::_('grid.sort', 'COM_CENSOUTI_HEADING_REGULADO', 'a.regulado', $listDirn, $listOrder); ?>
+                                </th>
 				<th width="10%">
                                     <?php echo JHtml::_('grid.sort', 'JGRID_HEADING_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>
@@ -111,7 +124,7 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="14">
+				<td colspan="15">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -171,6 +184,9 @@ $listDirn 	= $this->escape($this->state->get('list.direction'));
                                     <?php echo JHtml::_('date', $item->dt_alta, JText::_('DATE_FORMAT_LC4'), null); ?>
                                 <?php endif; ?>
 			</td>
+                        <td class="center">
+                                <?php echo ($item->regulado == 0) ? JText::_('JNO') : JText::_('JYES'); ?>
+                        </td>
 			<td class="center">
 				<?php echo $this->escape($item->author_name); ?>
 			</td>

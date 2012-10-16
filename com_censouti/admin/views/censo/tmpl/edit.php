@@ -29,6 +29,9 @@ JHtml::_('behavior.keepalive');
                 <li><?php echo $this->form->getLabel('sisreg'); ?>
                 <?php echo $this->form->getInput('sisreg'); ?></li>
                 
+                <li><?php echo $this->form->getLabel('fila_id'); ?>
+                <?php echo $this->form->getInput('fila_id'); ?></li>
+                
                 <li><?php echo $this->form->getLabel('nome'); ?>
                 <?php echo $this->form->getInput('nome'); ?></li>
                 
@@ -55,6 +58,9 @@ JHtml::_('behavior.keepalive');
                 
                 <li><?php echo $this->form->getLabel('dt_alta'); ?>
                 <?php echo $this->form->getInput('dt_alta'); ?></li>
+                
+                <li><?php echo $this->form->getLabel('regulado'); ?>
+                <?php echo $this->form->getInput('regulado'); ?></li>
                 
                 <li><?php echo $this->form->getLabel('id'); ?>
                 <?php echo $this->form->getInput('id'); ?></li>
