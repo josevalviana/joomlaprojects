@@ -29,6 +29,9 @@
 		<field name="hospfromid" type="hospital" label="COM_FILAUTI_HOSPFROMID_LABEL"
 		    description="COM_FILAUTI_HOSPFROMID_DESC" class="inputbox"
 		    required="true" />
+                
+                <field name="local" type="text" label="COM_FILAUTI_LOCAL_LABEL"
+			description="COM_FILAUTI_LOCAL_DESC" class="inputbox" size="30" />
 		    
 		<field name="hosptoid" type="hospital" label="COM_FILAUTI_HOSPTOID_LABEL"
 		    description="COM_FILAUTI_HOSPTOID_DESC" class="inputbox"

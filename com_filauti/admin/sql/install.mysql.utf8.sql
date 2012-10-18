@@ -33,6 +33,7 @@ CREATE TABLE `#__filauti` (
 	`cid` VARCHAR(255) NOT NULL DEFAULT '',
 	`munid` INT NOT NULL DEFAULT '0',
 	`hospfromid` INT NOT NULL DEFAULT '0',
+        `local` VARCHAR(255),
 	`hosptoid` INT NOT NULL DEFAULT '0',
 	`promotoria` TINYINT(1) UNSIGNED NOT NULL default '0',
         `avc` TINYINT(1) UNSIGNED NOT NULL default '0',

@@ -57,6 +57,9 @@ $userId = $user->get('id');
 				
 				<li><?php echo $this->form->getLabel('hospfromid'); ?>
 				<?php echo $this->form->getInput('hospfromid'); ?></li>
+                                
+                                <li><?php echo $this->form->getLabel('local'); ?>
+				<?php echo $this->form->getInput('local'); ?></li>
 				
 				<li><?php echo $this->form->getLabel('hosptoid'); ?>
 				<?php echo $this->form->getInput('hosptoid'); ?></li>

@@ -1,0 +1,1 @@
+ALTER TABLE `#__filauti` ADD COLUMN `local` VARCHAR(255) AFTER `hospfromid`;
