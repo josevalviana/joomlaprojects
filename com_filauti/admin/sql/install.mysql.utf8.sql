@@ -23,7 +23,7 @@ CREATE TABLE `#__municipios` (
 
 CREATE TABLE `#__filauti` (
 	`id` INT NOT NULL AUTO_INCREMENT,
-	`sisreg` INT NOT NULL UNIQUE,
+	`sisreg` INT NOT NULL,
 	`nome` VARCHAR(255) NOT NULL,
         `solicitante` VARCHAR(255) NOT NULL,
         `crm` VARCHAR(10) NOT NULL,
@@ -53,6 +53,7 @@ CREATE TABLE `#__filauti` (
         `modified_by` int(10) unsigned NOT NULL default '0',
     PRIMARY KEY (`id`),
     KEY `idx_nome` (`nome`),
+    KEY `idx_sisreg` (`sisreg`),
     FOREIGN KEY (`munid`) REFERENCES `#__municipios`(`id`) ON DELETE NO ACTION
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
 

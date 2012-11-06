@@ -28,11 +28,12 @@ class FilaUtiTablePaciente extends JTable
 		}
 		
 		// Verify that the sisreg is unique
-		$table = JTable::getInstance('Paciente', 'FilaUtiTable');
-		if ($table->load(array('sisreg' => $this->sisreg)) && ($table->id != $this->id || $this->id == 0)) {
-			$this->setError(JText::_('COM_FILAUTI_ERROR_UNIQUE_SISREG'));
-			return false;
-		}
+                // não deve ser único para hospitais com leitos em corredor
+		// $table = JTable::getInstance('Paciente', 'FilaUtiTable');
+		//if ($table->load(array('sisreg' => $this->sisreg)) && ($table->id != $this->id || $this->id == 0)) {
+		//	$this->setError(JText::_('COM_FILAUTI_ERROR_UNIQUE_SISREG'));
+		//	return false;
+		//}
 		
 		return parent::store($updateNulls);
 	}
