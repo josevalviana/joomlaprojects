@@ -23,7 +23,9 @@
         
         <field name="intercorrencia" type="editor" class="inputbox"
                 label="COM_AUDITORIA_FIELD_INTERCORRENCIA_LABEL" description="COM_AUDITORIA_FIELD_INTERCORRENCIA_DESC"
-                buttons="true" />
+                filter="JComponentHelper::filterText"
+                buttons="true" 
+                hide="readmore,pagebreak" />
         
         <field name="created" type="calendar" label="COM_AUDITORIA_FIELD_CREATED_LABEL"
                 description="COM_AUDITORIA_FIELD_CREATED_DESC" class="inputbox" size="22"
