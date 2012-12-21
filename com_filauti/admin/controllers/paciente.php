@@ -50,4 +50,86 @@ class FilaUtiControllerPaciente extends JControllerForm
 		// Since there is no asset tracking, revert to the component permissions.
 		return parent::allowEdit($data, $key);
 	}
+        
+        public function encerra() {           
+            $app = JFactory::getApplication();
+            $context = "$this->option.edit.$this->context";
+            $data = JRequest::getVar('jform', array(), 'post', 'array');
+            $data['encerrado'] = 1;
+            $data['encerramento'] = JFactory::getDate()->toMySQL();
+            
+            $model = $this->getModel();
+            
+            // Validate the posted data.
+            // Sometimes the form needs some posted data, such as for plugins and modules.
+            $form = $model->getForm($data, false);
+            
+            if (!$form)
+            {
+		$app->enqueueMessage($model->getError(), 'error');
+
+		return false;
+            }
+            
+            $validData = $model->validate($form, $data);
+            
+            // Check for validation errors.
+	    if ($validData === false)
+	    {
+                // Get the validation messages.
+		$errors = $model->getErrors();
+		
+                // Push up to three validation messages out to the user.
+		for ($i = 0, $n = count($errors); $i < $n && $i < 3; $i++)
+		{
+                    if (JError::isError($errors[$i]))
+                    {
+                        $app->enqueueMessage($errors[$i]->getMessage(), 'warning');
+                    }
+                    else
+                    {
+			$app->enqueueMessage($errors[$i], 'warning');
+                    }
+                }
+		// Save the data in the session.
+		$app->setUserState($context . '.data', $data);
+
+		// Redirect back to the edit screen.
+		$this->setRedirect(
+			JRoute::_(
+				'index.php?option=com_filauti&view=paciente&layout=edit&id=' . (int) $data['id'],
+				false
+			)
+		);
+
+		return false;
+            }
+            
+            // Attempt to save the data.
+            if (!$model->save($validData))
+            {
+                // Save the data in the session.
+		$app->setUserState($context . '.data', $validData);
+
+		// Redirect back to the edit screen.
+		$this->setError(JText::sprintf('JLIB_APPLICATION_ERROR_SAVE_FAILED', $model->getError()));
+		$this->setMessage($this->getError(), 'error');
+		$this->setRedirect(
+			JRoute::_(
+				'index.php?option=com_filauti&view=paciente&layout=edit&id=' . (int) $data['id'],
+				false
+			)
+		);
+
+		return false;
+            }
+            
+            // Redirect to the list screen.
+            $this->setRedirect(
+                    JRoute::_(
+				'index.php?option=com_filauti&view=pacientes',
+				false
+                    )
+            );
+        }
 }

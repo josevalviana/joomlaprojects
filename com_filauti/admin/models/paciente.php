@@ -82,5 +82,5 @@ class FilaUtiModelPaciente extends JModelAdmin
 		}
 		
 		return $data;
-	}
+	}               
 }

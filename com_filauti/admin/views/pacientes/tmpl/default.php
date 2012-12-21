@@ -221,9 +221,13 @@ $saveOrder  = $listOrder == 'a.ordering';
 			</td>
 			<td class="center">			   
 			   <?php if ($item->t_evolucao != 0): ?>
-			   		<?php echo (int) $item->t_evolucao; ?>
+                                    <span <?php echo ($item->t_evolucao < 4) ? '' : 'style="color: red;"'?>>
+			   		<?php echo (int) $item->t_evolucao; ?>                                 
+                                    </span>                            
 			   <?php else: ?>
-			     	<?php echo '-'; ?>
+                                <span <?php echo ($item->t_fila < 4) ? '' : 'style="color: red;"'?>>
+                                    <?php echo 'N/E'; ?>
+                                </span>
 			   <?php endif; ?>
 			</td>
 			<td class="center">

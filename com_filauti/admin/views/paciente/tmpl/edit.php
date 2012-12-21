@@ -117,6 +117,13 @@ $userId = $user->get('id');
 				
 					<li><?php echo $this->form->getLabel('encerramento'); ?>
 					<?php echo $this->form->getInput('encerramento'); ?></li>
+                                        <?php 
+                                            $canAdmin = $user->authorise('core.admin', 'com_filauti.paciente.'.(int) $this->item->id);
+                                            if ($canAdmin): ?>
+                                            <button type="button" onclick="Joomla.submitbutton('paciente.encerra');">
+                                                <?php echo JText::_('COM_FILAUTI_ENCERRA_SOLICITACAO'); ?>
+                                            </button>
+                                        <?php endif; ?>
 					
 				</ul>
 			</fieldset>
