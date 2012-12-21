@@ -51,6 +51,7 @@ CREATE TABLE `#__filauti` (
         `created_by` int(10) unsigned NOT NULL default '0',
         `modified` datetime NOT NULL default '0000-00-00 00:00:00',
         `modified_by` int(10) unsigned NOT NULL default '0',
+        `encerra_by` int(10) unsigned NOT NULL default '0',
     PRIMARY KEY (`id`),
     KEY `idx_nome` (`nome`),
     KEY `idx_sisreg` (`sisreg`),

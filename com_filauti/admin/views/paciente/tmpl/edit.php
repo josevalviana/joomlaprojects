@@ -114,17 +114,16 @@ $userId = $user->get('id');
                                         
                                         <li><?php echo $this->form->getLabel('motencerra'); ?>
 					<?php echo $this->form->getInput('motencerra'); ?></li>
+                                        
+                                        <?php if ($this->item->encerrado > 0): ?>
 				
-					<li><?php echo $this->form->getLabel('encerramento'); ?>
-					<?php echo $this->form->getInput('encerramento'); ?></li>
-                                        <?php 
-                                            $canAdmin = $user->authorise('core.admin', 'com_filauti.paciente.'.(int) $this->item->id);
-                                            if ($canAdmin): ?>
-                                            <button type="button" onclick="Joomla.submitbutton('paciente.encerra');">
-                                                <?php echo JText::_('COM_FILAUTI_ENCERRA_SOLICITACAO'); ?>
-                                            </button>
+                                            <li><?php echo $this->form->getLabel('encerramento'); ?>
+                                            <?php echo $this->form->getInput('encerramento'); ?></li>
+                                            
+                                            <li><?php echo $this->form->getLabel('encerra_by'); ?>
+                                            <?php echo $this->form->getInput('encerra_by'); ?></li>
+                                        
                                         <?php endif; ?>
-					
 				</ul>
 			</fieldset>
             

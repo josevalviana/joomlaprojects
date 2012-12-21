@@ -56,6 +56,9 @@ class FilaUtiViewPaciente extends JView
 					JToolBarHelper::save2copy('paciente.save2copy');
 				}
 			}
+                        if ($canDo->get('core.edit') && $this->item->encerrado == 0) {
+                            JToolbarHelper::custom('paciente.encerra', 'encerra.png', '','COM_FILAUTI_ENCERRA_SOLICITACAO', false);                            
+                        }
 			JToolBarHelper::cancel('paciente.cancel', 'JTOOLBAR_CLOSE');
 		}
 		

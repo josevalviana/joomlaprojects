@@ -111,7 +111,7 @@
                 </field>
 		
 		<field name="encerrado" type="list" label="COM_FILAUTI_ENCERRADO_LABEL"
-			   description="COM_FILAUTI_ENCERRADO_DESC" class="inputbox" size="1" default="0" required="true">
+			   description="COM_FILAUTI_ENCERRADO_DESC" class="inputbox" size="1" default="0" required="true" readonly="true">
 			<option value="0">JNO</option>
 			<option value="1">JYES</option>
 		</field>
@@ -128,7 +128,13 @@
 		<field name="encerramento" type="calendar"
 			label="COM_FILAUTI_ENCERRAMENTO_LABEL" description="COM_FILAUTI_ENCERRAMENTO_DESC"
 			class="inputbox" size="22" format="%Y-%m-%d %H:%M:%S"
-			filter="user_utc" />
+			filter="user_utc" readonly="true" />
+                
+                <field name="encerra_by" type="user"
+		label="COM_FILAUTI_ENCERRA_BY_LABEL"
+		class="readonly"
+		readonly="true"
+		filter="unset"/>
 		    
 	</fieldset>
 </form>

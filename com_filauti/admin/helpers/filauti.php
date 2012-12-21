@@ -16,6 +16,10 @@ class FilaUtiHelper
 		$document = JFactory::getDocument();
 		$document->addStyleDeclaration('.icon-48-timesand ' .
 		                               '{background-image: url(../media/com_filauti/images/timesand-48x48.png);}');
+                $document->addStyleDeclaration('.icon-32-encerra ' .
+                                               '{background-image: url(../media/com_filauti/images/encerra-32x32.png);}');
+                $document->addStyleDeclaration('.icon-32-reabre ' .
+                                               '{background-image: url(../media/com_filauti/images/reabre-32x32.png);}');
 	}
 	
 	public static function getActions($pacienteId = 0) {

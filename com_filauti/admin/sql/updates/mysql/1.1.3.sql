@@ -1,0 +1,1 @@
+ALTER TABLE `#__filauti` ADD COLUMN `encerra_by` int(10) unsigned NOT NULL default '0';

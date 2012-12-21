@@ -51,13 +51,13 @@ class FilaUtiControllerPaciente extends JControllerForm
 		return parent::allowEdit($data, $key);
 	}
         
-        public function encerra() {           
+        public function encerra() {                       
             $app = JFactory::getApplication();
-            $context = "$this->option.edit.$this->context";
+            $context = "$this->option.edit.$this->context";            
             $data = JRequest::getVar('jform', array(), 'post', 'array');
             $data['encerrado'] = 1;
             $data['encerramento'] = JFactory::getDate()->toMySQL();
-            
+                        
             $model = $this->getModel();
             
             // Validate the posted data.
@@ -123,6 +123,9 @@ class FilaUtiControllerPaciente extends JControllerForm
 
 		return false;
             }
+            
+            // Informa usuário que encerrou
+            $model->encerra($data['id']);
             
             // Redirect to the list screen.
             $this->setRedirect(

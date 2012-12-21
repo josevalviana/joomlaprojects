@@ -82,5 +82,38 @@ class FilaUtiModelPaciente extends JModelAdmin
 		}
 		
 		return $data;
-	}               
+	}
+        
+        public function encerra($pk)
+        {
+            $user = JFactory::getUser();
+            $query = 'UPDATE #__filauti'
+                    .' SET encerra_by = '. (int) $user->get('id')
+                    .' WHERE id = ' . (int) $pk;
+            $this->_db->setQuery($query);
+            $this->_db->query();
+            
+            return true;
+        }
+        
+        public function reabre(&$pks)
+	{
+		$pks = (array) $pks;
+
+		foreach ($pks as $i => $pk)
+		{
+                    $query = 'UPDATE #__filauti'
+                       . ' SET encerrado = 0, '
+                       . ' motencerra = 0, '
+                       . ' encerramento = \'0000-00-00 00:00:00\', '
+                       . ' encerra_by = 0'
+                       . ' WHERE id = '. (int) $pk;
+                    $this->_db->setQuery($query);
+                    if (!$this->_db->query()) {
+                        $this->_db->setError($this->_db->getError());
+                    }
+		}
+
+		return true;
+	}
 }
