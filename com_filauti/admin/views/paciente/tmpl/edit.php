@@ -86,7 +86,7 @@ $userId = $user->get('id');
                                 <?php echo $this->form->getInput('posop'); ?></li>
                                 <?php 
                                     $canEdit = $user->authorise('core.edit', 'com_filauti.paciente.'.(int) $this->item->id);
-                                    $prioridade = 4;
+                                    $prioridade = 0;
                                     if ($this->item->prioridade) $prioridade = $this->item->prioridade;
                                     if ($canEdit) : ?>
                                     <li><?php echo $this->form->getLabel('prioridade'); ?>

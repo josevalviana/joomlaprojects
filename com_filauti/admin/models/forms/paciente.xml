@@ -123,6 +123,8 @@
                        <option value="2">COM_FILAUTI_TRANSFERED</option>
                        <option value="3">COM_FILAUTI_DECEASED</option>
                        <option value="4">COM_FILAUTI_GAVEUP</option>
+                       <option value="5">COM_FILAUTI_EXT_TRANSFER</option>
+                       <option value="6">COM_FILAUTI_EXPIRED</option>
                 </field>
 		
 		<field name="encerramento" type="calendar"

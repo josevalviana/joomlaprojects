@@ -42,7 +42,9 @@ class FilaUtiViewPacientes extends JView
 		
 		if (($canDo->get('core.edit')) || ($canDo->get('core.edit.own'))) {
 			JToolBarHelper::editList('paciente.edit');
-                        JToolbarHelper::custom('pacientes.reabre', 'reabre.png', '', 'COM_FILAUTI_REABRE_SOLICITACAO');
+                        if ($canDo->get('core.edit')) {
+                            JToolbarHelper::custom('pacientes.reabre', 'reabre.png', '', 'COM_FILAUTI_REABRE_SOLICITACAO');
+                        }
 		}
 		
 		if ($canDo->get('core.delete')) {

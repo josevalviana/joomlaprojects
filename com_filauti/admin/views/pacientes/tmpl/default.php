@@ -138,9 +138,10 @@ $saveOrder  = $listOrder == 'a.ordering';
                                 <th width="1%">
                                     <?php echo JHtml::_('grid.sort', 'COM_FILAUTI_DISFUNCOES', 'a.disf', $listDirn, $listOrder); ?>
                                 </th>
-				<th width="5%">
-					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_PROMOTORIA', 'a.promotoria', $listDirn, $listOrder); ?>
-				</th>
+                                <!--
+				<th width="5%">                                     
+					<?php /* echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_PROMOTORIA', 'a.promotoria', $listDirn, $listOrder); */ ?>                                     
+				</th> -->
 				<th width="10%">
 					<?php echo JHtml::_('grid.sort', 'JGRID_HEADING_CREATED_BY', 'a.created_by', $listDirn, $listOrder); ?>
 				</th>				
@@ -160,7 +161,7 @@ $saveOrder  = $listOrder == 'a.ordering';
 		</thead>
 		<tfoot>
 			<tr>
-				<td colspan="14">
+				<td colspan="13">
 					<?php echo $this->pagination->getListFooter(); ?>
 				</td>
 			</tr>
@@ -199,7 +200,7 @@ $saveOrder  = $listOrder == 'a.ordering';
 				<?php echo $this->escape($item->hospto_name); ?>
 			</td>
                         <td class="center">
-                            <?php echo (int) $item->prioridade; ?>
+                            <?php echo (($item->prioridade == 0) ? "NP" : (int) $item->prioridade); ?>
                         </td>
                         <td class="center">
                             <?php echo (int) $item->sofa; ?>
@@ -207,9 +208,10 @@ $saveOrder  = $listOrder == 'a.ordering';
                         <td class="center">
                             <?php echo (int) $item->disf; ?>
                         </td>
+                        <!--
 			<td class="center">			
-			    <?php echo JText::_($item->promotoria ? 'JYES' : 'JNO'); ?>
-			</td>
+			    <?php /* echo JText::_($item->promotoria ? 'JYES' : 'JNO'); */ ?>
+			</td> -->
 			<td class="center">
 				<?php echo $this->escape($item->author_name); ?>
 			</td>			
