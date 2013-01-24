@@ -14,6 +14,7 @@ CREATE TABLE `#__censouti` (
 	`alta` TINYINT(1) NOT NULL default '0',
 	`dt_alta` date,
         `regulado` TINYINT(1) NOT NULL default '0',
+        `observacao` mediumtext default NULL,
 	`created` datetime NOT NULL default '0000-00-00 00:00:00',
     `created_by` int(10) unsigned NOT NULL default '0',
     `modified` datetime NOT NULL default '0000-00-00 00:00:00',

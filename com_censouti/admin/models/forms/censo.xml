@@ -35,6 +35,11 @@
                <option value="3">COM_CENSOUTI_EVOLUCAO_OPTION_BETTER</option>
                <option value="4">COM_CENSOUTI_EVOLUCAO_OPTION_DECEASED</option>
         </field>
+        <field name="observacao" type="editor" class="inputbox"
+                label="COM_CENSOUTI_FIELD_OBSERVACAO_LABEL" description="COM_CENSOUTI_FIELD_OBSERVACAO_DESC"
+                filter="JComponentHelper::filterText"
+                buttons="true" 
+                hide="readmore,pagebreak" />
         <field name="catid" type="category" extension="com_censouti"
                 label="JCATEGORY" description="JFIELD_CATEGORY_DESC"
                 class="inputbox" required="true"

@@ -1,0 +1,1 @@
+ALTER TABLE `#__censouti` ADD COLUMN `observacao` mediumtext default NULL;

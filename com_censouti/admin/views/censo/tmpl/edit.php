@@ -14,8 +14,9 @@ JHtml::_('behavior.keepalive');
 <script type="text/javascript">
 	Joomla.submitbutton = function(task) {
 		if (task == 'censo.cancel' || document.formvalidator.isValid(document.id('item-form'))) {
+                        <?php echo $this->form->getField('observacao')->save(); ?>
 			Joomla.submitform(task, document.getElementById('item-form'));
-		} else {
+		} else {                        
 			alert('<?php echo $this->escape(JText::_('JGLOBAL_VALIDATION_FORM_FAILED'));?>');
 		}
 	}
@@ -65,6 +66,11 @@ JHtml::_('behavior.keepalive');
                 <li><?php echo $this->form->getLabel('id'); ?>
                 <?php echo $this->form->getInput('id'); ?></li>
             </ul>
+            
+            <div class="clr"></div>
+            <?php echo $this->form->getLabel('observacao'); ?>
+            <div class="clr"></div>
+            <?php echo $this->form->getInput('observacao'); ?>
         </fieldset>
     </div>
     <div>

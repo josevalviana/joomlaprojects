@@ -127,8 +127,6 @@ class CensoUTIModelCensos extends JModelList
                 $regulado = $this->getState('filter.regulado');
                 if (is_numeric($regulado)) {
                     $query->where('a.regulado ='.(int) $regulado);
-                } else {
-                    $query->where('a.regulado = 0');
                 }
                 
                 // Filter by evolucao

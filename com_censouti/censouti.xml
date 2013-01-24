@@ -7,7 +7,7 @@
 	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
 	<authorEmail>josevalviana@gmail.com</authorEmail>
 	<authorUrl>www.medinfecto.med.br</authorUrl>
-	<version>0.0.1</version>
+	<version>0.0.2</version>
 	<description>COM_CENSOUTI_XML_DESCRIPTION</description>
 	
 	<install>
