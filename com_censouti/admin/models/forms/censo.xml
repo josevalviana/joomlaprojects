@@ -40,9 +40,10 @@
                 filter="JComponentHelper::filterText"
                 buttons="true" 
                 hide="readmore,pagebreak" />
-        <field name="catid" type="category" extension="com_censouti"
+        <field name="catid" type="categoryedit" extension="com_censouti"
                 label="JCATEGORY" description="JFIELD_CATEGORY_DESC"
                 class="inputbox" required="true"
+                addfieldpath="/administrator/components/com_categories/models/fields"
         >
         </field>
         <field name="alta" type="list" label="COM_CENSOUTI_FIELD_ALTA_LABEL"
