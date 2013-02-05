@@ -221,8 +221,8 @@ $saveOrder  = $listOrder == 'a.ordering';
 			<td class="center">
 				<?php echo (int) $item->t_fila; ?>
 			</td>
-			<td class="center">			   
-			   <?php if ($item->t_evolucao != 0): ?>
+			<td class="center">                         
+			   <?php if ($item->evoluido != 0): ?>
                                     <span <?php echo ($item->t_evolucao < 4) ? '' : 'style="color: red;"'?>>
 			   		<?php echo (int) $item->t_evolucao; ?>                                 
                                     </span>                            

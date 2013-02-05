@@ -15,7 +15,7 @@ class JFormFieldProfessional extends JFormFieldList {
 		$db = JFactory::getDbo();
 		$query = $db->getQuery(true);
 		
-		$query->select('id AS value, name AS text');
+		$query->select('id AS value, concat(con_registro, \' \',name) AS text');
 		$query->from('#__professional AS p');
 		$query->order('p.name');
 		
