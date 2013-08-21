@@ -127,7 +127,12 @@ $saveOrder  = $listOrder == 'a.ordering';
 				    <?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_IDADE', 'a.idade', $listDirn, $listOrder); ?>
 				</th>
 				<th>
-					<?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_HOSPTO_NOME', 'a.hospto_name', $listDirn, $listOrder); ?>
+					<?php 
+                                        
+                                           //echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_HOSPTO_NOME', 'a.hospto_name', $listDirn, $listOrder); 
+                                             echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_CID', 'a.cid', $listDirn, $listOrder);
+                                           
+                                        ?>
 				</th>
                                 <th width="1%">
                                     <?php echo JHtml::_('grid.sort', 'COM_FILAUTI_HEADING_PRIORIDADE', 'a.prioridade', $listDirn, $listOrder); ?>
@@ -197,7 +202,10 @@ $saveOrder  = $listOrder == 'a.ordering';
 				?>
 			</td>			
 			<td>
-				<?php echo $this->escape($item->hospto_name); ?>
+				<?php 
+                                   //echo $this->escape($item->hospto_name);
+                                     echo $this->escape($item->cid);
+                                ?>
 			</td>
                         <td class="center">
                             <?php echo (($item->prioridade == 0) ? "NP" : (int) $item->prioridade); ?>
