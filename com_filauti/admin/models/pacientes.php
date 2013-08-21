@@ -96,7 +96,7 @@ class FilaUtiModelPacientes extends JModelList
 			$this->getState(
 				'list.select',
 				'a.id, a.sisreg, a.nome, a.idade, a.idade_c, a.created, datediff(curdate(), a.created) as t_fila, a.created_by'.
-				', a.hospfromid, a.hosptoid, a.promotoria, a.encerrado'.
+				', a.hospfromid, a.hosptoid, a.cid, a.promotoria, a.encerrado'.
 				', a.prioridade, a.avc, a.mencef, a.hemodialise, a.encerramento'.
                 ', a.isolamento, a.posop, a.sofa, a.disf'.
 				//', timestampdiff(MINUTE, (SELECT convert_tz(max(ev.created), \'UTC\', \'America/Fortaleza\') FROM #__filauti_evolucoes AS ev WHERE ev.filaid = a.id), now()) as t_evolucao'
